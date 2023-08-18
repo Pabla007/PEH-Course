@@ -1,0 +1,27 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Users and Privileges</title>
+</head><body><img height="392" src="photo.jpg" width="500"/><br/>
+When we type the command <b>ls -la</b>than if we see the first line there are 2 things :-<br/>
+1st is if it's an <b>hyphen</b>which means it's a <b>file</b>.<br/>
+2nd is if it's a <b>d</b>which means it's a <b>directory.</b><br/>
+<br/>
+After than rwx (i.e read write exceute). Here we have 3 groups.<br/>
+1- owner of the group (i.e. drwx)<br/>
+2- Permissions for the members of the group that owns the file. (i.e. Ownership) (i.e. r-x)<br/>
+3- normal users (i.e. r-x)<br/>
+<br/>
+<b>chmod</b>is used to change the mode that is permission of the file.<br/>
+And will use chmod 777 as it will give us the read write execution persmission.<br/>
+<br/>
+cat /etc/passwd will show all the users to us.<br/>
+cat /etc/shadow will provide us the password.<br/>
+<br/>
+Anybody can change the persmission in the sudoer's file if they are the sudo users. <br/>
+<br/>
+As tmp folder had full read write execute permission.Will load some exploties into the temp folder during the penetration test <br/>
+<b>ls -la /tmp/</b><br/>
+<br/>
+To add a user in Linux we have to use this command <b>adduser username<br/>
+</b>and to switch b/w the normal user and root user we have to use this command: <b>su username</b></body></html>

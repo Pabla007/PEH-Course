@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>expanded</key><true/>
+  <key>nodeid</key><string>3ac5a609-8fe9-41eb-8e6b-9b026487199d</string>
+  <key>modified_time</key><integer>1671008553</integer>
+  <key>content_type</key><string>application/x-notebook-dir</string>
+  <key>created_time</key><integer>1671008553</integer>
+  <key>info_sort_dir</key><integer>1</integer>
+  <key>icon</key><string>folder-violet.png</string>
+  <key>title</key><string>Hacking Assessment Notes - Black Pearl</string>
+  <key>version</key><integer>6</integer>
+  <key>order</key><integer>6</integer>
+  <key>info_sort</key><string>order</string>
+</dict>
+</node>

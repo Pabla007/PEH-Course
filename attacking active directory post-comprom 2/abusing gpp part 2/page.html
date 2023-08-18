@@ -1,0 +1,21 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Abusing GPP: Part 2</title>
+</head><body>We have valid user credentails but not writeable.<br/>
+<img height="384" src="gcpp04.png" width="750"/><br/>
+<br/>
+There was a problem when running this command getting kerberos skeness error so to rectify that problem will use the commands below:<br/>
+<br/>
+<br/>
+<b>Maybe if clock skew persists after ntpdate command, try </b><br/>
+timedatectl set-ntp true<br/>
+timedatectl set-ntp false<br/>
+and then retry ntpdate command.<br/>
+<br/>
+What attack we can pull of with valid user credentail and here we can use we have TGS that is the service ticket which may be Kerberosting.<br/>
+<img height="405" src="gcpp05.png" width="700"/><br/>
+<br/>
+<img height="383" src="gcpp06.png" width="750"/><br/>
+<br/>
+<img height="448" src="gcpp07.png" width="650"/></body></html>

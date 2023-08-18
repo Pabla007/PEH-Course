@@ -1,0 +1,64 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title> Building a Port Scanner</title>
+</head><body>Before building a port scanner we have to think about couple of things before writing the code.<br/>
+-Will import the modules that are required.<br/>
+<span style="background-color: #ffff99">#!/bin/python3<br/>
+<br/>
+#Importing the modules<br/>
+import sys<br/>
+import socket<br/>
+</span><span style="background-color: #ffff99">from datetime import datetime</span><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+How to take input from user and check if it's a valid input or not. As well as will take input from user.<br/>
+python scanner.py  ip<br/>
+      argv0    argv1<br/>
+Will use the argument same as we have used in bash (i.e $1 = argv[1]).<br/>
+- Will also convert the the hostname to IPV4 using gethostbyname.<br/>
+<span style="background-color: #ffff99">#Define our target here will take input from user through command line<br/>
+#and will tell if there any error in the input.<br/>
+if len(sys.argv) == 2:<br/>
+	target = socket.gethostbyname(sys.argv[1]) # this is same as $1 in bash script Translate hostname to IPv4<br/>
+<br/>
+else:<br/>
+	print(&quot;Invalid amount of arguments.&quot;)<br/>
+</span><span style="background-color: #ffff99">	print(&quot;Syntax: python3 scanner.py &lt;ip&gt;&quot;)</span><br/>
+<br/>
+<br/>
+<br/>
+- After that will make a iterator using try and except.<br/>
+Will find the port which is open using socket where will provide the ipv4 and tcp connection.<br/>
+And if the port is open will simply print it.<br/>
+Will also close the socket connection after each iteration.<br/>
+<br/>
+<span style="background-color: #ffff99">try:<br/>
+	for port in range(1,65535):<br/>
+		s = socket.socket(socket.AF_INET , socket.SOCK_STREAM)<br/>
+		socket.setdefaulttimeout(1)<br/>
+		result = s.connect_ex((target,port)) #return an error indicator <br/>
+		if result == 0:<br/>
+			print(&quot;Port {} is open&quot;.format(port)) <br/>
+</span><span style="background-color: #ffff99">		s.close()</span><br/>
+<br/>
+<br/>
+Will also use sys.exit() (i.e ctrl + c) to stop the program and come out from it.<br/>
+<span style="background-color: #ffff99">except KeyboardInterrupt:<br/>
+	print(&quot;\nExiting program.&quot;)<br/>
+</span><span style="background-color: #ffff99">	sys.exit()</span><br/>
+	<br/>
+Will also check if hostname is not resolved or any error related to it.<br/>
+<span style="background-color: #ffff99">except socket.gaierror:<br/>
+	print(&quot;Hostname could not be resolved.&quot;)<br/>
+</span><span style="background-color: #ffff99">	sys.exit()</span><br/>
+<br/>
+except socket.error:<br/>
+	print(&quot;Couldn't connect to server.&quot;)<br/>
+	sys.exit()<br/>
+<br/>
+<br/>
+After this program we can also improvise it using threading and make the program run more faster.<br/>
+And there are many tools which r much faster than this program.</body></html>

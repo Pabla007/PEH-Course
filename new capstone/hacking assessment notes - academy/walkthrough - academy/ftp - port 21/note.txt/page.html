@@ -1,0 +1,30 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Note.txt</title>
+</head><body><br/>
+┌──(root㉿kali)-[~]<br/>
+└─# cat note.txt <br/>
+Hello Heath !<br/>
+Grimmie has setup the test website for the new academy.<br/>
+I told him not to use the same password everywhere, he will change it ASAP.<br/>
+<br/>
+<br/>
+I couldn't create a user via the admin panel, so instead I inserted directly into the database with the following command:<br/>
+<br/>
+INSERT INTO `students` (`StudentRegno`, `studentPhoto`, `password`, `studentName`, `pincode`, `session`, `department`, `semester`, `cgpa`, `creationdate`, `updationDate`) VALUES<br/>
+('10201321', '', 'cd73502828457d15655bbd7a63fb0bc8', 'Rum Ham', '777777', '', '', '', '7.60', '2021-05-29 14:36:56', '');<br/>
+<br/>
+The StudentRegno number is what you use for login.<br/>
+<br/>
+<br/>
+Le me know what you think of this open-source project, it's from 2020 so it should be secure... right ?<br/>
+We can always adapt it to our needs.<br/>
+<br/>
+-jdelta<br/>
+<br/>
+<br/>
+From the note.txt we have got our login and password (i.e. hash)<br/>
+Login : 10201321<br/>
+Password : student : cd73502828457d15655bbd7a63fb0bc8 <br/>
+</body></html>

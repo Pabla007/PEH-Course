@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>expanded</key><true/>
+  <key>nodeid</key><string>1c61d20e-04ed-40a2-b687-d3a1cc47d67c</string>
+  <key>modified_time</key><integer>1678890661</integer>
+  <key>expanded2</key><true/>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1678441335</integer>
+  <key>info_sort_dir</key><integer>1</integer>
+  <key>title</key><string>SMB Relay Attack Demonstration Part 2</string>
+  <key>version</key><integer>6</integer>
+  <key>order</key><integer>9</integer>
+  <key>info_sort</key><string>order</string>
+</dict>
+</node>

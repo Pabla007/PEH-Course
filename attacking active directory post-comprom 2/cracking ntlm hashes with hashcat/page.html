@@ -1,0 +1,103 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Cracking NTLM Hashes with Hashcat</title>
+</head><body>Mentor's Interested in the User's account and the administrators accounts.<br/>
+Now will crack the NTLM hashes before we have cracked the NTLM v2 hashes. <br/>
+NTLM are the local hashes when u dump the SAM. (i.e. Stored under module 1000)<br/>
+Will try to crack it and if we can't crack it will pass it <br/>
+<br/>
+<span style="background-color: #ffa300"><b>Special Note:</b></span><b>We can pass around the NTLM hashes but can't pass the NTLM V2 hashes around.</b><br/>
+<br/>
+<br/>
+If we see a blank account like this that means the password is likely disabled so we might not be able to pass this around.<br/>
+<br/>
+<img src="image.png"/><br/>
+<br/>
+<br/>
+PS C:\Users\pabla\Downloads\hashcat-6.2.6&gt; .\hashcat.exe -m 1000 .\hacker_hash.txt .\rockyou.txt -O<br/>
+hashcat (v6.2.6) starting<br/>
+<br/>
+Successfully initialized the NVIDIA main driver CUDA runtime library.<br/>
+<br/>
+Failed to initialize NVIDIA RTC library.<br/>
+<br/>
+* Device #1: CUDA SDK Toolkit not installed or incorrectly installed.<br/>
+      CUDA SDK Toolkit required for proper device support and utilization.<br/>
+      Falling back to OpenCL runtime.<br/>
+<br/>
+* Device #1: WARNING! Kernel exec timeout is not disabled.<br/>
+      This may cause &quot;CL_OUT_OF_RESOURCES&quot; or related errors.<br/>
+      To disable the timeout, see: https://hashcat.net/q/timeoutpatch<br/>
+nvmlDeviceGetFanSpeed(): Not Supported<br/>
+<br/>
+OpenCL API (OpenCL 3.0 CUDA 12.2.79) - Platform #1 [NVIDIA Corporation]<br/>
+=======================================================================<br/>
+* Device #1: NVIDIA GeForce MX150, 1920/2047 MB (511 MB allocatable), 3MCU<br/>
+<br/>
+OpenCL API (OpenCL 2.1 ) - Platform #2 [Intel(R) Corporation]<br/>
+=============================================================<br/>
+* Device #2: Intel(R) UHD Graphics 620, 3200/6506 MB (1626 MB allocatable), 24MCU<br/>
+* Device #3: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz, skipped<br/>
+<br/>
+Minimum password length supported by kernel: 0<br/>
+Maximum password length supported by kernel: 27<br/>
+<br/>
+Hashes: 3 digests; 3 unique digests, 1 unique salts<br/>
+Bitmaps: 16 bits, 65536 entries, 0x0000ffff mask, 262144 bytes, 5/13 rotates<br/>
+Rules: 1<br/>
+<br/>
+Optimizers applied:<br/>
+* Optimized-Kernel<br/>
+* Zero-Byte<br/>
+* Precompute-Init<br/>
+* Meet-In-The-Middle<br/>
+* Early-Skip<br/>
+* Not-Salted<br/>
+* Not-Iterated<br/>
+* Single-Salt<br/>
+* Raw-Hash<br/>
+<br/>
+Watchdog: Temperature abort trigger set to 90c<br/>
+<br/>
+INFO: Removed hash found as potfile entry.<br/>
+<br/>
+Host memory required for this attack: 1713 MB<br/>
+<br/>
+Dictionary cache built:<br/>
+* Filename..: .\rockyou.txt<br/>
+* Passwords.: 14344392<br/>
+* Bytes.....: 139921507<br/>
+* Keyspace..: 14344385<br/>
+* Runtime...: 2 secs<br/>
+<br/>
+<b>64f12cddaa88057e06a81b54e73b949b:Password1<br/>
+</b><b>c39f2beb3d2ec06a62cb887fb391dee0:Password2</b><br/>
+<br/>
+Session..........: hashcat<br/>
+Status...........: Cracked<br/>
+Hash.Mode........: 1000 (NTLM)<br/>
+Hash.Target......: .\hacker_hash.txt<br/>
+Time.Started.....: Mon Jul 17 14:04:39 2023 (0 secs)<br/>
+Time.Estimated...: Mon Jul 17 14:04:39 2023 (0 secs)<br/>
+Kernel.Feature...: Optimized Kernel<br/>
+Guess.Base.......: File (.\rockyou.txt)<br/>
+Guess.Queue......: 1/1 (100.00%)<br/>
+Speed.#1.........: 18167.9 kH/s (0.81ms) @ Accel:1024 Loops:1 Thr:64 Vec:1<br/>
+Speed.#2.........:    0 H/s (0.00ms) @ Accel:1024 Loops:1 Thr:32 Vec:4<br/>
+Speed.#*.........: 18167.9 kH/s<br/>
+Recovered........: 3/3 (100.00%) Digests (total), 2/3 (66.67%) Digests (new)<br/>
+Progress.........: 196609/14344385 (1.37%)<br/>
+Rejected.........: 1/196609 (0.00%)<br/>
+Restore.Point....: 0/14344385 (0.00%)<br/>
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:0-1<br/>
+Restore.Sub.#2...: Salt:0 Amplifier:0-0 Iteration:0-1<br/>
+Candidate.Engine.: Device Generator<br/>
+Candidates.#1....: 123456 -&gt; piggy!<br/>
+Candidates.#2....: [Copying]<br/>
+Hardware.Mon.#1..: Temp: 50c Util: 6% Core:1480MHz Mem:3003MHz Bus:4<br/>
+Hardware.Mon.#2..: N/A<br/>
+<br/>
+Started: Mon Jul 17 14:04:11 2023<br/>
+Stopped: Mon Jul 17 14:04:41 2023<br/>
+PS C:\Users\pabla\Downloads\hashcat-6.2.6&gt;</body></html>

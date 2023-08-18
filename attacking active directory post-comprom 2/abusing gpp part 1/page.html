@@ -1,0 +1,27 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Abusing GPP: Part 1</title>
+</head><body>HTB ACTIVE 10.10.10.100<br/>
+<br/>
+<img src="image.png"/><br/>
+<img src="image 3.png"/><br/>
+<img height="572" src="gcpp01.png" width="550"/><br/>
+<br/>
+Will enumerate port 445 which is SMB <br/>
+and will try the anonymous connection here:<br/>
+Command: smb -L\\\\&lt;ip address of domain&gt;\\<br/>
+Command: smb \\\\&lt;ip address of domain&gt;\\Replication <br/>
+<br/>
+smb: prompt off<br/>
+smb: recurse on (i.e. download all the file we tell them to)<br/>
+smb: ls<br/>
+smb: mget *<br/>
+<img height="330" src="gcpp02.png" width="800"/><br/>
+We get the user and cpassword from the Groups.xml file<br/>
+<br/>
+Will check if the user is admin or local so will run the psexec.py command for more see the active box notes in Obsidian.<br/>
+<br/>
+<img height="79" src="gcpp03.png" width="750"/><br/>
+<br/>
+<img src="image 2.png"/></body></html>

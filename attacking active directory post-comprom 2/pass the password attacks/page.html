@@ -1,0 +1,37 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Pass the Password Attacks</title>
+</head><body>Set up the situation:<br/>
+Linux Machine running<br/>
+Windows server and <br/>
+both the windows machines running<br/>
+<br/>
+<img src="image 3.png"/><br/>
+<br/>
+Crackmapexec Syntax:<br/>
+crackmapexec smb specify the domain -u for user -d for domain -p for password<br/>
+<br/>
+<img height="105" src="image.png" width="650"/><br/>
+<img src="image 2.png"/><br/>
+<img height="113" src="crack.1png.png" width="700"/><br/>
+You could see that it came through it tried this username and password on Hydra-DC it didn't work.<br/>
+That means this user does not have SMB access cuz this is trying to access SMB here. Which means it doesn't have access to domain controller.<br/>
+<br/>
+<br/>
+<img height="184" src="image 5.png" width="650"/><br/>
+<br/>
+How useful is passing the password is ?_?<br/>
+This is if I get credential, the very first thing i'm doing is <br/>
+I'm passing it around the network because i know it's valid.<br/>
+<br/>
+You can also utilize this and the password spray but i would recommenf against doing that on domain accounts because what happens is:<br/>
+Say if we have 50 machines here and could take this username and can put any password you want here and try to spray it acrss the network.<br/>
+<br/>
+<b>Local account don't have the lockedout policy like domain accounts do.</b><br/>
+If you got stuck in not getting anywhere or if you've come across some different passwords.<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<img src="image 4.png"/></body></html>

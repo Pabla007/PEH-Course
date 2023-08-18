@@ -1,0 +1,25 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Finding Alive Domains with Httprobe</title>
+</head><body>We have already installed httpprobe <br/>
+<br/>
+for httprobe: <br/>
+`go install github.com/tomnomnom/httprobe@latest`<br/>
+or <br/>
+`sudo apt -y install httprobe`<br/>
+<br/>
+Will use httpproble to ensure if the host is alive or not.<br/>
+cat tesla.com/recon/final.txt | httprobe -s -p https:443 | sed 's/https\?:\/\///' | tr -d ':443'<br/>
+where tr is for truncate or translate<br/>
+<br/>
+<img height="665" src="image.png" width="650"/><br/>
+<br/>
+<img height="357" src="image 2.png" width="700"/><br/>
+<br/>
+Now we got the alive domains and got something to we can enumerate on and can simply use grep on something like<br/>
+dev <br/>
+testing<br/>
+stag<br/>
+admin<br/>
+</body></html>

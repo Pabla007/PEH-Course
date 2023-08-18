@@ -1,0 +1,23 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Information Gathering with Burp Suite</title>
+</head><body>- Another tool for web application is Burp Suite.<br/>
+- It is a web proxy which means it has the capability to intercept the traffic for us.<br/>
+<br/>
+- Will setup the Firefox so will go into preferences and in that we have to go in Network settings in that we have to configure Manual Proxy settings.<br/>
+<img height="334" src="proxy.png" width="400"/><br/>
+<br/>
+- I have started BurpSuite and it works as given in the video (i.e. http://burp) and after that i was able to intercept the request.<br/>
+But i am not able to see the PHP version in any of the tools i have used till now.<br/>
+- So after setting the proxy we have to visit the website (i.e.<a href=" https://burp">https://burp</a>) but in my case it didn't work. So i visited the website <a href="https://127.0.0.1:8080">https://127.0.0.1:8080</a>and <br/>
+ downloaded the certificate.<br/>
+- After that we have to install the certificate in the privacy and security tab in that we have to surf through and go in the last section and click on the certificates section.<br/>
+- Then we have to open the tesla website in the firefox and burp suite will show the website data in the proxy intercept tab and in the target section.<br/>
+<img height="287" src="burpsuite.png" width="400"/><br/>
+- <b>These are the few tool's that we need to purchase.</b><br/>
+<br/>
+- Later when we visit the web application section we will see a tool called <b>foxy-proxy</b>but this is a high level overview.<br/>
+- Lastly will gather the information through the burp suite which will help us in the enumeration. And this is the still the passive attack and not the active as we are just<br/>
+visiting the visite like a normal user.<br/>
+</body></html>

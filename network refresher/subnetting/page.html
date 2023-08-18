@@ -1,0 +1,31 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Subnetting</title>
+</head><body><b>Watch the youtube video to get the concept first and than the mentor's video.</b><br/>
+<br/>
+All know that if the number after the slash is more than the number of host will be less.<br/>
+i.e. 192.168.1.0/28 than the number of host will be 14<br/>
+i.e. 192.168.0.0/16 than the number of host will be 65534.<br/>
+<br/>
+- So always remember the relation b/w them and how to read and write subnet and number of host and first address and last address.<br/>
+<br/>
+<br/>
+192.168.0.0/22<br/>
+subnet          host      network		 broadcast<br/>
+255.255.252.0	   1022    192.168.0.0    192.168.3.255<br/>
+<br/>
+255.255.255.192    62      192.168.1.0    192.168.1.63<br/>
+<br/>
+255.255.255.224   30	   192.168.1.0	   192.168.1.31<br/>
+<br/>
+Seven Second Subnetting <a href="https://www.youtube.com/watch?v=ZxAwQB8TZsM ">https://www.youtube.com/watch?v=ZxAwQB8TZsM<br/>
+</a><br/>
+Step 1 :- Convert the address and mask to decimal <br/>
+Step 2 :- Calculate the network address : If mask is 255 bring down the address : If mask is 0 use the 0.<br/>
+Step 3 :- Calculate the broadcast address: If mask is 255, bring down the address : If mask is 0, use 255<br/>
+Step 4 :- First IP is network address +1 : Last IP is broadcast address -1<br/>
+<br/>
+<img height="405" src="subnetting.jpg" width="720"/><br/>
+<br/>
+</body></html>

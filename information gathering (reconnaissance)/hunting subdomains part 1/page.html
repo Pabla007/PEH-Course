@@ -1,0 +1,27 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Hunting Subdomains Part 1</title>
+</head><body>Now we will move to web information gathering or might encounter a webiste for internal or external test.<br/>
+Now we will see how to gather the information pasively that is out there.<br/>
+<br/>
+So the question is how to discover subdomains ? <br/>
+We have seen in the bug bunty program something like this <b>*.tesla.com</b>where the * is called <b>wildcar</b>d.<br/>
+<br/>
+Why r sub domain important ?<br/>
+We might run something like <b>dev.tesla.com </b>or <b>testsite.tesla.com </b><br/>
+<br/>
+So the first tool to find sub domain is called <b>sublist3r</b>. <br/>
+we can install it using this command <b>sudo</b><b>apt install sublist3r<br/>
+</b><b><br/>
+</b>So to find sublist of any domain this is the syntax : <b>sublist3r -d tesla.com<br/>
+</b>We could even use -t (i.e. threads and run the sublist3r more fast) <b>sublist3r -d tesla.com -t 100<br/>
+</b><b><img height="400" src="dev_test1.jpg" width="264"/><br/>
+<br/>
+</b><br/>
+Another way through which we can find out the subdomain or certificates is <a href="https://crt.sh/">https://crt.sh/</a><br/>
+And there r some interesting results like vpn2.tesla.com, sso-dev.tesla.com etc.<br/>
+<br/>
+<br/>
+<br/>
+</body></html>

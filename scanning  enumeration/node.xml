@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>expanded</key><false/>
+  <key>title</key><string>Scanning &amp; Enumeration</string>
+  <key>nodeid</key><string>362c4a04-e2e7-4fd0-a7ae-8ccb3e152d7c</string>
+  <key>modified_time</key><integer>1636892846</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>application/x-notebook-dir</string>
+  <key>created_time</key><integer>1636892846</integer>
+  <key>info_sort_dir</key><integer>1</integer>
+  <key>order</key><integer>8</integer>
+  <key>info_sort</key><string>order</string>
+</dict>
+</node>

@@ -1,0 +1,36 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Enumerating HTTp and HTTPS Part 2</title>
+</head><body>Now will start with Directory bursting and for that will use the tool called<b>dirbuster</b>but you can also use <b>gobuster</b>or dirb<br/>
+<br/>
+command: dirbuster&amp; <br/>
+And when the pop up opens we will write the this ip address : http://192.168.142.129:80/<br/>
+<br/>
+as we know it's running Apache so will look for PHP and it's a .asp net website (i.e. microsoft) than will look for ASP or APSX so <br/>
+for that enumeration is important which will help as to tell what is running in the background.<br/>
+<br/>
+For file extension we can go with :<br/>
+php<br/>
+txt<br/>
+zip<br/>
+rar<br/>
+docx etc....<br/>
+but the more we write the more time it will take to search.......<br/>
+And go with php &amp; scan with default setting here as we will limit it to our needs.....<br/>
+<br/>
+The scan may take time depending on the the options we have selected so till it runs will be change the proxy setting to manual and run the <br/>
+burpsuite.<br/>
+It's PROOF of concept that burpsuite is your friend when it comes to Web Testing.<br/>
+- Always veiw the source code of the website to get any kind of information disclosure / Keys / Password etc<br/>
+- Will intercept the request (i.e. refresh the target page 192.168.14.128 in our case) and will send it to Repeater.<br/>
+- Repeater will show as our RESPONSE in REAL time so we can modify our request.<br/>
+- Another thing we can do it go in the target and set a scope and will close the intercept <br/>
+- One itneresting thing is server header is disclosing Information Disclosure which we saw in Nikto scan.<br/>
+<br/>
+Response code :<br/>
+200 means ok<br/>
+400 means error (i.e. 404 page not found)<br/>
+300 means redirect<br/>
+500 means server error<br/>
+</body></html>

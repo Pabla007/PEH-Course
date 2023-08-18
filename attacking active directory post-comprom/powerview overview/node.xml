@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>expanded</key><true/>
+  <key>nodeid</key><string>baacfa5c-f6e3-488b-a83b-3d36c5073b55</string>
+  <key>modified_time</key><integer>1692327029</integer>
+  <key>expanded2</key><true/>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1680053613</integer>
+  <key>info_sort_dir</key><integer>1</integer>
+  <key>icon</key><string>note-red.png</string>
+  <key>title</key><string>PowerView Overview</string>
+  <key>version</key><integer>6</integer>
+  <key>order</key><integer>1</integer>
+  <key>info_sort</key><string>order</string>
+</dict>
+</node>

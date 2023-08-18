@@ -1,0 +1,44 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Reading &amp; Writing Files</title>
+</head><body>To <b>read</b>a file first we have created a txt with name month.<br/>
+<br/>
+Code to read a file :<br/>
+#!bin/python3<br/>
+<br/>
+months = open('months.txt')<br/>
+<br/>
+print(months.mode)<br/>
+print(months.readable())<br/>
+print(months)<br/>
+<br/>
+<img height="105" src="months.png" width="550"/><br/>
+<br/>
+<br/>
+#!bin/python3<br/>
+<br/>
+months = open('months.txt')<br/>
+<br/>
+for month in months:<br/>
+	print(month.strip())<br/>
+#print(months.read())<br/>
+#print(months.readlines())<br/>
+#months.seek(0)<br/>
+#print(months.readlines())<br/>
+months.close()<br/>
+<img height="200" src="monthss.png" width="350"/><br/>
+<br/>
+<br/>
+How to <b>Write</b>a File :<br/>
+!bin/python3<br/>
+<br/>
+days = open('days.txt','a')<br/>
+#days.write('Monday')<br/>
+#days.write('\nTuesday')<br/>
+days.write('\nWednesday')<br/>
+days.close()<br/>
+<img height="320" src="mon.png" width="400"/><br/>
+<br/>
+<br/>
+</body></html>

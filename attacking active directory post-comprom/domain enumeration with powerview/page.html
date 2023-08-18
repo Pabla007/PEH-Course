@@ -1,0 +1,83 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Domain Enumeration with PowerView</title>
+</head><body>Make txt file of .ps1 type with name PowerView and save the raw data.<br/>
+<a href="https://raw.githubusercontent.com/PowerShellEmpire/PowerTools/master/PowerView/powerview.ps1">https://raw.githubusercontent.com/PowerShellEmpire/PowerTools/master/PowerView/powerview.ps1</a><br/>
+<br/>
+<br/>
+<a href="https://gist.github.com/HarmJ0y/184f9822b195c52dd50c379ed3117993">https://gist.github.com/HarmJ0y/184f9822b195c52dd50c379ed3117993</a><br/>
+<br/>
+I have started the Windows Server and the Windows 10 pc (i.e. Frank Castle aka the punisher which is the compromised PC)<br/>
+Start a CMD and change the directory where u have saved the powerview file (i.e. Desktop in my case)<br/>
+<br/>
+Command : powershell -ep bypass<br/>
+where ep stands for execution policy<br/>
+<span style="background-color: #ffa300">Due to antivirus the script was not able to execute.</span><br/>
+<img src="image.png"/><br/>
+<br/>
+<br/>
+Command : Get-NetDomain<br/>
+Command : Get-NetDomainController<br/>
+<br/>
+<img src="image 2.png"/><br/>
+<br/>
+Command : Get-DomainPolicy<br/>
+<br/>
+<img src="image 3.png"/><br/>
+<br/>
+Command : Get-NetUser<br/>
+<br/>
+<img src="image 4.png"/><br/>
+<br/>
+<br/>
+As we can see the output get's dirty as we get dumped with so much of information. This is another way to get the password that was being stored in the discription (i.e. mitm6)<br/>
+<br/>
+Command : Get-NetUser | select cn<br/>
+<img src="image 5.png"/><br/>
+<br/>
+Command : Get-NetUser | select samaccountname<br/>
+<img src="image 6.png"/><br/>
+<br/>
+From the above command we can observe that <br/>
+When was the last time the user logined in ?_?<br/>
+How many bad password count they have ?_?<br/>
+What is their useraccountcontrol (i.e. the RID number 500 for administrator) ?_?<br/>
+<br/>
+Command : Get-UserProperty -Properties logoncount<br/>
+<img src="image 8.png"/><br/>
+As the usage of Get-UserProperty is <b>deprecated</b>we have to either use <br/>
+Get-DomainUser -properties name, pwdlastset, badpwdcount<br/>
+Get-NetUser -properties name, pwdlastset, badpwdcount<br/>
+<br/>
+<img src="image 7.png"/><br/>
+<br/>
+Command : Get-NetComputer <br/>
+will list out all the computers in the domain.<br/>
+<img src="image 9.png"/><br/>
+<br/>
+But we want for information as we can see that we have only names of the computer in the above SS.<br/>
+<img src="image 10.png"/><br/>
+<br/>
+Command: Get-NetComputer -FullData | select OperatingSystem<br/>
+remember that here the select is working just like &quot;Grep&quot; command<br/>
+<img src="image 11.png"/><br/>
+<br/>
+Command : Get-NetGroup<br/>
+<img src="image 12.png"/><br/>
+<br/>
+Command : Get-NetGroup -GroupName *admin*<br/>
+<img src="image 13.png"/><br/>
+<br/>
+Command: Get-NetGroupMember -GroupName &quot;Domain Admins&quot;<br/>
+<img src="image 14.png"/><br/>
+<br/>
+How to find all the SMB shares ?_?<br/>
+<img src="image 15.png"/><br/>
+<br/>
+How to see the Group Policy ?_?<br/>
+Command : Get-NetGPO<br/>
+<img src="image 16.png"/><br/>
+<br/>
+Command : Get-NetGPO | select displayname , whenchanged<br/>
+<img src="image 17.png"/></body></html>

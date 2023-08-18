@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>expanded</key><true/>
+  <key>title</key><string>Privilege Escalation</string>
+  <key>nodeid</key><string>8e87f1d9-61ec-4518-9b3a-fce82fc029dd</string>
+  <key>modified_time</key><integer>1670432137</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1661309271</integer>
+  <key>info_sort_dir</key><integer>1</integer>
+  <key>order</key><integer>4</integer>
+  <key>info_sort</key><string>order</string>
+  <key>icon</key><string>note-red.png</string>
+</dict>
+</node>

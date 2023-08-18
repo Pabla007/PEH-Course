@@ -1,0 +1,44 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Password Cracking with Hashcat</title>
+</head><body>gedit the hashes in the txt file (i.e. ntlmhash.txt) <br/>
+run the command to see what 5600 is <br/>
+hashcat --help | grep NTLM<br/>
+<br/>
+<br/>
+┌──(root㉿kali)-[/home/kali]<br/>
+└─# hashcat -m 5600 ntlmhash.txt /usr/share/wordlists/rockyou.txt --force<br/>
+<br/>
+rockyou.txt is the default wordlist that comes but there are lot of wordlist that we can choose from:<br/>
+<a href="https://github.com/danielmiessler/SecLists">https://github.com/danielmiessler/SecLists</a><br/>
+<br/>
+It's probably that our company will have there own work list as well but when we are doing stuff like HACK THE BOX or Capture the FLAGS <br/>
+rockyou is plenty sufficient and we don't have to go above and beyond that.<br/>
+<br/>
+Download the hashcat binaries (i.e. <a href="https://hashcat.net/hashcat">https://hashcat.net/hashcat</a>/)<br/>
+Move the rockyou.txt file from LINUX to WINDOWS using the drag option.<br/>
+put the hash into a txt file and paste in the hashcat folder so that we have all the things that we need.<br/>
+In my case my GPU is not being used and it is using the my INTEL graphic and not GPU and CPU.<br/>
+<br/>
+<br/>
+<img src="image.png"/><br/>
+<br/>
+C:\Windows\System32&gt;cd c:\Users\pabla\Downloads\hashcat-6.2.6<br/>
+Command :<br/>
+c:\Users\pabla\Downloads\hashcat-6.2.6&gt;hashcat.exe -m 5600 hashes4.txt rockyou.txt -O<br/>
+or <br/>
+c:\Users\pabla\Downloads\hashcat-6.2.6&gt;hashcat.exe -d 2 -m 5600 hashes4.txt rockyou.txt -O<br/>
+<br/>
+<img src="image 2.png"/><br/>
+<br/>
+<img height="650" src="image 3.png" width="519"/><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<a href="https://security.stackexchange.com/questions/258038/hashcat-skipping-gpu-even-if-its-recognizing-the-device-and-the-driver-is-insta">https://security.stackexchange.com/questions/258038/hashcat-skipping-gpu-even-if-its-recognizing-the-device-and-the-driver-is-insta</a><br/>
+<br/>
+<br/>
+<br/>
+</body></html>

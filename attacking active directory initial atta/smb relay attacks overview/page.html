@@ -1,0 +1,41 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title> SMB Relay Attacks Overview</title>
+</head><body>Requirements :<br/>
+<br/>
+1st requirement<br/>
+SMB signing is to be disabled on the target. (i.e. SMB is a packet level protocol)<br/>
+- If SMB signing is enabled when we tried to relay credentials it will say Hey you are not really that person cuz the packet is not signed by you and i not gonna let you in.<br/>
+- But if SMB signing is Disabled than it never checks. (i.e. it never checks for authenticity of where this is coming from there's the user there's the Hash and they have the persmission to do so)<br/>
+<br/>
+2nd Requirement <br/>
+- User Being relayed has to have admin rights credentials on that machine.<br/>
+We cannot relay a credential that we captured from one machine back to the same machine (i.e. say we are dot 6 we can't relay that credentails to dot 6)<br/>
+This has to be done on 2 separate machines.<br/>
+<br/>
+<br/>
+<img height="305" src="image.png" width="550"/><br/>
+<br/>
+- Will change the setting in the responder file (i.e. will turn off the SMB and HTTP)<br/>
+- Will going to be listening and not responding on this server.<br/>
+Responder to Capture and another tool to relay (i.e. psexec.py)<br/>
+<img height="362" src="image 2.png" width="650"/><br/>
+<br/>
+<br/>
+mine command didn't work with r<br/>
+<img height="385" src="image 3.png" width="650"/><br/>
+<br/>
+It will take the relay and passes that to the Target file (i.e. But how to identify the Target file)<br/>
+<img height="324" src="image 4.png" width="600"/><br/>
+<br/>
+We point to machine with responder listening and it can't access the machine.<br/>
+DNS failes and responder kicks in and doesn't responds to that message and relay the credentials to this other machine.<br/>
+<img height="323" src="image 5.png" width="600"/><br/>
+<br/>
+<br/>
+Think as SAM the Shadow of the Windows world (i.e. user and hases of the local users and not the doman users.)<br/>
+But we can take down the entire network with local users.<br/>
+<br/>
+So we will not only dump the hashes but also get the shell. <br/>
+<img height="358" src="image 6.png" width="650"/></body></html>

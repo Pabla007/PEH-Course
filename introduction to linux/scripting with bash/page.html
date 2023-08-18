@@ -1,0 +1,44 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title> Scripting with Bash</title>
+</head><body>How will we write a ping sweep ?<br/>
+Want to ping a device and see if the device is alive.<br/>
+<br/>
+<b>cat ip.txt | grep &quot;64 bytes&quot; | cut -d &quot; &quot; -f 4 | tr -d &quot;:&quot;</b><br/>
+Here we will slice the ip address from the data what we pinged and saved in the txt file.<br/>
+where grep will find the word 6 bytes and cut -d which is a delimeter were we have provide the space<br/>
+after the 4 spaces the data will be cut and will also use tr (i.e. translate) to cut the : from the data<br/>
+<br/>
+<b>#! /bin/bash</b><br/>
+We will declare that it's a bash file with this declaration.<br/>
+<br/>
+Now will make an ipsweep.<br/>
+<span style="color: #ffa300"><b>#! /bin/bash</b><br/>
+<br/>
+<b>#cat ip.txt | grep &quot;64 bytes&quot; | cut -d &quot; &quot; -f 4 | tr -d &quot;:&quot;</b><br/>
+if [ &quot;$1&quot; == &quot;&quot; ]<br/>
+then<br/>
+echo &quot;You forgot an IP address!&quot;<br/>
+echo &quot;Syntax: ./ipweep.sh 192.168.136&quot;<br/>
+<br/>
+else<br/>
+for ip in `seq 1 254`; do<br/>
+ping -c 1 $1.$ip | grep &quot;64 bytes&quot; | cut -d &quot; &quot; -f 4 | tr -d &quot;:&quot; &amp;b<br/>
+done<br/>
+fi<br/>
+<br/>
+#Argument One (i.e $1) <br/>
+<b>#./ipsweep.sh 192.168.136</b><br/>
+#  0      1<br/>
+<br/>
+</span><b>&amp; </b>will be used to run multiple instance of the command in the for loop.<b><br/>
+</b><b>;</b>will be usedd to run only one instance of the command in the for loop.<b><br/>
+</b><b><br/>
+before running the file we have the change the file persmission (i.e. chmod +x filename)<br/>
+<br/>
+</b><b>nmap -T4 -A -p-</b><br/>
+Want to run a nmap scan and want to look at everything and want to scan all ports.<br/>
+<br/>
+for ip in $(cat ips.txt); do nmap $ip; done<br/>
+</body></html>

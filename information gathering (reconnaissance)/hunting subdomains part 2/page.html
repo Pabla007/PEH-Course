@@ -1,0 +1,45 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Hunting Subdomains Part 2</title>
+</head><body>There is <br/>
+- dev.tesla.com <br/>
+- www-dev.tesla.com<br/>
+- www-stg2.tesla.com<br/>
+- www-test.tesla.com<br/>
+<br/>
+this all look juicy <br/>
+- sso-dev.tesla.com<br/>
+- qa.tesla.com<br/>
+<br/>
+We want to know where there mails are like<br/>
+- webmail.tesla.com<br/>
+- xmail.tesla.com<br/>
+<br/>
+Sublist3r was a great tool of it's time but now this tool is popular and one of the go to tools<br/>
+(i.e. owasp amass)<br/>
+<br/>
+Now using this tool we have to find that it shows more sublist than sublist3r or not ?<br/>
+<br/>
+So we will install this tools using this code :<br/>
+<b>apt-get update<br/>
+</b><b>apt-get install amass</b><br/>
+<br/>
+<br/>
+The most basic use of the tool for subdomain enumeration:<br/>
+<b>amass enum -d tesla.com <br/>
+or <br/>
+</b><b>amass intel -d tesla.com -whois</b><br/>
+<br/>
+As we know that sublist3r found subdomains around 324 and amass was able to find around 285 in 20-25 minutes.<br/>
+<img height="475" src="image.png" width="375"/><br/>
+<br/>
+<br/>
+So i think sublist3r gives results more quickly than amass.<br/>
+<br/>
+And will save the sublist3r domains output to a txt file and will pass it to httprobe to check which links are alive and not are not.<br/>
+So it will simply tells which website works on http or https.<br/>
+<b>cat domains.txt | httprobe &gt;&gt; working_domains.txt</b><br/>
+<a href="https://www.youtube.com/watch?v=nQs5Bw7ErcU">https://www.youtube.com/watch?v=nQs5Bw7ErcU<br/>
+</a><br/>
+</body></html>

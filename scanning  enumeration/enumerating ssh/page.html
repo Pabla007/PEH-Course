@@ -1,0 +1,16 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Enumerating SSH</title>
+</head><body>From Discord:<br/>
+<div style="text-align: left"><span style="font-size: 13pt"><span style="font-family: Consolas">ssh &lt;IP&gt; -o KexAlgorithms=+diffie-hellman-group-exchange-sha1 -o HostKeyAlgorithms=+ssh-rsa -c aes256-cbc</span></span></div> <br/>
+<br/>
+command : ssh 192.168.142.129 -o KexAlgorithms=+diffie-hellman-group-exchange-sha1 -o HostKeyAlgorithms=+ssh-rsa -c aes256-cbc<br/>
+<br/>
+<img src="ssh.png"/><br/>
+<br/>
+Why did we even do this to make an attempt to a connection ?<br/>
+- Only to see if there's a banner exposed which will say we are running <br/>
+ssh version xyz <br/>
+built by this person/company etc<br/>
+but not able to find any here.</body></html>

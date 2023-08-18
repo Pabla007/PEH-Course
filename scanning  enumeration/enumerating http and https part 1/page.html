@@ -1,0 +1,42 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Enumerating HTTP and HTTPS Part 1</title>
+</head><body>- Will explore the port 443,80,139 <br/>
+<br/>
+Open the firefox web-broswer and change the setting to sysyem proxy so that we can open the webpage with given ip<br/>
+http://192.168.142.129<br/>
+https://192.168.142.129<br/>
+<br/>
+If we find a default page it's an automatic finding.<br/>
+<br/>
+80/443 - 192.168.142.129 09:54 AM<br/>
+Default webpage - Apache - PHP<br/>
+<br/>
+Information Disclosure - 404 page<br/>
+Information Disclosure - server headers disclosure version information.<br/>
+<br/>
+<img src="server information disclosure.png"/><br/>
+<br/>
+<b>Nikto</b>is a web vulnerability scanner but if the company has good security (i.e. Firewall it will block your request but it's not the case most of time)<br/>
+command : nikto -h http://192.168.142.129<br/>
+<br/>
+80/tcp  open http    Apache httpd 1.3.20 ((Unix) (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b)<br/>
+<br/>
+OSVDB-4552: Apache/1.3.20 - Apache 1.3 below 1.3.27 are vulnerable to a local buffer overflow which allows attackers to kill any process on the system. CAN-2002-0839.<br/>
+<br/>
+webalizer Version 2.01 : http://192.168.142.129/usage/usage_202206.html<br/>
+<br/>
+SMB<br/>
+Unix (Samba 2.2.1a)<br/>
+<br/>
+SSH<br/>
+OpenSSH 2.9p2 (protocol 1.99)<br/>
+<br/>
+What should be our Methodlogy when we are seeing a Website :<br/>
+- Service Version Information<br/>
+- Backend Directory's<br/>
+- Looking for Source Code<br/>
+- Potential Vulnerability Scanning With Nikto<br/>
+<br/>
+</body></html>

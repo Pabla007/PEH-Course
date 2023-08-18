@@ -1,0 +1,40 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Finding Subdomains with Assetfinder</title>
+</head><body>Now will install a tool called asset finder and in previous vidoes we used sub lister (i.e. it was ahead of it's time when it came out)<br/>
+<br/>
+Simply search it on google will get a github link:<br/>
+go get -u github.com/tomnomnom/assetfinder<br/>
+<br/>
+the command is not working anymore so will make a little change in it<br/>
+go install github.com/tomnomnom/assetfinder@latest<br/>
+<br/>
+<img height="202" src="image.png" width="600"/><br/>
+<br/>
+PSA/FIX : httprobe and assetfinder installation/compile<br/>
+<br/>
+Instruction for installation are incorrect due to version changes in go-lang <br/>
+<br/>
+Current Instruction: <br/>
+`go get -u github.com/tomnomnom/httprobe`<br/>
+<br/>
+Update course instruction to use : <br/>
+<br/>
+for assetfinder: <br/>
+`go install github.com/tomnomnom/assetfinder@latest`<br/>
+<br/>
+additional update : <br/>
+`sudo apt -y install httprobe` <br/>
+will also resolve the issue<br/>
+<br/>
+<br/>
+I installed it as normal kali user cuz i was not able to find assert in root user.<br/>
+Command: assertfinder tesla.com<br/>
+<img height="707" src="image 2.png" width="550"/><br/>
+<br/>
+It's also finding assest related to Tesla or that should or might be owned by Tesla.<br/>
+<span style="background-color: #ffff99"><b>Command:assestfinder --subs-only tesla.com</b></span><br/>
+<br/>
+cat tesla-subs.txt | wc -l<br/>
+</body></html>

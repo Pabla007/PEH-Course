@@ -1,0 +1,47 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Building a Shoe Budget Tool</title>
+</head><body>shoes.py<br/>
+class shoes:<br/>
+	def __init__(self,name,price):<br/>
+		self.name = name<br/>
+		self.price = float(price)<br/>
+	<br/>
+	def budget_check(self, budget):<br/>
+		if not isinstance(budget , (int,float)):<br/>
+			print('Invalid entry. Please enter a number.')<br/>
+			exit()<br/>
+	<br/>
+	def change(self, budget):<br/>
+		return(budget - self.price)<br/>
+	<br/>
+	def buy(self,budget):<br/>
+		self.budget_check(budget)<br/>
+		if budget &gt;=self.price:<br/>
+			print(f'You can cop some {self.name}')<br/>
+			<br/>
+			if budget == self.price:<br/>
+				print(&quot;You have exactly enough money for these shoes.&quot;)<br/>
+		<br/>
+			else:<br/>
+				print(f&quot;You can buy these shoes and have ${self.change(budget)} left over&quot;)<br/>
+			exit('Thanks for using our shoe budget app!')<br/>
+<br/>
+purchaseshoes.py<br/>
+#!/bin/python3<br/>
+<br/>
+from shoes import shoes<br/>
+<br/>
+low = shoes('And ls',30)<br/>
+medium = shoes('Air Force ls',120)<br/>
+high = shoes('Off Whites',400)<br/>
+<br/>
+try:<br/>
+	shoe_budget = float(input('What is your Shoe Budget ?'))<br/>
+except ValueError:<br/>
+	exit('Please enter a number')<br/>
+	<br/>
+for shoes in(high,medium,low):<br/>
+	shoes.buy(shoe_budget)<br/>
+<img height="253" src="shoes.png" width="500"/></body></html>

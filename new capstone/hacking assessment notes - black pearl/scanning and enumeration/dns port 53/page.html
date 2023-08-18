@@ -1,0 +1,28 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Dns Port 53</title>
+</head><body>As we know that dictory bursting is not the entry point so will look into the dns <br/>
+Will use a tool called Dnsrecon <br/>
+<br/>
+Command : dnsrecon -r 127.0.0.0/24 -n 192.168.205.134 -d blah<br/>
+where r is for range (i.e. scanning the local host)<br/>
+n have to provide the ip address of the box that we are looking for<br/>
+d for domain <br/>
+<br/>
+──(root㉿kali)-[/home/kali]<br/>
+└─# dnsrecon -r 127.0.0.0/24 -n 192.168.205.134 -d blah<br/>
+[*] Performing Reverse Lookup from 127.0.0.0 to 127.0.0.255<br/>
+[+]   PTR blackpearl.tcm 127.0.0.1<br/>
+[+] 1 Records Found<br/>
+<br/>
+As there is dns record named blackpearl.tcm and have to add that in our Dns and etc/hosts file<br/>
+Command : nano /etc/hosts (i.e. we have to add the edit the hosts file and not host)<br/>
+And add <br/>
+192.168.205.134 blackpearl.tcm and save it <br/>
+Close the browser and rerun the web page to get this output <br/>
+<br/>
+Webroswer : http://blackpearl.tcm/<br/>
+<img height="262" src="pearl.png" width="550"/><br/>
+<br/>
+Will again give a try to directory bursting (i.e. will run ffuf and see if we are able to discover anything)</body></html>

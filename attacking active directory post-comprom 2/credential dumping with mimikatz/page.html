@@ -1,0 +1,37 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Mimikatz Overview</title>
+</head><body><br/>
+<br/>
+<br/>
+<img height="332" src="mimikatz2.png" width="700"/><br/>
+We are downloading directly it to our Domain Controller (i.e. Assume that we have compromised the Domain Controller)<br/>
+We are taking advantage of this stored memory.<br/>
+<br/>
+<br/>
+<img height="621" src="mimikatz wdigest.png" width="450"/><br/>
+<br/>
+<img height="205" src="mimikatz wdigest 1.png" width="650"/><br/>
+<br/>
+<img height="505" src="mimikatz wdigest 2.png" width="500"/><br/>
+Wdigest is feature that is enabled by defauly on windows 7 and before.<br/>
+What is did is it stores your password in clear text.<br/>
+<br/>
+After windows 8 they have disabled it but the feature still exists.<br/>
+We will turn on wdigest with Mimikatz and than we can go ahead and wait for somebody to log onto the computer so it does require somebody to log out and than log into the computer.<br/>
+<br/>
+<br/>
+<img height="432" src="mimikatz3.png" width="750"/><br/>
+We were not able to dump sam using it but we can obtain it using other ways:<br/>
+- get a shell using Metasploit <br/>
+- Secretsdump.py<br/>
+- download and dump the sam<br/>
+<br/>
+<br/>
+<img height="411" src="mimikatz5.png" width="700"/><br/>
+We are looking for user names and NLTM hashes that we can take and crack them locally.<br/>
+We need to know what percentage that we're capable of because in real environment we're going to dump probably hundreds of different hashes.<br/>
+Let's say we crack 10/30 % well that's a number that we can rely back to the client. <br/>
+<br/>
+</body></html>

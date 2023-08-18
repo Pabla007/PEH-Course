@@ -1,0 +1,53 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Nmap</title>
+</head><body>──(root㉿kali)-[/home/kali]<br/>
+└─# nmap -T4 -p- -A 192.168.205.134<br/>
+Starting Nmap 7.92 ( https://nmap.org ) at 2022-12-14 14:34 IST<br/>
+Nmap scan report for 192.168.205.134<br/>
+Host is up (0.0013s latency).<br/>
+Not shown: 65532 closed tcp ports (reset)<br/>
+<br/>
+PORT  STATE SERVICE VERSION<br/>
+22/tcp open ssh   OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)<br/>
+| ssh-hostkey: <br/>
+|  2048 66:38:14:50:ae:7d:ab:39:72:bf:41:9c:39:25:1a:0f (RSA)<br/>
+|  256 a6:2e:77:71:c6:49:6f:d5:73:e9:22:7d:8b:1c:a9:c6 (ECDSA)<br/>
+|_ 256 89:0b:73:c1:53:c8:e1:88:5e:c3:16:de:d1:e5:26:0d (ED25519)<br/>
+<br/>
+53/tcp open domain ISC BIND 9.11.5-P4-5.1+deb10u5 (Debian Linux)<br/>
+| dns-nsid: <br/>
+|_ bind.version: 9.11.5-P4-5.1+deb10u5-Debian<br/>
+<br/>
+80/tcp open http  nginx 1.14.2<br/>
+|_http-title: Welcome to nginx!<br/>
+|_http-server-header: nginx/1.14.2<br/>
+<br/>
+MAC Address: 00:0C:29:C9:61:03 (VMware)<br/>
+<br/>
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).<br/>
+<br/>
+TCP/IP fingerprint:<br/>
+OS:SCAN(V=7.92%E=4%D=12/14%OT=22%CT=1%CU=41208%PV=Y%DS=1%DC=D%G=Y%M=000C29%<br/>
+OS:TM=639991C5%P=x86_64-pc-linux-gnu)SEQ(SP=102%GCD=1%ISR=10D%TI=Z%II=I%TS=<br/>
+OS:A)SEQ(SP=102%GCD=1%ISR=10D%TI=Z%CI=Z%II=I%TS=A)OPS(O1=M5B4ST11NW7%O2=M5B<br/>
+OS:4ST11NW7%O3=M5B4NNT11NW7%O4=M5B4ST11NW7%O5=M5B4ST11NW7%O6=M5B4ST11)WIN(W<br/>
+OS:1=FE88%W2=FE88%W3=FE88%W4=FE88%W5=FE88%W6=FE88)ECN(R=Y%DF=Y%T=40%W=FAF0%<br/>
+OS:O=M5B4NNSNW7%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=<br/>
+OS:N)T4(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=40%W=<br/>
+OS:0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=N)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD<br/>
+OS:=0%Q=)T7(R=N)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T<br/>
+OS:=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=40%CD=<br/>
+OS:S)<br/>
+<br/>
+Network Distance: 1 hop<br/>
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel<br/>
+<br/>
+TRACEROUTE<br/>
+HOP RTT   ADDRESS<br/>
+1  1.31 ms 192.168.205.134<br/>
+<br/>
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .<br/>
+Nmap done: 1 IP address (1 host up) scanned in 37.28 seconds<br/>
+</body></html>

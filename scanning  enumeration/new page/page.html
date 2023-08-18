@@ -1,0 +1,48 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Scanning with Nmap
+</title>
+</head><body>- Will do a little cheating here as the mentor is giving us a user name :<br/>
+username : john <br/>
+password : TwoCows2<br/>
+- As the machine is old so the typical commands does not work (i.e. ifconfig or ipa etc...) so will use ping<br/>
+ to get out IP address here.<br/>
+<img src="ping_ip.png"/><br/>
+- I have used <b>ctrl-alt esc</b>to get out from the VM to actual window.<br/>
+<br/>
+-Now will open another VM to run our kali linux on it to verify the ip address of the kioptrix machine we are running using arp scan.<br/>
+- Will use an inbuilt scan which is called as arp-scan <br/>
+command : <b>arp-scan</b>-l<br/>
+<br/>
+-Now will use a tool called NetDiscover in which will pass the 1st three Octate of <b>our IP address</b>(i.e. 192.168.142)<br/>
+command: <b>netdiscover -r 192.168.142.0/24</b>where r stands for range.<br/>
+After the search we are able to detect our machine with an ip address of 192.168.142.129<br/>
+<br/>
+- To clear the terminal the shortcut is Ctrl + L<br/>
+<br/>
+<br/>
+- We know the concept of 3 Way Handshake where we used to scan for open port's and connect with them.<br/>
+SYN SYNACK ACK<br/>
+- Will do the same thing but with nmap (i.e. Network Mapper)<br/>
+command: SYM SYNACK ACK nmap -sS<br/>
+WHICH is called as Stealth scanning as it used to be Stealthy but not anymore.<br/>
+- But still nmap don't get picked up at 80% of the pentest <br/>
+<br/>
+- SYN SYNACK RST<br/>
+Will tell google make a connection and it will reveal us the port that is open than will send the reset flag (i.e. Just kidding don't want to make a connection)<br/>
+<br/>
+command : <b>nmap -T4 -p- -A 192.168.142.129</b><br/>
+where -T4 is the speed preference given by nmap and will use T4 as it's default setting used by the mentor.<br/>
+-p- means will scan for all the port out there.... But if we use -p it will scan the top 1000 ports for us. We can also specify port like 80,443,53 etc...<br/>
+-A stands for everything which means it will give us everything that's available out there (i.e OS version , Finger printing etc...)<br/>
+<br/>
+command : <b>nmap -sU -T4 --top-ports 1000 192.168.142.129</b><br/>
+as UDP is connection less so it will take forever to run so will specify to scan only the top 1000 ports in this case.<br/>
+<br/>
+Mentor told us that there are many scanning options but will mostly use ping sweep (A ping sweep (also known as an ICMP sweep) is <b>a basic network <br/>
+</b><b>scanning technique used to determine which of a range of IP addresses map to live hosts (computers)</b>. ), <br/>
+Stealth scanning (<b>Stealth scan types are<span style="font-family: arial"><span style="font-size: 16pt"><div style="text-align: left"> </div></span></span>those where packet flags cause the target system to respond without having a fully established connection</b><div style="text-align: left"><span style="font-size: 16pt"><span style="font-family: arial">.</span></span></div>) etc for most of the time.<br/>
+The scanning takes time what we will do in the mean time ?? we can look for the infromation gathering for the juicy data out there.<br/>
+<br/>
+It our job to look for the information on the OPEN ports and find which are the certain ports to attack first and how to enumerate everything.</body></html>

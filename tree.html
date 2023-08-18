@@ -1,0 +1,474 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<style>
+.node
+{
+    padding-left: 20px;
+    display: block;
+}
+
+.node_collapsed
+{
+    padding-left: 20px;
+    display: none;
+
+    
+    visibility: hidden;
+    display: none;
+}
+
+
+
+a:active
+{
+text-decoration:none;
+color: #0000FF;
+font-weight: bold;
+}
+
+a:visited
+{
+text-decoration:none;
+color: #000;
+font-weight: bold;
+}
+
+a:link
+{
+text-decoration:none;
+color: #000;
+font-weight: bold;
+}
+
+a:hover
+{
+text-decoration: underline;
+color: #500;
+font-weight: bold;
+}
+
+</style>
+
+
+<script language="javascript">
+  
+    var displayStates = [];
+
+    function showDiv(div)
+    {    
+        div.style.height     = "";
+        div.style.display    = "block";
+        div.style.visibility = "visible";
+    }
+
+    function hideDiv(div)
+    {
+        div.style.height     = "0px";
+        div.style.display    = "none";      
+        div.style.visibility = "hidden";
+    }
+
+    function toggleDiv(div, defaultState)
+    {
+
+        // set default on first use
+        if (displayStates[div] == undefined)
+            displayStates[div] = defaultState;
+
+        // toggle state
+        displayStates[div] = !displayStates[div];       
+
+        // hide / show
+        if (displayStates[div])
+            showDiv(div);
+        else {
+            hideDiv(div);
+        }
+    }
+
+    function toggleDivName(divname, defaultState)
+    {
+        toggleDiv(document.getElementById(divname), defaultState);
+    }
+
+</script>
+
+<nobr><tt><a href='javascript: toggleDivName("8b8f99ec-47e4-4f0c-a00b-4b25c144d382", true)'>+</a>&nbsp;</tt>Learning_Hacking</nobr><br/>
+<div id='8b8f99ec-47e4-4f0c-a00b-4b25c144d382' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='pre_requisite/page.html' target='viewer'>Pre_Requisite</a></nobr><br/>
+<nobr><tt><a href='javascript: toggleDivName("90bb0dac-a326-46a9-89c0-151b841e40d0", false)'>+</a>&nbsp;</tt>Books</nobr><br/>
+<div id='90bb0dac-a326-46a9-89c0-151b841e40d0' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='books/important%20points%20from%20books/page.html' target='viewer'>Important Points From Books</a></nobr><br/>
+<nobr><tt><a href='javascript: toggleDivName("479e669f-582d-4bb2-820f-ef24d76f7404", true)'>+</a>&nbsp;</tt>Ghost In The Wires</nobr><br/>
+<div id='479e669f-582d-4bb2-820f-ef24d76f7404' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='books/ghost%20in%20the%20wires/new%20page/page.html' target='viewer'>New Page</a></nobr><br/>
+<nobr><tt><a href='javascript: toggleDivName("8de8446a-c746-40de-9162-f003b73504cf", true)'>+</a>&nbsp;</tt><a href='books/ghost%20in%20the%20wires/part%20one%20the%20making%20of%20a%20hacker%202/page.html' target='viewer'>Part One The Making of a Hacker</a></nobr><br/>
+<div id='8de8446a-c746-40de-9162-f003b73504cf' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='books/ghost%20in%20the%20wires/part%20one%20the%20making%20of%20a%20hacker%202/puzzle/page.html' target='viewer'>Puzzle </a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("62e2dae0-172c-4c12-b48d-d3b738a26f76", true)'>+</a>&nbsp;</tt><a href='books/ghost%20in%20the%20wires/two%20just%20visiting/page.html' target='viewer'>Two Just Visiting</a></nobr><br/>
+<div id='62e2dae0-172c-4c12-b48d-d3b738a26f76' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='books/ghost%20in%20the%20wires/two%20just%20visiting/puzzle/page.html' target='viewer'>Puzzle </a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("742988cc-5a75-4b32-8d29-ae96443ebd86", true)'>+</a>&nbsp;</tt><a href='books/ghost%20in%20the%20wires/three%20original%20sin/page.html' target='viewer'>Three Original Sin</a></nobr><br/>
+<div id='742988cc-5a75-4b32-8d29-ae96443ebd86' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='books/ghost%20in%20the%20wires/three%20original%20sin/puzzle/page.html' target='viewer'>Puzzle</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("ee1fa373-675a-411b-8600-bdd678afb373", true)'>+</a>&nbsp;</tt><a href='books/ghost%20in%20the%20wires/four%20escape%20artist/page.html' target='viewer'>Four Escape Artist</a></nobr><br/>
+<div id='ee1fa373-675a-411b-8600-bdd678afb373' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='books/ghost%20in%20the%20wires/four%20escape%20artist/puzzle/page.html' target='viewer'>Puzzle</a></nobr><br/>
+</div>
+</div>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("32698bd9-1cce-4565-9c7f-5e171f1a0600", false)'>+</a>&nbsp;</tt>Network Refresher</nobr><br/>
+<div id='32698bd9-1cce-4565-9c7f-5e171f1a0600' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='network%20refresher/ip%20addresses/page.html' target='viewer'>IP Addresses</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='network%20refresher/mac%20addresses/page.html' target='viewer'>MAC Addresses</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='network%20refresher/tcp%2C%20udp%2C%20and%20the%20three-way%20handshake/page.html' target='viewer'>TCP, UDP, and the Three-Way Handshake</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='network%20refresher/the%20osi%20modle/page.html' target='viewer'>The OSI Modle</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='network%20refresher/subnetting/page.html' target='viewer'>Subnetting</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("809a4757-8536-4342-956a-cb7077332ca2", false)'>+</a>&nbsp;</tt>Setting Up Our Lab</nobr><br/>
+<div id='809a4757-8536-4342-956a-cb7077332ca2' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='setting%20up%20our%20lab/installing%20vmware%20-%20virtualbox/page.html' target='viewer'>Installing VMWare / VirtualBox</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='setting%20up%20our%20lab/installing%20kali%20linux/page.html' target='viewer'> Installing Kali Linux</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("2e3eecec-3568-4ba8-9550-6b07e9e3d33e", false)'>+</a>&nbsp;</tt>Introduction to Linux</nobr><br/>
+<div id='2e3eecec-3568-4ba8-9550-6b07e9e3d33e' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='introduction%20to%20linux/sudo/page.html' target='viewer'>Sudo</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='introduction%20to%20linux/navigating%20the%20file%20system/page.html' target='viewer'>Navigating the File System</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='introduction%20to%20linux/users%20and%20privileges/page.html' target='viewer'>Users and Privileges</a></nobr><br/>
+<nobr><tt><a href='javascript: toggleDivName("e52d5d11-d33f-4e96-85bc-23e7625ce469", true)'>+</a>&nbsp;</tt><a href='introduction%20to%20linux/new%20page/page.html' target='viewer'>  Common Network Commands
+</a></nobr><br/>
+<div id='e52d5d11-d33f-4e96-85bc-23e7625ce469' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='introduction%20to%20linux/new%20page/network%20commands%20update/page.html' target='viewer'>Network Commands Update</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("8e05acf1-a5ed-43cd-be5e-796dd1625c17", true)'>+</a>&nbsp;</tt><a href='introduction%20to%20linux/installing%20and%20updating%20tools/page.html' target='viewer'>  Installing and Updating Tools</a></nobr><br/>
+<div id='8e05acf1-a5ed-43cd-be5e-796dd1625c17' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='introduction%20to%20linux/installing%20and%20updating%20tools/new%20page/page.html' target='viewer'>Installing gedit
+</a></nobr><br/>
+</div>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='introduction%20to%20linux/viewing%2C%20creating%2C%20and%20editing%20files/page.html' target='viewer'>Viewing, Creating, and Editing Files</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='introduction%20to%20linux/starting%20and%20stopping%20services/page.html' target='viewer'>Starting and Stopping Services</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='introduction%20to%20linux/scripting%20with%20bash/page.html' target='viewer'> Scripting with Bash</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("91e836e7-b761-44b2-9fc7-c4b062d6822d", false)'>+</a>&nbsp;</tt>Introduction to Python</nobr><br/>
+<div id='91e836e7-b761-44b2-9fc7-c4b062d6822d' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='introduction%20to%20python/strings/page.html' target='viewer'>Strings</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='introduction%20to%20python/modules/page.html' target='viewer'>Modules</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='introduction%20to%20python/building%20a%20port%20scanner/page.html' target='viewer'> Building a Port Scanner</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='introduction%20to%20python/reading%20%20writing%20files/page.html' target='viewer'>Reading &amp; Writing Files</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='introduction%20to%20python/classes%20and%20objects/page.html' target='viewer'>Classes and Objects</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='introduction%20to%20python/building%20a%20shoe%20budget%20tool/page.html' target='viewer'>Building a Shoe Budget Tool</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("8ec2c33f-bbf5-45f8-9900-ea2ecf93b41e", false)'>+</a>&nbsp;</tt>The Ethical Hacker Methodology</nobr><br/>
+<div id='8ec2c33f-bbf5-45f8-9900-ea2ecf93b41e' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='the%20ethical%20hacker%20methodology/the%20five%20stages%20of%20ethical%20hacking/page.html' target='viewer'>The Five Stages of Ethical Hacking</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("83684f5b-f965-4a6b-b3e1-4341bfb33546", false)'>+</a>&nbsp;</tt>Information Gathering (Reconnaissance)</nobr><br/>
+<div id='83684f5b-f965-4a6b-b3e1-4341bfb33546' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='information%20gathering%20%28reconnaissance%29/passive%20reconnaissance%20overview/page.html' target='viewer'>Passive Reconnaissance Overview</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='information%20gathering%20%28reconnaissance%29/identifying%20our%20target/page.html' target='viewer'>Identifying Our Target</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='information%20gathering%20%28reconnaissance%29/discovering%20email%20addresses/page.html' target='viewer'>Discovering Email Addresses</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='information%20gathering%20%28reconnaissance%29/gathering%20breached%20credentials%20with%20brea/page.html' target='viewer'>Gathering Breached Credentials with Breach-Parse</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='information%20gathering%20%28reconnaissance%29/hunting%20subdomains%20part%201/page.html' target='viewer'>Hunting Subdomains Part 1</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='information%20gathering%20%28reconnaissance%29/hunting%20subdomains%20part%202/page.html' target='viewer'>Hunting Subdomains Part 2</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='information%20gathering%20%28reconnaissance%29/identifying%20website%20technologies/page.html' target='viewer'>Identifying Website Technologies</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='information%20gathering%20%28reconnaissance%29/information%20gathering%20with%20burp%20suite/page.html' target='viewer'>Information Gathering with Burp Suite</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='information%20gathering%20%28reconnaissance%29/google%20fu/page.html' target='viewer'>Google Fu</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='information%20gathering%20%28reconnaissance%29/utilizing%20social%20media/page.html' target='viewer'>Utilizing Social Media</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("362c4a04-e2e7-4fd0-a7ae-8ccb3e152d7c", false)'>+</a>&nbsp;</tt>Scanning &amp; Enumeration</nobr><br/>
+<div id='362c4a04-e2e7-4fd0-a7ae-8ccb3e152d7c' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='scanning%20%20enumeration/installing%20kioptrix/page.html' target='viewer'>Installing Kioptrix</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='scanning%20%20enumeration/new%20page/page.html' target='viewer'>Scanning with Nmap
+</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='scanning%20%20enumeration/enumerating%20http%20and%20https%20part%201/page.html' target='viewer'>Enumerating HTTP and HTTPS Part 1</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='scanning%20%20enumeration/enumerating%20http%20and%20https%20part%202/page.html' target='viewer'>Enumerating HTTp and HTTPS Part 2</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='scanning%20%20enumeration/enumerating%20smb/page.html' target='viewer'>Enumerating SMB</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='scanning%20%20enumeration/enumerating%20ssh/page.html' target='viewer'>Enumerating SSH</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='scanning%20%20enumeration/researching%20potential%20vulnerabilities/page.html' target='viewer'>Researching Potential Vulnerabilities</a></nobr><br/>
+<nobr><tt><a href='javascript: toggleDivName("d7479365-3e83-4dfd-a8e7-f575a7f82d85", false)'>+</a>&nbsp;</tt>Assessment Notes</nobr><br/>
+<div id='d7479365-3e83-4dfd-a8e7-f575a7f82d85' class='node_collapsed'><nobr><tt><a href='javascript: toggleDivName("bd3cdcd6-43f3-464e-9e19-07c85ca2cf82", true)'>+</a>&nbsp;</tt><a href='scanning%20%20enumeration/assessment%20notes/kioptrix%20%28192.168.142.129%29/page.html' target='viewer'>Kioptrix (192.168.142.129)</a></nobr><br/>
+<div id='bd3cdcd6-43f3-464e-9e19-07c85ca2cf82' class='node'><nobr><tt><a href='javascript: toggleDivName("f8c6a5e6-fd1d-407a-9452-454b82750987", true)'>+</a>&nbsp;</tt><a href='scanning%20%20enumeration/assessment%20notes/kioptrix%20%28192.168.142.129%29/nmap/page.html' target='viewer'>Nmap</a></nobr><br/>
+<div id='f8c6a5e6-fd1d-407a-9452-454b82750987' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='scanning%20%20enumeration/assessment%20notes/kioptrix%20%28192.168.142.129%29/nmap/22/page.html' target='viewer'>22</a></nobr><br/>
+<nobr><tt><a href='javascript: toggleDivName("966b86ba-dba4-4ea3-aee6-3f386bfa51ed", true)'>+</a>&nbsp;</tt><a href='scanning%20%20enumeration/assessment%20notes/kioptrix%20%28192.168.142.129%29/nmap/80-443/page.html' target='viewer'>80/443</a></nobr><br/>
+<div id='966b86ba-dba4-4ea3-aee6-3f386bfa51ed' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='scanning%20%20enumeration/assessment%20notes/kioptrix%20%28192.168.142.129%29/nmap/80-443/nikto/page.html' target='viewer'>Nikto</a></nobr><br/>
+</div>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='scanning%20%20enumeration/assessment%20notes/kioptrix%20%28192.168.142.129%29/nmap/139/page.html' target='viewer'>139</a></nobr><br/>
+</div>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("14fa0e1d-7d57-4c4b-8b9e-7f402ab0da85", true)'>+</a>&nbsp;</tt><a href='scanning%20%20enumeration/assessment%20notes/exploitation/page.html' target='viewer'>Exploitation</a></nobr><br/>
+<div id='14fa0e1d-7d57-4c4b-8b9e-7f402ab0da85' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='scanning%20%20enumeration/assessment%20notes/exploitation/smb%20-%20trans2open/page.html' target='viewer'>SMB - trans2open</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='scanning%20%20enumeration/assessment%20notes/exploitation/80%20-%20modssl/page.html' target='viewer'>80 - modssl</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("3d6db848-7b6d-490b-857c-650858908b6d", true)'>+</a>&nbsp;</tt>Post Exploitation</nobr><br/>
+<div id='3d6db848-7b6d-490b-857c-650858908b6d' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='scanning%20%20enumeration/assessment%20notes/post%20exploitation/shadow%20file/page.html' target='viewer'>Shadow File</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("8277d63a-7593-4eed-8976-369c11395782", true)'>+</a>&nbsp;</tt><a href='scanning%20%20enumeration/assessment%20notes/findings/page.html' target='viewer'>Findings</a></nobr><br/>
+<div id='8277d63a-7593-4eed-8976-369c11395782' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='scanning%20%20enumeration/assessment%20notes/findings/default%20web%20page%20-%20apache/page.html' target='viewer'>Default Web Page - Apache</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='scanning%20%20enumeration/assessment%20notes/findings/information%20disclosure/page.html' target='viewer'>Information Disclosure</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='scanning%20%20enumeration/assessment%20notes/findings/undetected%20malicious%20activity/page.html' target='viewer'>Undetected Malicious Activity</a></nobr><br/>
+</div>
+</div>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("ce61edf8-cea6-4ff9-b187-b65194dd8878", false)'>+</a>&nbsp;</tt>Vulnerability Scanning with Nessus</nobr><br/>
+<div id='ce61edf8-cea6-4ff9-b187-b65194dd8878' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='vulnerability%20scanning%20with%20nessus/scanning%20with%20nessus%20part%201/page.html' target='viewer'>Scanning with Nessus Part 1</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='vulnerability%20scanning%20with%20nessus/scanning%20with%20nessus%20part%202/page.html' target='viewer'>Scanning with Nessus Part 2</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("8360fef9-40ed-4c29-819b-52462cb183f9", false)'>+</a>&nbsp;</tt>Exploitation Basics</nobr><br/>
+<div id='8360fef9-40ed-4c29-819b-52462cb183f9' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='exploitation%20basics/reverse%20shells%20vs%20bind%20shells/page.html' target='viewer'>Reverse Shells vs Bind Shells</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='exploitation%20basics/staged%20vs%20non-staged%20payloads/page.html' target='viewer'> Staged vs Non-Staged Payloads</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='exploitation%20basics/gaining%20root%20with%20metasploit/page.html' target='viewer'>Gaining Root with Metasploit</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='exploitation%20basics/manual%20exploitation/page.html' target='viewer'>Manual Exploitation</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='exploitation%20basics/brute%20force%20attacks/page.html' target='viewer'>Brute Force Attacks</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='exploitation%20basics/credential%20stuffing%20and%20password%20sprayin/page.html' target='viewer'>Credential Stuffing and Password Spraying
+</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("4d140812-94f4-4f17-ac3b-8857ce32b276", false)'>+</a>&nbsp;</tt>New Capstone</nobr><br/>
+<div id='4d140812-94f4-4f17-ac3b-8857ce32b276' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/introduction/page.html' target='viewer'>Introduction</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/set%20up%20-%20blue/page.html' target='viewer'>Set Up - Blue</a></nobr><br/>
+<nobr><tt><a href='javascript: toggleDivName("403195f4-3baa-4b94-88a6-b1e780078803", true)'>+</a>&nbsp;</tt>Hacking  Assessment Notes- Blue</nobr><br/>
+<div id='403195f4-3baa-4b94-88a6-b1e780078803' class='node'><nobr><tt><a href='javascript: toggleDivName("ba4ad9a5-7655-455e-bf5e-75eccd192cf1", true)'>+</a>&nbsp;</tt><a href='new%20capstone/hacking%20%20assessment%20notes-%20blue/scanning%20and%20enumeration/page.html' target='viewer'>Scanning and Enumeration</a></nobr><br/>
+<div id='ba4ad9a5-7655-455e-bf5e-75eccd192cf1' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20%20assessment%20notes-%20blue/scanning%20and%20enumeration/arp%20scan/page.html' target='viewer'>Arp Scan</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20%20assessment%20notes-%20blue/scanning%20and%20enumeration/nmap/page.html' target='viewer'>Nmap</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("555f8ff5-5f51-4cfb-b9ca-54a0c2a0a2ce", true)'>+</a>&nbsp;</tt><a href='new%20capstone/hacking%20%20assessment%20notes-%20blue/walkthrough%20-%20blue/page.html' target='viewer'>Walkthrough - Blue</a></nobr><br/>
+<div id='555f8ff5-5f51-4cfb-b9ca-54a0c2a0a2ce' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20%20assessment%20notes-%20blue/walkthrough%20-%20blue/metasploit/page.html' target='viewer'>Metasploit </a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20%20assessment%20notes-%20blue/walkthrough%20-%20blue/manual%20exploitation/page.html' target='viewer'>Manual Exploitation</a></nobr><br/>
+</div>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("29ed55bf-f416-4a9c-9a95-cd94659043a9", true)'>+</a>&nbsp;</tt>Hacking Assessment Notes - Academy</nobr><br/>
+<div id='29ed55bf-f416-4a9c-9a95-cd94659043a9' class='node'><nobr><tt><a href='javascript: toggleDivName("ba4ea1cc-17ce-4ff4-96d8-33794c3b65ba", true)'>+</a>&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20academy/scanning%20and%20enumeration/page.html' target='viewer'>Scanning and Enumeration</a></nobr><br/>
+<div id='ba4ea1cc-17ce-4ff4-96d8-33794c3b65ba' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20academy/scanning%20and%20enumeration/arp%20scan/page.html' target='viewer'>Arp Scan</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20academy/scanning%20and%20enumeration/nmap/page.html' target='viewer'>Nmap</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("43d0873e-d7f8-4f92-9a4d-6fe1a3f95ddf", true)'>+</a>&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20academy/walkthrough%20-%20academy/page.html' target='viewer'>Walkthrough - Academy</a></nobr><br/>
+<div id='43d0873e-d7f8-4f92-9a4d-6fe1a3f95ddf' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20academy/walkthrough%20-%20academy/default_web_page/page.html' target='viewer'>Default_Web_Page</a></nobr><br/>
+<nobr><tt><a href='javascript: toggleDivName("921a234a-86a1-45d1-b66d-54b777f6f6b1", true)'>+</a>&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20academy/walkthrough%20-%20academy/ftp%20-%20port%2021/page.html' target='viewer'>FTP / Port 21</a></nobr><br/>
+<div id='921a234a-86a1-45d1-b66d-54b777f6f6b1' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20academy/walkthrough%20-%20academy/ftp%20-%20port%2021/note.txt/page.html' target='viewer'>Note.txt</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20academy/walkthrough%20-%20academy/ftp%20-%20port%2021/password%20cracking/page.html' target='viewer'>Password Cracking</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20academy/walkthrough%20-%20academy/ftp%20-%20port%2021/directory%20busting/page.html' target='viewer'>Directory Busting</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20academy/walkthrough%20-%20academy/ftp%20-%20port%2021/exploit%20php/page.html' target='viewer'>Exploit PHP</a></nobr><br/>
+<nobr><tt><a href='javascript: toggleDivName("8e87f1d9-61ec-4518-9b3a-fce82fc029dd", true)'>+</a>&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20academy/walkthrough%20-%20academy/ftp%20-%20port%2021/privilege%20escalation/page.html' target='viewer'>Privilege Escalation</a></nobr><br/>
+<div id='8e87f1d9-61ec-4518-9b3a-fce82fc029dd' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20academy/walkthrough%20-%20academy/ftp%20-%20port%2021/privilege%20escalation/linpeas%20output/page.html' target='viewer'>linpeas output</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20academy/walkthrough%20-%20academy/ftp%20-%20port%2021/privilege%20escalation/pspy/page.html' target='viewer'>pspy</a></nobr><br/>
+</div>
+</div>
+</div>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("43f52751-52b4-4e66-943c-876e29a7d968", true)'>+</a>&nbsp;</tt>Hacking Assessment Notes - Dev</nobr><br/>
+<div id='43f52751-52b4-4e66-943c-876e29a7d968' class='node'><nobr><tt><a href='javascript: toggleDivName("8550979a-612e-4a80-a635-3cd075339b89", true)'>+</a>&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20dev/scanning%20and%20enmeration/page.html' target='viewer'>Scanning and Enmeration</a></nobr><br/>
+<div id='8550979a-612e-4a80-a635-3cd075339b89' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20dev/scanning%20and%20enmeration/arp%20scan/page.html' target='viewer'>Arp Scan</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20dev/scanning%20and%20enmeration/nmap/page.html' target='viewer'>Nmap</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20dev/scanning%20and%20enmeration/nfs/page.html' target='viewer'>NFS</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20dev/scanning%20and%20enmeration/ffuf/page.html' target='viewer'>ffuf</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("2ea4a198-e60c-4c14-ac61-676c14febe6b", true)'>+</a>&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20dev/privilege%20escalation/page.html' target='viewer'>Privilege Escalation</a></nobr><br/>
+<div id='2ea4a198-e60c-4c14-ac61-676c14febe6b' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20dev/privilege%20escalation/gtfobins/page.html' target='viewer'>gtfobins</a></nobr><br/>
+</div>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("dba83bf7-7931-45b1-9291-c61d33bca803", true)'>+</a>&nbsp;</tt>Hacking Assessment Notes - Butler</nobr><br/>
+<div id='dba83bf7-7931-45b1-9291-c61d33bca803' class='node'><nobr><tt><a href='javascript: toggleDivName("ec72e686-da55-4216-95d3-fa0f934ae9ea", true)'>+</a>&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20butler/scanning%20and%20enumeration/page.html' target='viewer'>Scanning and Enumeration</a></nobr><br/>
+<div id='ec72e686-da55-4216-95d3-fa0f934ae9ea' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20butler/scanning%20and%20enumeration/arp%20scan/page.html' target='viewer'>Arp Scan</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20butler/scanning%20and%20enumeration/nmap/page.html' target='viewer'>Nmap</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20butler/scanning%20and%20enumeration/burpsuite/page.html' target='viewer'>Burpsuite</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("a7d40aa8-a02b-4e88-abc6-1f8fd60a5638", true)'>+</a>&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20butler/privilege%20escalation/page.html' target='viewer'>Privilege Escalation</a></nobr><br/>
+<div id='a7d40aa8-a02b-4e88-abc6-1f8fd60a5638' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20butler/privilege%20escalation/winpeas/page.html' target='viewer'>Winpeas</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20butler/privilege%20escalation/malware/page.html' target='viewer'>Malware</a></nobr><br/>
+</div>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("3ac5a609-8fe9-41eb-8e6b-9b026487199d", true)'>+</a>&nbsp;</tt>Hacking Assessment Notes - Black Pearl</nobr><br/>
+<div id='3ac5a609-8fe9-41eb-8e6b-9b026487199d' class='node'><nobr><tt><a href='javascript: toggleDivName("ca094613-fa5e-43f7-92f9-4354fa6cd395", true)'>+</a>&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20black%20pearl/scanning%20and%20enumeration/page.html' target='viewer'>Scanning And Enumeration</a></nobr><br/>
+<div id='ca094613-fa5e-43f7-92f9-4354fa6cd395' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20black%20pearl/scanning%20and%20enumeration/arp%20scan/page.html' target='viewer'>Arp Scan</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20black%20pearl/scanning%20and%20enumeration/nmap/page.html' target='viewer'>Nmap</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20black%20pearl/scanning%20and%20enumeration/ffuf/page.html' target='viewer'>Ffuf</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20black%20pearl/scanning%20and%20enumeration/page%20source/page.html' target='viewer'>Page Source</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20black%20pearl/scanning%20and%20enumeration/dns%20port%2053/page.html' target='viewer'>Dns Port 53</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20black%20pearl/scanning%20and%20enumeration/blackperal.tcm%20ffuf/page.html' target='viewer'>blackperal.tcm ffuf</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20black%20pearl/scanning%20and%20enumeration/linpeas/page.html' target='viewer'>Linpeas</a></nobr><br/>
+</div>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("6ad0ee21-f5cc-4eaf-b38b-ecc800323369", false)'>+</a>&nbsp;</tt>Hacking Assessment Notes - Jasims</nobr><br/>
+<div id='6ad0ee21-f5cc-4eaf-b38b-ecc800323369' class='node_collapsed'><nobr><tt><a href='javascript: toggleDivName("9bcdbe9c-2b70-4bcc-bb66-80e44fc71f02", true)'>+</a>&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20jasims/scanning%20and%20enumeration/page.html' target='viewer'>Scanning and Enumeration</a></nobr><br/>
+<div id='9bcdbe9c-2b70-4bcc-bb66-80e44fc71f02' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20jasims/scanning%20and%20enumeration/arp%20scan/page.html' target='viewer'>Arp Scan</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20jasims/scanning%20and%20enumeration/nmap%20sn/page.html' target='viewer'>Nmap Sn</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20jasims/scanning%20and%20enumeration/nmap/page.html' target='viewer'>Nmap</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("7d95beb6-38be-4ca3-806a-8b17cbe2aa7c", true)'>+</a>&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20jasims/gain%20access%20%28i.e.%20exploitation%29/page.html' target='viewer'> Gain Access (i.e. Exploitation)</a></nobr><br/>
+<div id='7d95beb6-38be-4ca3-806a-8b17cbe2aa7c' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20jasims/gain%20access%20%28i.e.%20exploitation%29/metasploit/page.html' target='viewer'>MetaSploit</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='new%20capstone/hacking%20assessment%20notes%20-%20jasims/gain%20access%20%28i.e.%20exploitation%29/manual%20explitation/page.html' target='viewer'>Manual Explitation</a></nobr><br/>
+</div>
+</div>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("11132f4e-3c01-4791-b4bd-37383b568cac", false)'>+</a>&nbsp;</tt>Introduction to Exploit Development (Buffer Overflows)</nobr><br/>
+<div id='11132f4e-3c01-4791-b4bd-37383b568cac' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='introduction%20to%20exploit%20development%20%28buf/required%20installations/page.html' target='viewer'>Required Installations</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='introduction%20to%20exploit%20development%20%28buf/buffer%20overflows%20explained/page.html' target='viewer'>Buffer Overflows Explained</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='introduction%20to%20exploit%20development%20%28buf/spiking/page.html' target='viewer'>Spiking</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='introduction%20to%20exploit%20development%20%28buf/new%20page/page.html' target='viewer'> Fuzzing
+</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='introduction%20to%20exploit%20development%20%28buf/finding%20the%20offset/page.html' target='viewer'>Finding the Offset</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='introduction%20to%20exploit%20development%20%28buf/overwriting%20the%20eip/page.html' target='viewer'>Overwriting the EIP</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='introduction%20to%20exploit%20development%20%28buf/finding%20bad%20characters/page.html' target='viewer'>Finding Bad Characters</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='introduction%20to%20exploit%20development%20%28buf/finding%20the%20right%20module/page.html' target='viewer'>Finding the Right Module</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='introduction%20to%20exploit%20development%20%28buf/new%20page%206/page.html' target='viewer'>Generating Shellcode and Gaining Root
+</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='introduction%20to%20exploit%20development%20%28buf/exploit%20development%20using%20python3%20and%20mo/page.html' target='viewer'>Exploit Development Using Python3 and Mona</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("45b29347-a908-43e3-aa2b-97e8b7a99d05", false)'>+</a>&nbsp;</tt>Active Directory Overview</nobr><br/>
+<div id='45b29347-a908-43e3-aa2b-97e8b7a99d05' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='active%20directory%20overview/active%20directory%20overview/page.html' target='viewer'>Active Directory Overview</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='active%20directory%20overview/physical%20active%20directory%20components/page.html' target='viewer'>Physical Active Directory Components</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='active%20directory%20overview/logical%20active%20directory%20components/page.html' target='viewer'> Logical Active Directory Components</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("3255210a-b7ca-4569-8360-dea5827de707", false)'>+</a>&nbsp;</tt>Active Directory Lab Build</nobr><br/>
+<div id='3255210a-b7ca-4569-8360-dea5827de707' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='active%20directory%20lab%20build/lab%20overview%20and%20requirements/page.html' target='viewer'>Lab Overview and Requirements</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='active%20directory%20lab%20build/downloading%20necessary%20isos/page.html' target='viewer'>Downloading Necessary ISOs</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='active%20directory%20lab%20build/setting%20up%20the%20domain%20controllers/page.html' target='viewer'>Setting Up the Domain Controllers</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='active%20directory%20lab%20build/setting%20up%20the%20user%20machines/page.html' target='viewer'>Setting Up the User Machines</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='active%20directory%20lab%20build/setting%20up%20users%2C%20groups%2C%20and%20policies/page.html' target='viewer'>Setting Up Users, Groups, and Policies</a></nobr><br/>
+<nobr><tt><a href='javascript: toggleDivName("5fc51d29-e6e8-413b-8f08-4da4871af178", true)'>+</a>&nbsp;</tt><a href='active%20directory%20lab%20build/joining%20our%20machines%20to%20the%20domain/page.html' target='viewer'>Joining Our Machines to the Domain</a></nobr><br/>
+<div id='5fc51d29-e6e8-413b-8f08-4da4871af178' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='active%20directory%20lab%20build/joining%20our%20machines%20to%20the%20domain/what%20is%20happening%20here/page.html' target='viewer'>What is Happening here </a></nobr><br/>
+</div>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='active%20directory%20lab%20build/lab%20build%20-%20%28cloud%20alternative%29/page.html' target='viewer'>Lab Build - (Cloud Alternative)</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("31cc4643-7522-44e6-8435-eb518d9078dd", false)'>+</a>&nbsp;</tt>Attacking Active Directory: Initial Attack Vectors</nobr><br/>
+<div id='31cc4643-7522-44e6-8435-eb518d9078dd' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20initial%20atta/introduction/page.html' target='viewer'>Introduction</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20initial%20atta/llmnr%20poisoning%20overview/page.html' target='viewer'>LLMNR Poisoning Overview</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20initial%20atta/capturing%20ntlmv2%20hashes%20with%20responder/page.html' target='viewer'>Capturing NTLMv2 Hashes with Responder</a></nobr><br/>
+<nobr><tt><a href='javascript: toggleDivName("079bafe7-d7d6-4786-8235-b1b2f319e2bb", true)'>+</a>&nbsp;</tt><a href='attacking%20active%20directory%20initial%20atta/password%20cracking%20with%20hashcat/page.html' target='viewer'>Password Cracking with Hashcat</a></nobr><br/>
+<div id='079bafe7-d7d6-4786-8235-b1b2f319e2bb' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20initial%20atta/password%20cracking%20with%20hashcat/how%20to%20crack%20ntlm%20hashes/page.html' target='viewer'>How to crack NTLM hashes</a></nobr><br/>
+</div>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20initial%20atta/llmnr%20poisoning%20defense/page.html' target='viewer'>LLMNR Poisoning Defense</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20initial%20atta/smb%20relay%20attacks%20overview/page.html' target='viewer'> SMB Relay Attacks Overview</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20initial%20atta/new%20page/page.html' target='viewer'>Quick Lab Update
+</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20initial%20atta/discovering%20hosts%20with%20smb%20signing%20disab/page.html' target='viewer'>Discovering Hosts with SMB Signing Disabled</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20initial%20atta/smb%20relay%20attack%20demonstration%20part%201/page.html' target='viewer'> SMB Relay Attack Demonstration Part 1</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20initial%20atta/smb%20relay%20attack%20demonstration%20part%202/page.html' target='viewer'>SMB Relay Attack Demonstration Part 2</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20initial%20atta/smb%20relay%20attack%20defenses/page.html' target='viewer'>SMB Relay Attack Defenses</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20initial%20atta/gaining%20shell%20access/page.html' target='viewer'> Gaining Shell Access</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20initial%20atta/ipv6%20attacks%20overview/page.html' target='viewer'>IPv6 Attacks Overview</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20initial%20atta/installing%20mitm6/page.html' target='viewer'>Installing mitm6</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20initial%20atta/setting%20up%20ldaps/page.html' target='viewer'>Setting Up LDAPS</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20initial%20atta/ipv6%20dns%20takeover%20via%20mitm6/page.html' target='viewer'>IPv6 DNS Takeover via mitm6</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20initial%20atta/new%20page%202/page.html' target='viewer'>IPv6 Attack Defenses
+</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20initial%20atta/passback%20attacks/page.html' target='viewer'>Passback Attacks</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20initial%20atta/other%20attack%20vectors%20and%20strategies/page.html' target='viewer'>Other Attack Vectors and Strategies</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("d2d4bbed-723f-4991-8ef6-7b2d7c62fbfb", false)'>+</a>&nbsp;</tt>Attacking Active Directory: Post-Compromise Enumeration</nobr><br/>
+<div id='d2d4bbed-723f-4991-8ef6-7b2d7c62fbfb' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom/introduction/page.html' target='viewer'>Introduction</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom/powerview%20overview/page.html' target='viewer'>PowerView Overview</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom/domain%20enumeration%20with%20powerview/page.html' target='viewer'>Domain Enumeration with PowerView</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom/bloodhound%20overview%20and%20setup/page.html' target='viewer'>Bloodhound Overview and Setup</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom/grabbing%20data%20with%20invoke-bloodhound/page.html' target='viewer'>Grabbing Data with Invoke-Bloodhound</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom/enumerating%20domain%20data%20with%20bloodhound/page.html' target='viewer'>Enumerating Domain Data with Bloodhound</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("a8b864bf-85b4-4c7d-ba82-0d01ca3a227a", false)'>+</a>&nbsp;</tt>Attacking Active Directory: Post-Compromise Attacks</nobr><br/>
+<div id='a8b864bf-85b4-4c7d-ba82-0d01ca3a227a' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/introduction/page.html' target='viewer'> Introduction</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/pass%20the%20hash%20-%20password%20overview/page.html' target='viewer'> Pass the Hash / Password Overview</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/installing%20crackmapexec/page.html' target='viewer'>Installing crackmapexec</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/pass%20the%20password%20attacks/page.html' target='viewer'>Pass the Password Attacks</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/dumping%20hashes%20with%20secretsdump.py/page.html' target='viewer'>Dumping Hashes with secretsdump.py</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/cracking%20ntlm%20hashes%20with%20hashcat/page.html' target='viewer'>Cracking NTLM Hashes with Hashcat</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/pass%20the%20hash%20attacks/page.html' target='viewer'>Pass the Hash Attacks</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/pass%20attack%20mitigations/page.html' target='viewer'>Pass Attack Mitigations</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/token%20impersonation%20overview/page.html' target='viewer'>Token Impersonation Overview</a></nobr><br/>
+<nobr><tt><a href='javascript: toggleDivName("45574dbe-3eec-449e-a8d0-6942bd3d1177", true)'>+</a>&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/token%20impersonation%20with%20incognito/page.html' target='viewer'>Token Impersonation with Incognito</a></nobr><br/>
+<div id='45574dbe-3eec-449e-a8d0-6942bd3d1177' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/token%20impersonation%20with%20incognito/msf%20console%20output/page.html' target='viewer'>msf console output</a></nobr><br/>
+</div>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/token%20impersonation%20mitigation/page.html' target='viewer'>Token Impersonation Mitigation</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/kerberoasting%20overview/page.html' target='viewer'>Kerberoasting Overview</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/kerberoasting%20walkthrough/page.html' target='viewer'>Kerberoasting Walkthrough</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/kerberoasting%20mitigation/page.html' target='viewer'>Kerberoasting Mitigation</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/gpp%20-%20cpassword%20attacks%20overview/page.html' target='viewer'>GPP / cPassword Attacks Overview</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/abusing%20gpp%20part%201/page.html' target='viewer'>Abusing GPP: Part 1</a></nobr><br/>
+<nobr><tt><a href='javascript: toggleDivName("f4c75394-5d7b-417d-8519-b9bb9d6ad0d8", true)'>+</a>&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/abusing%20gpp%20part%202/page.html' target='viewer'>Abusing GPP: Part 2</a></nobr><br/>
+<div id='f4c75394-5d7b-417d-8519-b9bb9d6ad0d8' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/abusing%20gpp%20part%202/more%20data/page.html' target='viewer'>More Data</a></nobr><br/>
+</div>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/url%20file%20attacks/page.html' target='viewer'>URL File Attacks</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/mimikatz%20overview%202/page.html' target='viewer'>Mimikatz Overview</a></nobr><br/>
+<nobr><tt><a href='javascript: toggleDivName("ad719f9f-651b-45fa-9e32-536117134174", true)'>+</a>&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/credential%20dumping%20with%20mimikatz/page.html' target='viewer'>Credential Dumping with Mimikatz</a></nobr><br/>
+<div id='ad719f9f-651b-45fa-9e32-536117134174' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/credential%20dumping%20with%20mimikatz/credential%20dumping%20with%20mimikatz%20data/page.html' target='viewer'>Credential Dumping with Mimikatz data</a></nobr><br/>
+</div>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/golden%20ticket%20attacks/page.html' target='viewer'>Golden Ticket Attacks</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='attacking%20active%20directory%20post-comprom%202/conclusion%20and%20additional%20resources/page.html' target='viewer'>Conclusion and Additional Resources</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("64a2267f-a79a-4f6b-ab14-9713615e3e88", false)'>+</a>&nbsp;</tt>Additional Active Directory Attacks</nobr><br/>
+<div id='64a2267f-a79a-4f6b-ab14-9713615e3e88' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='additional%20active%20directory%20attacks/section%20overview/page.html' target='viewer'>Section Overview</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='additional%20active%20directory%20attacks/abusing%20zerologon/page.html' target='viewer'>Abusing ZeroLogon</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='additional%20active%20directory%20attacks/printnightmare%20%28cve-2021-1675%29%20walkthrou/page.html' target='viewer'>PrintNightmare (CVE-2021-1675) Walkthrough</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("0178274e-a431-49cd-ac9c-3fe930f9b018", false)'>+</a>&nbsp;</tt>Post Exploitation</nobr><br/>
+<div id='0178274e-a431-49cd-ac9c-3fe930f9b018' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='post%20exploitation/introduction/page.html' target='viewer'> Introduction</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='post%20exploitation/file%20transfers%20review/page.html' target='viewer'>File Transfers Review</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='post%20exploitation/maintaining%20access%20overview/page.html' target='viewer'>Maintaining Access Overview</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='post%20exploitation/pivoting%20overview/page.html' target='viewer'>Pivoting Overview</a></nobr><br/>
+<nobr><tt><a href='javascript: toggleDivName("58e68c41-e063-4127-8bee-d2e2e2b810c2", true)'>+</a>&nbsp;</tt><a href='post%20exploitation/pivoting%20walkthrough%20proxychains/page.html' target='viewer'>Pivoting Walkthrough ProxyChains</a></nobr><br/>
+<div id='58e68c41-e063-4127-8bee-d2e2e2b810c2' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='post%20exploitation/pivoting%20walkthrough%20proxychains/s%20shuttle/page.html' target='viewer'>S Shuttle</a></nobr><br/>
+</div>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='post%20exploitation/cleaning%20up/page.html' target='viewer'>Cleaning Up</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("1df0adb3-873e-41a2-acc6-c51f79571836", false)'>+</a>&nbsp;</tt>Web Application Enumeration, Revisited</nobr><br/>
+<div id='1df0adb3-873e-41a2-acc6-c51f79571836' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='web%20application%20enumeration%2C%20revisited/new%20page/page.html' target='viewer'>Introduction
+</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='web%20application%20enumeration%2C%20revisited/installing%20go/page.html' target='viewer'>Installing Go</a></nobr><br/>
+<nobr><tt><a href='javascript: toggleDivName("67cc58b1-98fc-46a3-ac68-65855ec67d61", true)'>+</a>&nbsp;</tt><a href='web%20application%20enumeration%2C%20revisited/finding%20subdomains%20with%20assetfinder/page.html' target='viewer'>Finding Subdomains with Assetfinder</a></nobr><br/>
+<div id='67cc58b1-98fc-46a3-ac68-65855ec67d61' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='web%20application%20enumeration%2C%20revisited/finding%20subdomains%20with%20assetfinder/automate%20assestfinder/page.html' target='viewer'>Automate Assestfinder</a></nobr><br/>
+</div>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='web%20application%20enumeration%2C%20revisited/finding%20subdomains%20with%20amass/page.html' target='viewer'> Finding Subdomains with Amass</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='web%20application%20enumeration%2C%20revisited/finding%20alive%20domains%20with%20httprobe/page.html' target='viewer'>Finding Alive Domains with Httprobe</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='web%20application%20enumeration%2C%20revisited/screenshotting%20websites%20with%20gowitness/page.html' target='viewer'>Screenshotting Websites with GoWitness</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='web%20application%20enumeration%2C%20revisited/automating%20the%20enumeration%20process/page.html' target='viewer'>Automating the Enumeration Process</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='web%20application%20enumeration%2C%20revisited/additional%20resources/page.html' target='viewer'>Additional Resources</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("09dbdb41-1fa7-42f1-9dae-19fdf8f06d1c", false)'>+</a>&nbsp;</tt>Find &amp; Exploit Common Web Vulnerabilities</nobr><br/>
+<div id='09dbdb41-1fa7-42f1-9dae-19fdf8f06d1c' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/introduction/page.html' target='viewer'>Introduction</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/lab%20setup/page.html' target='viewer'> Lab Setup</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/sql%20injection%20-%20introduction/page.html' target='viewer'>SQL Injection - Introduction</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/new%20page%203/page.html' target='viewer'>SQL Injection - UNION
+</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/sql%20injection%20-%20blind%20part%201/page.html' target='viewer'>SQL Injection - Blind Part 1</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/sql%20injection%20-%20blind%20part%202/page.html' target='viewer'>SQL Injection - Blind Part 2</a></nobr><br/>
+<nobr><tt><a href='javascript: toggleDivName("b5f266d4-d7f8-401f-b35e-a4f82f7949ac", true)'>+</a>&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/sql%20injection%20-%20challenge%20waklthrough/page.html' target='viewer'>SQL Injection - Challenge Waklthrough</a></nobr><br/>
+<div id='b5f266d4-d7f8-401f-b35e-a4f82f7949ac' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/sql%20injection%20-%20challenge%20waklthrough/mentor/page.html' target='viewer'>Mentor</a></nobr><br/>
+</div>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/xss%20-%20introduction/page.html' target='viewer'>XSS - Introduction</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/xss%20-%20dom%20lab/page.html' target='viewer'> XSS - DOM Lab</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/xss%20-%20stored%20lab/page.html' target='viewer'>XSS - Stored Lab</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/xss%20-%20challenge%20walkthrough/page.html' target='viewer'>XSS - Challenge Walkthrough</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/command%20injection%20-%20introduction/page.html' target='viewer'> Command Injection - Introduction</a></nobr><br/>
+<nobr><tt><a href='javascript: toggleDivName("cd1cfb96-d7f2-42d0-928b-b2942b095fa0", false)'>+</a>&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/command%20injection%20-%20basics/page.html' target='viewer'>Command Injection - Basics</a></nobr><br/>
+<div id='cd1cfb96-d7f2-42d0-928b-b2942b095fa0' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/command%20injection%20-%20basics/pop%20a%20shell/page.html' target='viewer'>Pop a shell</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("35c58066-6b77-47bc-9c8d-dff9c65f3897", false)'>+</a>&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/command%20injection%20-%20blind%20-%20out-of-band/page.html' target='viewer'>Command Injection - Blind / Out-of-Band</a></nobr><br/>
+<div id='35c58066-6b77-47bc-9c8d-dff9c65f3897' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/command%20injection%20-%20blind%20-%20out-of-band/reverse%20shell/page.html' target='viewer'>Reverse Shell</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/command%20injection%20-%20blind%20-%20out-of-band/kill%20a%20process/page.html' target='viewer'>Kill a Process</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("6ce3a7ba-698d-4b70-912f-b30020cd7d3f", true)'>+</a>&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/command%20injection%20-%20challenge%20walkthroug/page.html' target='viewer'>Command Injection - Challenge Walkthrough</a></nobr><br/>
+<div id='6ce3a7ba-698d-4b70-912f-b30020cd7d3f' class='node'><nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/command%20injection%20-%20challenge%20walkthroug/pop%20a%20shell/page.html' target='viewer'>Pop a shell</a></nobr><br/>
+</div>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/insecure%20file%20upload%20-%20introduction/page.html' target='viewer'> Insecure File Upload - Introduction</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/insecure%20file%20upload%20-%20basic%20bypass/page.html' target='viewer'>Insecure File Upload - Basic Bypass</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/insecure%20file%20upload%20-%20magic%20bytes/page.html' target='viewer'>Insecure File Upload - Magic Bytes</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/insecure%20file%20upload%20-%20challenge%20walkthr/page.html' target='viewer'>Insecure File Upload - Challenge Walkthrough</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/attacking%20authentication%20-%20intro/page.html' target='viewer'>Attacking Authentication - Intro</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/attacking%20authentication%20-%20brute%20force/page.html' target='viewer'> Attacking Authentication - Brute Force</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/attacking%20authentication%20-%20mfa/page.html' target='viewer'>Attacking Authentication - MFA</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/attacking%20authentication%20-%20challenge%20wal/page.html' target='viewer'>Attacking Authentication - Challenge Walkthrough</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/xxe%20-%20external%20entities%20injection/page.html' target='viewer'>XXE - External Entities Injection</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/idor%20-%20insecure%20direct%20object%20reference/page.html' target='viewer'>IDOR - Insecure Direct Object Reference</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/capstone%20-%20introduction/page.html' target='viewer'> Capstone - Introduction</a></nobr><br/>
+<nobr><tt><a href='javascript: toggleDivName("64bbaf25-b20c-4b23-b765-7a941271f5b5", false)'>+</a>&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/capstone%20-%20solution%202/page.html' target='viewer'>Capstone - Solution</a></nobr><br/>
+<div id='64bbaf25-b20c-4b23-b765-7a941271f5b5' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/capstone%20-%20solution%202/authentication%20login%20and%20sign-up/page.html' target='viewer'>Authentication login and sign-up</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/capstone%20-%20solution%202/sql%20injection/page.html' target='viewer'>SQL Injection</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/capstone%20-%20solution%202/xss/page.html' target='viewer'>Xss</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/capstone%20-%20solution%202/command%20injection/page.html' target='viewer'>Command injection</a></nobr><br/>
+<nobr><tt><a href='javascript: toggleDivName("8d688ff5-4098-4895-b5fb-ac719da72c9f", false)'>+</a>&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/capstone%20-%20solution%202/mentors%20solution/page.html' target='viewer'>Mentor's Solution</a></nobr><br/>
+<div id='8d688ff5-4098-4895-b5fb-ac719da72c9f' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='find%20%20exploit%20common%20web%20vulnerabilitie/capstone%20-%20solution%202/mentors%20solution/sql%20injection/page.html' target='viewer'>SQL Injection</a></nobr><br/>
+</div>
+</div>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("45659084-b087-4dc0-88e5-ef717801743b", false)'>+</a>&nbsp;</tt>Wireless Penetration Testing</nobr><br/>
+<div id='45659084-b087-4dc0-88e5-ef717801743b' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='wireless%20penetration%20testing/001_wireless_penetration_testing_overvie/page.html' target='viewer'>001_Wireless_Penetration_Testing_Overview</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='wireless%20penetration%20testing/002_wpa_ps2_exploit_walkthrough/page.html' target='viewer'>002_WPA_PS2_Exploit_Walkthrough</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("131e6c6e-dd9d-477b-828e-f943085c790c", false)'>+</a>&nbsp;</tt>Legal Documents and Report Writing</nobr><br/>
+<div id='131e6c6e-dd9d-477b-828e-f943085c790c' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='legal%20documents%20and%20report%20writing/001_common_legal_documents/page.html' target='viewer'>001_Common_Legal_Documents</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='legal%20documents%20and%20report%20writing/002_pentest_report_writing/page.html' target='viewer'>002_Pentest_Report_Writing</a></nobr><br/>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='legal%20documents%20and%20report%20writing/003_reviewing_a_real_pentest_report/page.html' target='viewer'>003_Reviewing_a_Real_Pentest_Report</a></nobr><br/>
+</div>
+<nobr><tt><a href='javascript: toggleDivName("0c590e28-0133-4bcd-b50e-e33a79a77b5a", false)'>+</a>&nbsp;</tt>Career Advice</nobr><br/>
+<div id='0c590e28-0133-4bcd-b50e-e33a79a77b5a' class='node_collapsed'><nobr><tt>&nbsp;&nbsp;</tt><a href='career%20advice/001_career_advice/page.html' target='viewer'>001_Career_Advice</a></nobr><br/>
+</div>
+<nobr><tt>&nbsp;&nbsp;</tt><a href='trash' target='viewer'>Trash</a></nobr><br/>
+</div>
+</body></html>

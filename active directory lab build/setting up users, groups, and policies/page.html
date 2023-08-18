@@ -1,0 +1,52 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Setting Up Users, Groups, and Policies</title>
+</head><body><img height="256" src="image 5.png" width="300"/><br/>
+Password1<br/>
+<br/>
+<img height="266" src="image 6.png" width="300"/><br/>
+Password2019!@#<br/>
+<br/>
+<img height="262" src="image 7.png" width="300"/><br/>
+Password2<br/>
+<br/>
+<img height="257" src="image 8.png" width="300"/><br/>
+MYpassword123#<br/>
+<br/>
+<br/>
+Setting Users (i.e.2 Admin User (i.e. Goku and SQL ) and 2 domain User (i.e. Vegeta and luffy))<br/>
+<br/>
+Tools -&gt; Active Directory Users and Computers<br/>
+Naruto.local -&gt; Organizational Unit named Groups -&gt; Drag/Copy all the users From Users folder into Groups.<br/>
+<br/>
+SQL Service Account should not be administrative account but in the 70% of the cases SQL service account is the administrative account.<br/>
+<br/>
+Lot of Domain Adminstrator use to keep their password in the Description Cuz they think only they can read it.<br/>
+<br/>
+<br/>
+Setting File sharing :<br/>
+Share -&gt; Task Share -&gt; SMB share quick <br/>
+<br/>
+Why are doing it Cuz most domain controller's have file share's (i.e. We have to have open Port 139 and 445)<br/>
+so that we have SMB enabled on this Domain Controller. <br/>
+<br/>
+Open Command Prompt with Admin right and we are going to make SPN (i.e. Service Principal Name) <br/>
+We are setting an attack for kerberoasting<br/>
+<br/>
+setspn -a Hydra-DC/SQLService.MARVEL.local:60111 MARVEL\SQLService<br/>
+setspn -a Hashirama-Hokage/SQLService.Naruto.local:60111 Naruto\SQLService<br/>
+<br/>
+setspn -T MARVEL.local -Q */*<br/>
+setspn -T Naruto.local -Q */*<br/>
+<br/>
+<img height="437" src="image.png" width="450"/><br/>
+<br/>
+Group Policy Management (i.e. Open with admin rights)<br/>
+- Create a GPO in this domain (i.e. Disable windows defender)<br/>
+<img height="315" src="image 2.png" width="450"/><br/>
+<br/>
+Click on disable windows defender and click on edit <br/>
+<img height="393" src="image 3.png" width="550"/><br/>
+<img height="357" src="image 4.png" width="500"/><br/>
+</body></html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Puzzle </title>
+</head><body>Puzzle:<br/>
+Yjcv ku vjg pcog qh vjg uauvgo wugf da jco qrgtcvqtu vq ocmg htgg rjqpg ecnnu?<br/>
+<b>what is the name of the system used by ham operators to make free phone calls?<br/>
+</b><br/>
+<br/>
+Python Code:<br/>
+def decrypt(puzzle,n):<br/>
+  puzzle = puzzle.lower()<br/>
+  letters=&quot;abcdefghijklmnopqrstuvwxyz&quot;<br/>
+  decrypted_message = &quot;&quot;<br/>
+<br/>
+  for ch in puzzle:<br/>
+<br/>
+    if ch in letters:<br/>
+      position = letters.find(ch)<br/>
+      new_pos = (position - n) % 26<br/>
+      new_char = letters[new_pos]<br/>
+      decrypted_message += new_char<br/>
+    else:<br/>
+      decrypted_message += ch<br/>
+<br/>
+  return decrypted_message<br/>
+<br/>
+puzzle = &quot;Yjcv ku vjg pcog qh vjg uauvgo wugf da jco qrgtcvqtu vq ocmg htgg rjqpg ecnnu?&quot;<br/>
+n = 2<br/>
+print(&quot;Plain Text is : &quot; + puzzle)<br/>
+print(&quot;Shift pattern is : &quot; + str(n))<br/>
+print(&quot;DeCipher Text is : &quot; + decrypt(puzzle,n))<br/>
+<br/>
+<img src="image.png"/><br/>
+<br/>
+</body></html>

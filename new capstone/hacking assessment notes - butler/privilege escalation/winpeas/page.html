@@ -1,0 +1,19 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Winpeas</title>
+</head><body>Will try to find the quick wins in the winpeas output<br/>
+Will have a look into the Service Information <br/>
+<br/>
+Here the Wise Boot Assistant stand out in the crowd.<br/>
+ WiseBootAssistant(WiseCleaner.com - Wise Boot Assistant)[C:\Program Files (x86)\Wise\Wise Care 365\BootTime.exe] - Auto - Running - No quotes and Space detected<br/>
+  YOU CAN MODIFY THIS SERVICE: AllAccess<br/>
+  <b>File Permissions: Administrators [AllAccess]</b><br/>
+  Possible DLL Hijacking in binary folder: C:\Program Files (x86)\Wise\Wise Care 365 (Administrators [AllAccess])<br/>
+  In order to optimize system performance,Wise Care 365 will calculate your system startup time.<br/>
+ =================================================================================================                  <br/>
+<br/>
+As we can see here the we have unquoted service path which means it will check after each / and try to run it so will drop a malware as wise.exe in the wise folder <br/>
+<br/>
+There are other tools that can do the same work named power-up or exploit checker.<br/>
+</body></html>

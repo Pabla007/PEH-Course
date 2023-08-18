@@ -1,0 +1,18 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Kerberoasting Overview</title>
+</head><body><img height="345" src="image.png" width="700"/><br/>
+<br/>
+In this domain controller is also known as a key distribution center (KDC):<br/>
+We also have our user which need's to authenticate to the Domain COntroller and when they do they are going to say that they request what is known as a Ticket Grantinh ticket aka NTLM hash<br/>
+<br/>
+Any valid user (i.e. doesn't have to be admin) gets this ticket this is the authentication.<br/>
+We have Fcastle and valid password Password1 which means valid tickey granting ticket.<br/>
+<br/>
+Will use GetUserSPNs from Impacket Tool kit.<br/>
+<img height="409" src="image 2.png" width="600"/><br/>
+So this service here has what is called <b>SPN</b>that us a service principal name.<br/>
+KDC doesn't know that we have access to this server or not and provide us with TGS and this is where the kerberoasting stops.<br/>
+<br/>
+</body></html>

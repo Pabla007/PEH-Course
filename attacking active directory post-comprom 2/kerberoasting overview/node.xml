@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>expanded</key><true/>
+  <key>nodeid</key><string>a3637800-7286-4deb-bfb3-6f8d3aa5a557</string>
+  <key>modified_time</key><integer>1689946907</integer>
+  <key>expanded2</key><true/>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1685432062</integer>
+  <key>info_sort_dir</key><integer>1</integer>
+  <key>icon</key><string>note-grey.png</string>
+  <key>title</key><string>Kerberoasting Overview</string>
+  <key>version</key><integer>6</integer>
+  <key>order</key><integer>11</integer>
+  <key>info_sort</key><string>order</string>
+</dict>
+</node>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string>Metasploit </string>
+  <key>nodeid</key><string>bec90f51-4663-4b39-af35-695dc4e36c6b</string>
+  <key>modified_time</key><integer>1656743643</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1656736086</integer>
+  <key>info_sort_dir</key><integer>1</integer>
+  <key>order</key><integer>0</integer>
+  <key>info_sort</key><string>order</string>
+  <key>icon</key><string>note-red.png</string>
+</dict>
+</node>

@@ -1,0 +1,170 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Password Cracking</title>
+</head><body><b>Hash: cd73502828457d15655bbd7a63fb0bc8</b><br/>
+<br/>
+Will identify the hash and see if can crack it using inbuilt kali tools.<br/>
+<br/>
+Command: hash-identifier <br/>
+<br/>
+<br/>
+(root㉿kali)-[~]<br/>
+└─# hash-identifier <br/>
+ #########################################################################<br/>
+ #   __ __           __      ______  _____      #<br/>
+ #  /\ \/\ \          /\ \     /\__ _\ /\ _ `\     #<br/>
+ #  \ \ \_\ \   __   ____ \ \ \___   \/_/\ \/ \ \ \/\ \    #<br/>
+ #   \ \ _ \ /'__`\  / ,__\ \ \ _ `\   \ \ \  \ \ \ \ \    #<br/>
+ #   \ \ \ \ \/\ \_\ \_/\__, `\ \ \ \ \ \   \_\ \__ \ \ \_\ \   #<br/>
+ #    \ \_\ \_\ \___ \_\/\____/ \ \_\ \_\   /\_____\ \ \____/   #<br/>
+ #    \/_/\/_/\/__/\/_/\/___/  \/_/\/_/   \/_____/ \/___/ v1.2 #<br/>
+ #                               By Zion3R #<br/>
+ #                          www.Blackploit.com #<br/>
+ #                          Root@Blackploit.com #<br/>
+ #########################################################################<br/>
+--------------------------------------------------<br/>
+HASH: cd73502828457d15655bbd7a63fb0bc8<br/>
+<br/>
+<b>Possible Hashs:<br/>
+[+] MD5<br/>
+</b><b>[+] Domain Cached Credentials - MD4(MD4(($pass)).(strtolower($username)))</b><br/>
+<br/>
+Least Possible Hashs:<br/>
+[+] RAdmin v2.x<br/>
+[+] NTLM<br/>
+[+] MD4<br/>
+[+] MD2<br/>
+[+] MD5(HMAC)<br/>
+[+] MD4(HMAC)<br/>
+[+] MD2(HMAC)<br/>
+[+] MD5(HMAC(Wordpress))<br/>
+[+] Haval-128<br/>
+[+] Haval-128(HMAC)<br/>
+[+] RipeMD-128<br/>
+[+] RipeMD-128(HMAC)<br/>
+[+] SNEFRU-128<br/>
+[+] SNEFRU-128(HMAC)<br/>
+[+] Tiger-128<br/>
+[+] Tiger-128(HMAC)<br/>
+[+] md5($pass.$salt)<br/>
+[+] md5($salt.$pass)<br/>
+[+] md5($salt.$pass.$salt)<br/>
+[+] md5($salt.$pass.$username)<br/>
+[+] md5($salt.md5($pass))<br/>
+[+] md5($salt.md5($pass))<br/>
+[+] md5($salt.md5($pass.$salt))<br/>
+[+] md5($salt.md5($pass.$salt))<br/>
+[+] md5($salt.md5($salt.$pass))<br/>
+[+] md5($salt.md5(md5($pass).$salt))<br/>
+[+] md5($username.0.$pass)<br/>
+[+] md5($username.LF.$pass)<br/>
+[+] md5($username.md5($pass).$salt)<br/>
+[+] md5(md5($pass))<br/>
+[+] md5(md5($pass).$salt)<br/>
+[+] md5(md5($pass).md5($salt))<br/>
+[+] md5(md5($salt).$pass)<br/>
+[+] md5(md5($salt).md5($pass))<br/>
+[+] md5(md5($username.$pass).$salt)<br/>
+[+] md5(md5(md5($pass)))<br/>
+[+] md5(md5(md5(md5($pass))))<br/>
+[+] md5(md5(md5(md5(md5($pass)))))<br/>
+[+] md5(sha1($pass))<br/>
+[+] md5(sha1(md5($pass)))<br/>
+[+] md5(sha1(md5(sha1($pass))))<br/>
+[+] md5(strtoupper(md5($pass)))<br/>
+--------------------------------------------------<br/>
+HASH: <br/>
+<br/>
+- Now Will be using <b>Hashcat</b>but mentor told to use this tool in Windows rather than in linux.<br/>
+- Because it will use CPU and if we run it in windows we can provide GPU so that it can run fast.<br/>
+- So story short Use your Base OS<br/>
+<br/>
+But before we run hashcat we will Locate the rockyou.txt<br/>
+Command : locate rockyou.txt<br/>
+<br/>
+┌──(root㉿kali)-[~]<br/>
+└─# locate rockyou.txt<br/>
+/usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt.tar.gz<br/>
+/usr/share/wordlists/rockyou.txt<br/>
+<br/>
+<br/>
+Will store the hahes in a .txt file (i.e. hashes.txt)<br/>
+Command: Mousepad hahes.txt<br/>
+<br/>
+Command : hashcat -m 0 hashes.txt /usr/share/wordlists/rockyou.txt  <br/>
+where -m stand for module and will attack module 0 which is corelated to md5 hashing<br/>
+<br/>
+┌──(root㉿kali)-[~]<br/>
+└─# hashcat -m 0 hashes.txt /usr/share/wordlists/rockyou.txt  <br/>
+hashcat (v6.2.5) starting<br/>
+<br/>
+OpenCL API (OpenCL 2.0 pocl 1.8 Linux, None+Asserts, RELOC, LLVM 11.1.0, SLEEF, DISTRO, POCL_DEBUG) - Platform #1 [The pocl project]<br/>
+=====================================================================================================================================<br/>
+* Device #1: pthread-Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz, 2822/5709 MB (1024 MB allocatable), 4MCU<br/>
+<br/>
+Minimum password length supported by kernel: 0<br/>
+Maximum password length supported by kernel: 256<br/>
+<br/>
+Hashes: 1 digests; 1 unique digests, 1 unique salts<br/>
+Bitmaps: 16 bits, 65536 entries, 0x0000ffff mask, 262144 bytes, 5/13 rotates<br/>
+Rules: 1<br/>
+<br/>
+Optimizers applied:<br/>
+* Zero-Byte<br/>
+* Early-Skip<br/>
+* Not-Salted<br/>
+* Not-Iterated<br/>
+* Single-Hash<br/>
+* Single-Salt<br/>
+* Raw-Hash<br/>
+<br/>
+ATTENTION! Pure (unoptimized) backend kernels selected.<br/>
+Pure kernels can crack longer passwords, but drastically reduce performance.<br/>
+If you want to switch to optimized kernels, append -O to your commandline.<br/>
+See the above message to find out about the exact limits.<br/>
+<br/>
+Watchdog: Temperature abort trigger set to 90c<br/>
+<br/>
+Host memory required for this attack: 1 MB<br/>
+<br/>
+Dictionary cache built:<br/>
+* Filename..: /usr/share/wordlists/rockyou.txt<br/>
+* Passwords.: 14344392<br/>
+* Bytes.....: 139921507<br/>
+* Keyspace..: 14344385<br/>
+* Runtime...: 5 secs<br/>
+<br/>
+<b>cd73502828457d15655bbd7a63fb0bc8:student    </b>     <br/>
+                             <br/>
+Session..........: hashcat<br/>
+Status...........: Cracked<br/>
+Hash.Mode........: 0 (MD5)<br/>
+Hash.Target......: cd73502828457d15655bbd7a63fb0bc8<br/>
+Time.Started.....: Wed Jul 6 08:53:37 2022 (0 secs)<br/>
+Time.Estimated...: Wed Jul 6 08:53:37 2022 (0 secs)<br/>
+Kernel.Feature...: Pure Kernel<br/>
+Guess.Base.......: File (/usr/share/wordlists/rockyou.txt)<br/>
+Guess.Queue......: 1/1 (100.00%)<br/>
+Speed.#1.........:  10303 H/s (0.61ms) @ Accel:512 Loops:1 Thr:1 Vec:8<br/>
+Recovered........: 1/1 (100.00%) Digests<br/>
+Progress.........: 2048/14344385 (0.01%)<br/>
+Rejected.........: 0/2048 (0.00%)<br/>
+Restore.Point....: 0/14344385 (0.00%)<br/>
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:0-1<br/>
+Candidate.Engine.: Device Generator<br/>
+Candidates.#1....: 123456 -&gt; lovers1<br/>
+Hardware.Mon.#1..: Util: 27%<br/>
+<br/>
+Started: Wed Jul 6 08:52:05 2022<br/>
+Stopped: Wed Jul 6 08:53:39 2022<br/>
+<br/>
+<br/>
+As the password is already cracked so the command is not working i guess. And got a message like this instead<br/>
+INFO: All hashes found in potfile! Use --show to display them.<br/>
+So i have run this command to see the results<br/>
+<br/>
+┌──(root㉿kali)-[~]<br/>
+└─# hashcat -m 0 hashes.txt /usr/share/wordlists/rockyou.txt --show<br/>
+cd73502828457d15655bbd7a63fb0bc8:student<br/>
+</body></html>

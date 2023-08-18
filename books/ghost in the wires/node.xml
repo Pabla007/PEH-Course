@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>expanded</key><true/>
+  <key>title</key><string>Ghost In The Wires</string>
+  <key>nodeid</key><string>479e669f-582d-4bb2-820f-ef24d76f7404</string>
+  <key>modified_time</key><integer>1670315101</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>application/x-notebook-dir</string>
+  <key>created_time</key><integer>1670315101</integer>
+  <key>info_sort_dir</key><integer>1</integer>
+  <key>order</key><integer>1</integer>
+  <key>info_sort</key><string>order</string>
+</dict>
+</node>

@@ -1,0 +1,33 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Walkthrough - Academy</title>
+</head><body><b>21/tcp open ftp   vsftpd 3.0.3</b><br/>
+<br/>
+<b>22/tcp open ssh   OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0)</b><br/>
+<br/>
+<b>80/tcp open http  Apache httpd 2.4.38 ((Debian))</b><br/>
+<br/>
+<br/>
+What is Mentor's Strategy ??<br/>
+- When we see port 22 we immediately erase it from the board. It doesn't mean that we can't attack it. We can attack it using bruteforce.<br/>
+- Usually in CTF's that not the intended route.<br/>
+<br/>
+But as a Pentester we have to bruteforce it to check <br/>
+- if there's a weak password or not.<br/>
+- Can i login in as root with a weak password or not.<br/>
+- Number 2 if our client pick us up or not. (i.e. do they detect us when we run bruteforce attack)<br/>
+<br/>
+PORT 80 <br/>
+- if we search 192.168.142.131 on a web-browser we can see a default page.<br/>
+- Why is this page even out there ? Is it meant to be out there ?<br/>
+<br/>
+So now we will look at the FTP<br/>
+Command : ftp 192.168.142.131<br/>
+anonymous<br/>
+anonymous<br/>
+<br/>
+Command : ls<br/>
+Command : get note.txt<br/>
+<br/>
+</body></html>

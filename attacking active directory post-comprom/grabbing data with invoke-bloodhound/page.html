@@ -1,0 +1,30 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Grabbing Data with Invoke-Bloodhound</title>
+</head><body>Now we have to download and set up ain Jester there's a few ways that we can do this.<br/>
+- Invoke Bloodhound from Power Shell<br/>
+- Tool called Sharp pound written in C sharp <br/>
+<br/>
+Search Invoke-Bloodhound github in google<br/>
+<a href="https://github.com/BloodHoundAD/SharpHound3">https://github.com/BloodHoundAD/SharpHound3</a><br/>
+<a href="https://github.com/BloodHoundAD/BloodHound/blob/master/Collectors/SharpHound.ps1">https://github.com/BloodHoundAD/BloodHound/blob/master/Collectors/SharpHound.ps1</a><br/>
+<br/>
+Note all the 4 machine's should be running at this point (i.e. Windows Server and 2 Windows Pc along with Linux)<br/>
+Simply copy and SharpHound.ps1 in The Punisher aka Frank Castle PC and run the script<br/>
+<br/>
+<b>Command:. .\SharpHound.ps1<br/>
+</b><b>Command: Invoke-BloodHound -CollectionMethod All -Domain MARVEL.local -ZipFileName file.zip</b><br/>
+<br/>
+<br/>
+Simply copy the zip file in User's windows and than move it into Kali<br/>
+<br/>
+<img height="307" src="image.png" width="650"/><br/>
+<br/>
+<img src="image 2.png"/><br/>
+<img height="241" src="image 3.png" width="600"/><br/>
+<br/>
+<br/>
+We have downloaded the .exe file and run it but before we do that make sure that the anti-virus is set to off.<br/>
+<br/>
+</body></html>

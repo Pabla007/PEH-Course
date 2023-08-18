@@ -1,0 +1,34 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Enumerating SMB</title>
+</head><body>- Will enumerate some web-pages on port 80 and 443<br/>
+- SMB is a file share which is commanly used in work environment and internal environment.<br/>
+- We think of a attack (i.e. MS 17010) which is the latest and the greatest of all.<br/>
+- Will use a tool called Metasploit which is a exploitation framework and it does more than exploitation (i.e. auxiliary modules).<br/>
+command : msfconsle <br/>
+<br/>
+- Search for msb <br/>
+command : search msb <br/>
+<br/>
+- we are getting 100's of result and will find something called smb enumeration &amp; we know auxiliary modules are called as enumeration.<br/>
+- Will find auxiliary/scanner/smb/smb_version from the result and will use/load that module<br/>
+command : use auxiliary/scanner/smb/smb_version <br/>
+command : use 97<br/>
+<br/>
+<img height="125" src="smb.png" width="500"/><br/>
+<br/>
+- We can put the whole name or can only use the number to load the module.<br/>
+Commands we can use here is <br/>
+- info or options<br/>
+- RHOSTS stands for remote host which is the Victim that we will attack.<br/>
+- LHOSTS stands for local host.<br/>
+command : set RHOSTS 192.168.142.129<br/>
+command : run<br/>
+<img height="125" src="smb version.png" width="450"/><br/>
+<br/>
+-Now will use a tool called smbclient which will try to connect to the file share that is out there anonymously access.<br/>
+command : smbclient -L \\\\192.168.142.129\\ or smbclient -L \\192.168.142.129<br/>
+where -L is used to list the files <br/>
+- As we were not able to get any access (i.e. ADIM / IPC)<br/>
+<img height="184" src="smbclient.png" width="450"/></body></html>

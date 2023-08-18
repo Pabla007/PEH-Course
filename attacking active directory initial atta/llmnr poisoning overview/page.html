@@ -1,0 +1,36 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>LLMNR Poisoning Overview</title>
+</head><body>So what is LLMNR ?_?<br/>
+link local multicast name resolution<br/>
+<br/>
+<br/>
+<br/>
+<img height="253" src="image.png" width="450"/><br/>
+<br/>
+<img height="279" src="image 2.png" width="500"/><br/>
+<br/>
+The server Name is Hackme and the user by mistake writes hackm which caused a DNS issue <br/>
+So will send a broadcast message if anyone knows about it. And we who are listening in the network (i.e. Man In The Middle Attack)<br/>
+So this is what LLMNR is we are listening in the middle and the request happens we are just waiting for a response to happen (i.e. user name and hash)<br/>
+Will run a tool called <b>RESPONDER<br/>
+</b><b><br/>
+</b><b>Responder is a part of IMPACKET tool kit.</b><br/>
+<br/>
+Mentor's Strategy:<br/>
+Always run this tool first in the morning or right after lunch Cuz as u need a lot of traffic (i.e. Start this before any Nmap scans or Nessus etc....)<br/>
+<br/>
+Running Responder :<br/>
+<img height="271" src="image 3.png" width="450"/><br/>
+<br/>
+After running responder an event occures : Somebody entered a wrong network drive (i.e. Failed to do DNS) <br/>
+<img height="267" src="image 4.png" width="500"/><br/>
+<br/>
+<br/>
+And when the event occurs this is what we will get: after we get this hash will try to crack it.<br/>
+<img height="297" src="image 5.png" width="550"/><br/>
+<br/>
+Will use a tool called Hashcat. The more powerful Graphic Card we have the more fast will be able to crack the password.<br/>
+So where-ever we go to work they will have a Password Rigs to do this task.<br/>
+<img height="319" src="image 6.png" width="600"/></body></html>

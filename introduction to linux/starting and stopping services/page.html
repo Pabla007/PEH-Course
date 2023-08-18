@@ -1,0 +1,22 @@
+<!DOCTYPE html  PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN'  'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Starting and Stopping Services</title>
+</head><body>- If we install an service and want to launch it when the system get's launch just like in windows (i.e. startup services)<br/>
+- If we want to host a webserver to upload malicious files on it.<br/>
+-<br/>
+#Proof of Concept<br/>
+- ifconfig<br/>
+<img height="302" src="host a server.png" width="500"/><br/>
+<br/>
+- sudo service apache2 start/stop<br/>
+<br/>
+But second option is to run the webserver using PYTHON <br/>
+- We have to run the port 80 using http.server module.<br/>
+- It is the quickest way to run and host a web-server without start and stopping the service.<br/>
+<br/>
+If we want to run a service on the start of a machine for that will use the systemctl command.<br/>
+- sudo systemctl enable ssh<br/>
+- sudo systemctl disable ssh<br/>
+<br/>
+</body></html>

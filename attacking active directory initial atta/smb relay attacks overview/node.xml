@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node>
+<version>6</version>
+<dict>
+  <key>title</key><string> SMB Relay Attacks Overview</string>
+  <key>nodeid</key><string>e37a5d16-0b20-4f5e-9158-a7b04a846d3e</string>
+  <key>modified_time</key><integer>1678438392</integer>
+  <key>version</key><integer>6</integer>
+  <key>content_type</key><string>text/xhtml+xml</string>
+  <key>created_time</key><integer>1678436702</integer>
+  <key>info_sort_dir</key><integer>1</integer>
+  <key>order</key><integer>5</integer>
+  <key>info_sort</key><string>order</string>
+  <key>icon</key><string>note-red.png</string>
+</dict>
+</node>
